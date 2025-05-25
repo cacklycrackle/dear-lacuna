@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ji28055mk56"]
+
+[ext_resource type="Script" uid="uid://b7jfclf3t3noa" path="res://Scripts/test_character.gd" id="1_p1g6d"]
+
+[node name="Test_Character" type="CharacterBody2D"]
+script = ExtResource("1_p1g6d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-16, -11, -17, -3, -18, 8, -22, 16, 3, 16, 22, 17, 15, 7, 16, -13, 8, -19, 5, -25, -3, -25, -11, -20)
