@@ -1,6 +1,9 @@
 extends CharacterBody2D
-const SPEED = 280.0
 
+@onready var animation = $AnimationPlayer
+@onready var sprite = $Sprite2D
+
+const SPEED = 280.0
 const ACCELERATION = 2200.0
 const FRICTION = 1800.0
 var gravity = 1500.0
@@ -14,6 +17,9 @@ const MAX_JUMP_DISPLACMENT = 75
 const JUMP_VELOCITY = -250.0
 var can_double_jump = false
 var jumpcount = 2
+
+func _ready():
+	animation.play("Idle")
 
 func _physics_process(delta):
 	if is_on_floor():
@@ -39,6 +45,10 @@ func handle_horizontal(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction != 0:
 		velocity.x = SPEED*direction
+		if direction > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 		
