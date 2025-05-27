@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
-
+@onready var collision = $CollisionPolygon2D
 const SPEED = 280.0
 const ACCELERATION = 2200.0
 const FRICTION = 1800.0
@@ -13,9 +13,10 @@ var gravity = 1500.0
 var has_jumped = true
 var in_jump = false
 var start_jump_y_coord = 0
-const MAX_JUMP_DISPLACMENT = 75
+var max_jump_time = 0.3
 const JUMP_VELOCITY = -250.0
 var can_double_jump = false
+var jump_timer = 0.0
 var jumpcount = 2
 
 func _ready():
@@ -25,7 +26,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		has_jumped = false
 		in_jump = false
-		can_double_jump = true
+		can_double_jump = false
+		jump_timer = 0.0
 		jumpcount = 2
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
@@ -33,6 +35,10 @@ func _physics_process(delta):
 	handle_gravity(delta)
 	jump(delta)
 	move_and_slide()
+	
+	var viewport_rect = get_viewport_rect()
+	
+	global_position.x = clamp(global_position.x, 17, viewport_rect.size.x - 17)
 	
 func handle_gravity(delta):
 	if in_jump:
@@ -61,7 +67,8 @@ func jump(delta):
 		jumpcount -= 1
 	elif Input.is_action_pressed("ui_up") and in_jump:
 			velocity.y = JUMP_VELOCITY
-			if abs(global_position.y - start_jump_y_coord) >= MAX_JUMP_DISPLACMENT:
+			jump_timer += delta
+			if jump_timer >= max_jump_time:
 				in_jump = false 
 	elif Input.is_action_just_released("ui_up"):
 		in_jump = false

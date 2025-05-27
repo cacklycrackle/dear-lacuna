@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Dear Lacuna"
-run/main_scene="uid://6qha42f0hijt"
+run/main_scene="uid://8uaynptrybj8"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
-
-[rendering]
-
-renderer/rendering_method="mobile"
