@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://6qha42f0hijt"]
+[gd_scene load_steps=4 format=3 uid="uid://6qha42f0hijt"]
 
+[ext_resource type="Script" uid="uid://cga5lnj3tns4d" path="res://Scripts/debug.gd" id="1_5k3ys"]
 [ext_resource type="PackedScene" uid="uid://3ji28055mk56" path="res://Scenes/test_character.tscn" id="1_axs6p"]
 [ext_resource type="PackedScene" uid="uid://wnl7xsaen85p" path="res://Scenes/test_scene.tscn" id="2_5k3ys"]
 
 [node name="Debug" type="Node2D"]
+script = ExtResource("1_5k3ys")
 
-[node name="Test_Character" parent="." instance=ExtResource("1_axs6p")]
-position = Vector2(55, 532)
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.344076, 0.344076, 0.344076, 1)
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.278691, 0.394018, 0.410873, 1)
 
 [node name="Test_Scene" parent="." instance=ExtResource("2_5k3ys")]
+
+[node name="Test_Character" parent="." instance=ExtResource("1_axs6p")]
+position = Vector2(57, 528)

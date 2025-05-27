@@ -22,6 +22,7 @@ func _ready():
 	animation.play("Idle")
 
 func _physics_process(delta):
+	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
 	if is_on_floor():
 		has_jumped = false
 		in_jump = false
@@ -36,33 +37,30 @@ func _physics_process(delta):
 	
 func handle_gravity(delta):
 	if in_jump:
-		1#placeholder
+		pass # placeholder
 	elif not is_on_floor():
 		var current_gravity = gravity
 		velocity.y += current_gravity * delta
 		
 func handle_horizontal(delta):
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		velocity.x = SPEED*direction
-		if direction > 0:
-			sprite.flip_h = false
-		else:
-			sprite.flip_h = true
-	else:
+	var direction = Input.get_axis("left", "right")
+	if direction == 0:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
+	else:
+		velocity.x = SPEED * direction
+		sprite.flip_h = (direction < 0)
 		
 func jump(delta):
-	if (not has_jumped and is_on_floor() and Input.is_action_just_pressed("ui_up")) or (has_jumped and jumpcount > 0 and can_double_jump and Input.is_action_just_pressed("ui_up")):
+	if (not has_jumped and is_on_floor() and Input.is_action_just_pressed("up")) or (has_jumped and jumpcount > 0 and can_double_jump and Input.is_action_just_pressed("up")):
 		start_jump_y_coord = global_position.y
 		velocity.y = JUMP_VELOCITY
 		in_jump = true	
 		has_jumped = true
 		jumpcount -= 1
-	elif Input.is_action_pressed("ui_up") and in_jump:
+	elif Input.is_action_pressed("up") and in_jump:
 			velocity.y = JUMP_VELOCITY
 			if abs(global_position.y - start_jump_y_coord) >= MAX_JUMP_DISPLACMENT:
 				in_jump = false 
-	elif Input.is_action_just_released("ui_up"):
+	elif Input.is_action_just_released("up"):
 		in_jump = false
 		
