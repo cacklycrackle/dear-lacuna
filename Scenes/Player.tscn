@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=4 uid="uid://3ji28055mk56"]
 
-[ext_resource type="Script" uid="uid://b7jfclf3t3noa" path="res://Scripts/test_character.gd" id="1_p1g6d"]
+[ext_resource type="Script" uid="uid://b7jfclf3t3noa" path="res://Scripts/player.gd" id="1_p1g6d"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_p1g6d"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAADoAAAAUklGRuAAAABXRUJQVlA4TNMAAAAvf8APEBcw//M///MfgAfHtW2ryUd+KsCr+SVgCfA7INXgNobIKRN5D7dRRP8ZuG3bSLc3r88wf9IpDO1tOfAFFSo3ASJ5DkGe9wA1qTaAlcoBYtXZUqOgOgvSnWc91uFz/G2OVcIquMkR7ghb1ztMTrgkrL60IzoQ2Vsc5+N8kwNWPNrBHRz2FkeSQBK8ssPn4K2ePo7XOx3nva5jcnP7u2eW6kGi5liSiP9xICERM2PHNJYYk3jK1BupynGnJeWqk/jkUHaszHAtZ81N03HvRScDAA==")
 size_override = Vector2(128, 64)
 
 [sub_resource type="Gradient" id="Gradient_p1g6d"]
-offsets = PackedFloat32Array(0.896104, 1)
+offsets = PackedFloat32Array(0.932489, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_twcmd"]
@@ -74,6 +74,9 @@ metadata/_aseprite_wizard_source_file_hash_ = "d018147a408de95b4620596bc9e646af"
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, 12)
 scale = Vector2(1.74219, 1.44531)
+energy = 2.0
+blend_mode = 2
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_twcmd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

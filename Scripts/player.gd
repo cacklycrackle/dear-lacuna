@@ -49,7 +49,7 @@ func handle_gravity(delta):
 		velocity.y += current_gravity * delta
 		
 func handle_horizontal(delta):
-	var direction = Input.get_axis("left", "right")
+	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction == 0:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
@@ -57,17 +57,18 @@ func handle_horizontal(delta):
 		sprite.flip_h = (direction < 0)
 		
 func jump(delta):
-	if (not has_jumped and is_on_floor() and Input.is_action_just_pressed("up")) or (has_jumped and jumpcount > 0 and can_double_jump and Input.is_action_just_pressed("up")):
+	if (not has_jumped and is_on_floor() and Input.is_action_just_pressed("ui_up")) or \
+	(has_jumped and jumpcount > 0 and can_double_jump and Input.is_action_just_pressed("ui_up")):
 		start_jump_y_coord = global_position.y
 		velocity.y = JUMP_VELOCITY
 		in_jump = true	
 		has_jumped = true
 		jumpcount -= 1
-	elif Input.is_action_pressed("up") and in_jump:
+	elif Input.is_action_pressed("ui_up") and in_jump:
 			velocity.y = JUMP_VELOCITY
 			jump_timer += delta
 			if jump_timer >= max_jump_time:
 				in_jump = false 
-	elif Input.is_action_just_released("up"):
+	elif Input.is_action_just_released("ui_up"):
 		in_jump = false
 		

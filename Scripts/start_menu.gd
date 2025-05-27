@@ -7,7 +7,8 @@ extends Control
 @onready var R_arrow = $"Right Arrow"
 @onready var Title = $Title
 
-var menu_buttons = []
+#var menu_buttons = []
+var menu_buttons: Array[Node]
 var current_selection = 0
 
 var debug_timer_length = 2
@@ -21,20 +22,15 @@ var direction = 1
 func _ready():
 	title_initial_y = Title.global_position.y
 
-	for child in menu_container.get_children():
-		menu_buttons.append(child)
+	menu_buttons = menu_container.get_children()
 	
 	# Initialize selection	
 	R_ani.play("Default")
 	L_ani.play("Default")
-	L_arrow.global_position.y = menu_buttons[current_selection].global_position.y + 16.5
-	R_arrow.global_position.y = menu_buttons[current_selection].global_position.y + 16.5
-	L_arrow.global_position.x = menu_buttons[current_selection].global_position.x + 10
-	R_arrow.global_position.x = menu_buttons[current_selection].global_position.x + 200 -  10
+	call_deferred("update_selection")
 	
 
 func _physics_process(delta):
-	
 	Title.global_position.y = Title.global_position.y + title_velocity * direction
 	if Title.global_position.y - title_initial_y <= 0 or Title.global_position.y - title_initial_y >= title_max_displacement:
 		direction *= -1 
@@ -45,10 +41,12 @@ func _physics_process(delta):
 		debug_timer = 0
 
 func update_selection():
-	L_arrow.global_position.y = menu_buttons[current_selection].global_position.y + 16.5
-	R_arrow.global_position.y = menu_buttons[current_selection].global_position.y + 16.5
-	
-			
+	var button: Button = menu_buttons[current_selection]
+	L_arrow.global_position = button.global_position + Vector2(-10, button.size.y / 2)
+	R_arrow.global_position = button.global_position + Vector2()
+	R_arrow.global_position.y = L_arrow.global_position.y
+	R_arrow.global_position.x = button.global_position.x + button.size.x + 10
+
 func _input(event):
 	if event.is_action_pressed("ui_down"):
 		current_selection = (current_selection + 1) % menu_buttons.size()
