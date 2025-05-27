@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://wnl7xsaen85p"]
+[gd_scene load_steps=3 format=3 uid="uid://wnl7xsaen85p"]
 
-[ext_resource type="PackedScene" uid="uid://3ji28055mk56" path="res://Scenes/test_character.tscn" id="1_oiua3"]
+[ext_resource type="Script" uid="uid://cyxbwivokf3nu" path="res://Scripts/level_1.gd" id="1_vnunq"]
+[ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://Scenes/Portal.tscn" id="2_i63mn"]
 
 [node name="Level_1" type="Node2D"]
+script = ExtResource("1_vnunq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2(2, 2)
@@ -17,5 +19,5 @@ polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 position = Vector2(113, -33.5)
 polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 
-[node name="Test_Character" parent="." instance=ExtResource("1_oiua3")]
-position = Vector2(40, 511)
+[node name="Portal_1" parent="." instance=ExtResource("2_i63mn")]
+position = Vector2(1120, 228)
