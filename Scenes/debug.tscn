@@ -5,3 +5,6 @@
 [node name="Debug" type="Node2D"]
 
 [node name="Test_Scene" parent="." instance=ExtResource("2_5k3ys")]
+
+[node name="Test_Character" parent="." instance=ExtResource("1_axs6p")]
+position = Vector2(57, 528)
