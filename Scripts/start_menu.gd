@@ -27,7 +27,7 @@ func _ready():
 	# Initialize selection	
 	R_ani.play("Default")
 	L_ani.play("Default")
-	call_deferred("update_selection")
+	call_defeerred("update_selection")
 	
 
 func _physics_process(delta):

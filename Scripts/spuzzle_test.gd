@@ -1,0 +1,31 @@
+extends Node2D
+
+var puzzle_scene = preload("res://Scenes/sliding_puzzle.tscn")
+var cusor = preload("res://Scenes/hand_cursor.tscn")
+var tile_2_up = preload("res://Scenes/sliding_tile_2_up.tscn")
+var tile_2_right = preload("res://Scenes/sliding_tile_2_right.tscn")
+var screen_center
+func _ready() -> void:
+	screen_center = get_viewport().get_visible_rect().size / 2
+	int_at_middle(puzzle_scene)
+	int_at_middle(cusor)
+	int_tile(2,0,tile_2_up)
+	int_tile(1,0,tile_2_up)
+	int_tile(0,-1,tile_2_right)
+	
+
+func int_at_middle(scene):
+	var child = scene.instantiate()
+	child.global_position = screen_center
+	add_child(child)
+
+func int_tile(x, y, tile):
+	var child = tile.instantiate()
+	if child.axis == "x":
+		child.global_position = screen_center + Vector2(x * 60 + 30, -y * 60)
+	else:
+		child.global_position = screen_center + Vector2(x * 60, -y * 60 -30)
+	add_child(child)
+	
+	
+	

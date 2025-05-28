@@ -6,16 +6,17 @@ extends Node2D
 
 var moveable = false
 var cursor
+var axis = "x"
 func _ready() -> void:
 
 	
 	top_query.position = Vector2(global_position)
-	top_query.position.y -= 61
+	top_query.position.y -= 90
 	top_query.collision_mask = 4
 	top_query.collide_with_areas = true
 	
 	bottom_query.position = Vector2(global_position)
-	bottom_query.position.y += 61
+	bottom_query.position.y += 90
 	bottom_query.collision_mask = 4
 	bottom_query.collide_with_areas = true
 	

@@ -1,27 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://jh8mb66frmun"]
+[gd_scene load_steps=2 format=3 uid="uid://jh8mb66frmun"]
 
-[ext_resource type="PackedScene" uid="uid://dshskqlnyegny" path="res://Scenes/sliding_puzzle.tscn" id="1_hbx00"]
-[ext_resource type="PackedScene" uid="uid://dpl47s7jygbfm" path="res://Scenes/hand_cursor.tscn" id="1_k4o6g"]
-[ext_resource type="PackedScene" uid="uid://djhrpkfr6sk6f" path="res://Scenes/sliding_tile_2_up.tscn" id="2_fmgvc"]
-[ext_resource type="PackedScene" uid="uid://jc3lqnqqamsl" path="res://Scenes/sliding_tile_2_right.tscn" id="4_n6o86"]
+[ext_resource type="Script" uid="uid://dppjjm30od4xe" path="res://Scripts/spuzzle_test.gd" id="1_hbx00"]
 
 [node name="spuzzle test" type="Node2D"]
-
-[node name="hand cursor" parent="." instance=ExtResource("1_k4o6g")]
-
-[node name="Sliding Puzzle" parent="." instance=ExtResource("1_hbx00")]
-
-[node name="Sliding Tile 2" parent="." instance=ExtResource("2_fmgvc")]
-position = Vector2(150, 120)
-
-[node name="Sliding Tile Up 3" parent="." instance=ExtResource("2_fmgvc")]
-position = Vector2(-150, 120)
-
-[node name="Sliding Tile Up 4" parent="." instance=ExtResource("2_fmgvc")]
-position = Vector2(-90, 120)
-
-[node name="Sliding Tile Up 5" parent="." instance=ExtResource("2_fmgvc")]
-position = Vector2(-30, 120)
-
-[node name="Sliding Tile Right 2" parent="." instance=ExtResource("4_n6o86")]
-position = Vector2(-60, 30)
+script = ExtResource("1_hbx00")
