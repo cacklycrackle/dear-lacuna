@@ -5,19 +5,25 @@ var cusor = preload("res://Scenes/hand_cursor.tscn")
 var tile_2_up = preload("res://Scenes/sliding_tile_2_up.tscn")
 var tile_2_right = preload("res://Scenes/sliding_tile_2_right.tscn")
 var screen_center
+var offset = Vector2.ZERO
+var tile_location = [[1,1,"2r"], [-2,1,"2u"]]
+var tile_dict = {"2u" : tile_2_up, "2r" : tile_2_right}
+
 func _ready() -> void:
-	screen_center = get_viewport().get_visible_rect().size / 2
+	screen_center = get_viewport().get_visible_rect().size / 2 - offset
 	int_at_middle(puzzle_scene)
 	int_at_middle(cusor)
-	int_tile(2,0,tile_2_up)
-	int_tile(1,0,tile_2_up)
-	int_tile(0,-1,tile_2_right)
+	int_all_tiles()
 	
 
 func int_at_middle(scene):
 	var child = scene.instantiate()
 	child.global_position = screen_center
 	add_child(child)
+
+func int_all_tiles():
+	for i in tile_location:
+		int_tile(i[0], i[1], tile_dict[i[2]])
 
 func int_tile(x, y, tile):
 	var child = tile.instantiate()

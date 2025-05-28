@@ -7,4 +7,5 @@ func _ready():
 	var player_instance = GameManager.player.instantiate()
 	player_instance.global_position = portal.global_position
 	add_child(player_instance)
+	$"Stand 1".puzzle_tiles = [[1,1,"2r"], [-2,1,"2u"]]
 	

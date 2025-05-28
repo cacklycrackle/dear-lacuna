@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcl76nm5mxywj"]
+[gd_scene load_steps=4 format=3 uid="uid://dcl76nm5mxywj"]
 
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://Scenes/Portal.tscn" id="1_glw66"]
 [ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://Scripts/level_2.gd" id="1_vgr4u"]
+[ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://Scenes/Stand.tscn" id="3_ostk4"]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_vgr4u")
@@ -22,3 +23,6 @@ polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(113, -33.5)
 polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
+
+[node name="Stand 1" parent="." instance=ExtResource("3_ostk4")]
+position = Vector2(160, 495)
