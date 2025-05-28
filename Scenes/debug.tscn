@@ -451,6 +451,7 @@ tile_set = SubResource("TileSet_06vl5")
 
 [node name="Player" parent="." instance=ExtResource("3_h47sb")]
 position = Vector2(290, 353)
+script = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.34902, 0.34902, 0.34902, 0.537255)

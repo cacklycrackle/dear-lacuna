@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dear Lacuna"
-run/main_scene="uid://8uaynptrybj8"
+run/main_scene="uid://jh8mb66frmun"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -38,3 +38,6 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="Main Player"
+2d_physics/layer_2="Sliding Grid"
+2d_physics/layer_3="Sliding Tile"
+2d_physics/layer_4="Cursor"

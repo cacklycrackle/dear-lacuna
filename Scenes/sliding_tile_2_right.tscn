@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://jc3lqnqqamsl"]
+
+[ext_resource type="Script" uid="uid://cgvotdforsld" path="res://Scripts/sliding_tile_2_right.gd" id="1_b547u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbplr"]
+size = Vector2(60, 120)
+
+[node name="Sliding Tile Up 2" type="Node2D"]
+rotation = -1.5708
+script = ExtResource("1_b547u")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nbplr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

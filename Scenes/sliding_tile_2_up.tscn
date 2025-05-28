@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://djhrpkfr6sk6f"]
+
+[ext_resource type="Script" uid="uid://cwmk58rsop3wd" path="res://Scripts/sliding_tile_2_up.gd" id="1_0f43c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbplr"]
+size = Vector2(60, 120)
+
+[node name="Sliding Tile Up 2" type="Node2D"]
+script = ExtResource("1_0f43c")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nbplr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
