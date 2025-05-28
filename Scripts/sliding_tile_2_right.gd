@@ -22,14 +22,14 @@ func _ready() -> void:
 	right_query.collide_with_areas = true
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_left") and moveable and Input.is_action_pressed("interact"):
+	if event.is_action_pressed("left") and moveable and Input.is_action_pressed("interact"):
 		cursor.moveable = false
 		if space_state.intersect_point(left_query).size() == 0:
 			global_position.x -= 60
 			left_query.position.x -= 60
 			right_query.position.x -= 60
 			cursor.global_position.x -= 60
-	if event.is_action_pressed("ui_right") and moveable and Input.is_action_pressed("interact"):
+	if event.is_action_pressed("right") and moveable and Input.is_action_pressed("interact"):
 		cursor.moveable = false
 		if space_state.intersect_point(right_query).size() == 0:
 			global_position.x += 60

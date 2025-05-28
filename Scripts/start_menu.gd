@@ -43,20 +43,18 @@ func _physics_process(delta):
 func update_selection():
 	var button: Button = menu_buttons[current_selection]
 	L_arrow.global_position = button.global_position + Vector2(-10, button.size.y / 2)
-	R_arrow.global_position = button.global_position + Vector2()
 	R_arrow.global_position.y = L_arrow.global_position.y
 	R_arrow.global_position.x = button.global_position.x + button.size.x + 10
 
 func _input(event):
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("down"):
 		current_selection = (current_selection + 1) % menu_buttons.size()
 		update_selection()
-	elif event.is_action_pressed("ui_up"):
+	elif event.is_action_pressed("up"):
 		current_selection = (current_selection - 1) % menu_buttons.size()
 		update_selection()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		press(current_selection)
-
 
 func press(index):
 	menu_buttons[index].pressed.emit()
@@ -69,4 +67,12 @@ func _on_start_pressed() -> void:
 	await tween.finished
 	
 	get_tree().change_scene_to_file("res://Scenes/Level_1.tscn")
+
+func _on_controls_pressed() -> void:
+	set_process_input(false)
 	
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	
+	get_tree().change_scene_to_file("res://Scenes/ui/input_settings.tscn")

@@ -28,7 +28,7 @@ _data = {
 &"Default": SubResource("Animation_gip8j")
 }
 
-[node name="Control" type="Control"]
+[node name="StartMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,6 +128,32 @@ theme_override_styles/normal = ExtResource("2_52ajb")
 text = "Exit
 "
 
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_rl8pc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = ExtResource("2_52ajb")
+theme_override_styles/disabled_mirrored = ExtResource("2_52ajb")
+theme_override_styles/disabled = ExtResource("2_52ajb")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_52ajb")
+theme_override_styles/hover_pressed = ExtResource("2_52ajb")
+theme_override_styles/hover_mirrored = ExtResource("2_52ajb")
+theme_override_styles/hover = ExtResource("2_52ajb")
+theme_override_styles/pressed_mirrored = ExtResource("2_52ajb")
+theme_override_styles/pressed = ExtResource("2_52ajb")
+theme_override_styles/normal_mirrored = ExtResource("2_52ajb")
+theme_override_styles/normal = ExtResource("2_52ajb")
+text = "Controls
+"
+
 [node name="Left Arrow" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(485, 401)
@@ -190,3 +216,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
