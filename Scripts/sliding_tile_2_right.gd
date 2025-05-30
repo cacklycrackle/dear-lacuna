@@ -8,13 +8,12 @@ extends Node2D
 var moveable = false
 var cursor
 var axis = "y"
-func _ready() -> void:
-
-	
+func _ready() -> void:	
 	left_query.position = Vector2(global_position)
 	left_query.position.x -= 90
 	left_query.collision_mask = 4
 	left_query.collide_with_areas = true
+	
 	
 	right_query.position = Vector2(global_position)
 	right_query.position.x += 90

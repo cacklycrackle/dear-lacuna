@@ -7,7 +7,7 @@ const SPEED = 280.0
 const ACCELERATION = 2200.0
 const FRICTION = 1800.0
 var gravity = 1500.0
-
+var can_move = true
 
 #jumping vars
 var has_jumped = true
@@ -23,6 +23,10 @@ func _ready():
 	animation.play("Idle")
 
 func _physics_process(delta):
+	if GameManager.in_puzzle:
+		can_move = false
+	else:
+		can_move = true
 	position = position.clamp(Vector2.ZERO, get_viewport_rect().size)
 	if is_on_floor():
 		has_jumped = false
@@ -32,10 +36,13 @@ func _physics_process(delta):
 		jumpcount = 2
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
-	handle_horizontal(delta)
+	if can_move:
+		jump(delta)
+		handle_horizontal(delta)
+		move_and_slide()
 	handle_gravity(delta)
-	jump(delta)
-	move_and_slide()
+	
+	
 	
 	var viewport_rect = get_viewport_rect()
 	
