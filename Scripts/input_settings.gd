@@ -2,7 +2,7 @@ extends Control
 
 
 @onready var input_button_scene = preload("res://Scenes/ui/input_button.tscn")
-@onready var action_list = $"VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"
+@onready var action_list = $VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 
 # Remapping vars
 var is_remapping = false
@@ -11,21 +11,27 @@ var remapping_button = null
 
 # Input actions that user can view and rebind
 var input_actions: Dictionary[String, String] = {
-	"up"			: "move up",
-	"down"		: "move down",
-	"left"		: "move left",
-	"right"		: "move right",
-	"interact"	: "interact"
+	"up"        : "move up",
+	"down"      : "move down",
+	"left"      : "move left",
+	"right"     : "move right",
+	"interact"  : "interact"
 }
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_load_keybinds_from_settings()
 	_create_action_list()
+
+func _load_keybinds_from_settings() -> void:
+	var keybinds = ConfigFileHandler.load_keybinds()
+	
+	for action in keybinds:
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, keybinds[action])
 
 # Create default list of actions
 func _create_action_list() -> void:
-	InputMap.load_from_project_settings()
 	for item in action_list.get_children():
 		item.queue_free()
 	
@@ -36,7 +42,7 @@ func _create_action_list() -> void:
 		var action_label: Label = button.find_child("LabelAction")
 		action_label.text = input_actions[action].to_upper()
 		
-		# Set input label(s)
+		# Set input label
 		var input_label: Label = button.find_child("LabelInput")
 		var events: Array[InputEvent] = InputMap.action_get_events(action)
 		if events.size() > 0:
@@ -67,6 +73,9 @@ func _input(event: InputEvent) -> void:
 		# Add new keybind for event
 		InputMap.action_add_event(action_to_remap, event)
 		
+		# Save changes to user config
+		ConfigFileHandler.save_keybinds(action_to_remap, event)
+		
 		# Update keybind display
 		remapping_button.find_child("LabelInput").text = \
 			event.as_text().trim_suffix(" (Physical)")
@@ -80,6 +89,16 @@ func _input(event: InputEvent) -> void:
 		accept_event()
 
 func _on_reset_button_pressed() -> void:
+	# Load default keybinds
+	InputMap.load_from_project_settings()
+	
+	# Update user config to contain default keybinds
+	for action in input_actions:
+		var events = InputMap.action_get_events(action)
+		if events.size() > 0:
+			ConfigFileHandler.save_keybinds(action, events[0])
+	
+	# Refresh display to default keybinds
 	_create_action_list()
 
 
