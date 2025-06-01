@@ -11,11 +11,12 @@ var remapping_button = null
 
 # Input actions that user can view and rebind
 var input_actions: Dictionary[String, String] = {
-	"up"        : "move up",
-	"down"      : "move down",
-	"left"      : "move left",
-	"right"     : "move right",
-	"interact"  : "interact"
+	"up"       : "move up",
+	"down"     : "move down",
+	"left"     : "move left",
+	"right"    : "move right",
+	"interact" : "interact",
+	"pause"    : "pause",
 }
 
 
@@ -66,7 +67,7 @@ func _input(event: InputEvent) -> void:
 	
 	# Allow rebinding to only keypresses and mouse clicks
 	if event is InputEventKey or \
-	 (event is InputEventMouseButton and event.is_pressed()):
+	  (event is InputEventMouseButton and event.is_pressed()):
 		# Remove existing keybinds for event
 		InputMap.action_erase_events(action_to_remap)
 		

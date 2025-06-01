@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4u6g4gr40nhd" path="res://common/ui/start_menu/start_menu.gd" id="1_52ajb"]
 [ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="1_rl8pc"]
-[ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/assets/StyleBox/Transparent.tres" id="2_52ajb"]
+[ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="2_52ajb"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_52ajb"]
 _data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAAsAgAAUklGRiQCAABXRUJQVlA4TBgCAAAvv8AfEBcw//M///MfgAdJtm01dsNbS7y2JNsKjIYhOClV2/GNBjmNgN/gDrOKz62Hs92J6L8Dt20jiQOc6S6cbfYT4W/5yNwpd0KUSL0R6oFJVFWqCWFc4pSAUMYlRikIZUzilCLB88bf6I423cF3/E7e4N9j4XctFBiPlfgHlcRCpLFMWONYmIXCBTPqJN/EFZ4N3DzbWKQWOc6gz7dc4yF9DbDyV6AvZynQ7REy3KTuwh/Ttuyrlm8bO+ixpbM0YW7X4AXQ9ZQbgDQ8PQcAHfqCrvOKb6liLa5sOCMVtNAA9HlSXUIHcsSkZ1yab/7D/CXTv2j+nMyfw/lzPv9/NBYpE4I1UmCBqGudBlcSOzEFyoOLOxY92YxYrPEdsZy/y/eucJVr33llgVAWqERYoBKnROKUEyJSb4R6CGM5UKeBOgn/l49MiVuJLPaFX2LMzxiIG4RRP2WSX2J2FXyNtF0LfcEqZAdfsPI9Fv5ohQJjsd2FCkQSGxd+C2Oy3/Mb2eDZsZtnK9z6hvZ5w6jcUj4AEN+e10Gwp9selZXud+jYQVevbz7mpfM1uU65Ad3WN9h22h5sZMdMFPTBMqw9QjPgKbSL1VGwDODRpKfzzX+YvmT+F82fk/lzOH3O5/+P3CJzEXwK27UMiFNG4rPjPimN7VUhNPYOvr7rj1dhMr7DSj9h1M0CI26JseAWmQu3THNI+Fs/Ag==")
@@ -216,4 +216,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

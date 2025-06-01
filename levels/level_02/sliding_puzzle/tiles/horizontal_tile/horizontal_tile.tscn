@@ -7,6 +7,7 @@
 size = Vector2(60, 120)
 
 [node name="HorizontalTile" type="Node2D"]
+z_index = 1
 rotation = -1.5708
 script = ExtResource("1_b547u")
 

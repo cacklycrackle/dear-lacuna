@@ -10,10 +10,6 @@ var puzzle_tiles_dict = {
 }
 var puzzle_base = preload("res://levels/level_02/sliding_puzzle/puzzle_base.tscn")
 var puzzle = null
-#var solved :bool = false: 
-	#set(value):
-		#call_deferred("remove_child", puzzle)
-		#GameManager.in_puzzle = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -35,5 +31,5 @@ func _input(event: InputEvent) -> void:
 
 func _on_puzzle_solved() -> void:
 	puzzle.queue_free()
-	call_deferred("remove_child", puzzle)
+	# call_deferred("remove_child", puzzle)
 	GameManager.in_puzzle = false

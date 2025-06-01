@@ -36,9 +36,12 @@ texture = SubResource("PortableCompressedTexture2D_tnmen")
 hframes = 2
 script = ExtResource("1_lvd5j")
 metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
 "pending_changes": {
 "source": "res://entities/props/portal/Portal.aseprite"
-}
+},
+"slice_section": false
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,

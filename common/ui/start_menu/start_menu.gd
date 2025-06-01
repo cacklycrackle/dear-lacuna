@@ -31,7 +31,8 @@ func _ready():
 
 func _physics_process(delta):
 	title.global_position.y += title_velocity * direction
-	if title.global_position.y - title_initial_y <= 0 or title.global_position.y - title_initial_y >= title_max_displacement:
+	if title.global_position.y - title_initial_y <= 0 or \
+	  title.global_position.y - title_initial_y >= title_max_displacement:
 		direction *= -1
 	
 	debug_timer += delta
@@ -65,6 +66,9 @@ func _on_start_pressed() -> void:
 	await tween.finished
 	
 	get_tree().change_scene_to_file("res://levels/level_01/level_1.tscn")
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
 
 func _on_controls_pressed() -> void:
 	set_process_input(false)

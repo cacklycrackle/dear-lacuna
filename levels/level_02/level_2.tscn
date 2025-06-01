@@ -1,13 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcl76nm5mxywj"]
+[gd_scene load_steps=8 format=3 uid="uid://dcl76nm5mxywj"]
 
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="1_glw66"]
 [ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://levels/level_02/level_2.gd" id="1_vgr4u"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://levels/level_02/stand/stand.tscn" id="3_ostk4"]
+[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://icon.svg" id="4_1jlup"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wlyq"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1jlup"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c7ub"]
+light_mode = 2
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_vgr4u")
 
 [node name="Portal1" parent="." instance=ExtResource("1_glw66")]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_7wlyq")
 position = Vector2(39, 226)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -24,13 +37,68 @@ polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 position = Vector2(113, -33.5)
 polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 
+[node name="PlaceholderBlock" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(390.771, 179.172)
+rotation = 3.14159
+scale = Vector2(0.543305, -0.192628)
+texture = ExtResource("4_1jlup")
+
+[node name="PlaceholderBlock2" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(277.5, 212.672)
+rotation = 3.14159
+scale = Vector2(0.55469, -0.192628)
+texture = ExtResource("4_1jlup")
+
+[node name="PlaceholderBlock3" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(513, 143.328)
+rotation = 3.14159
+scale = Vector2(0.984375, -0.208253)
+texture = ExtResource("4_1jlup")
+
+[node name="PlaceholderBlock4" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(546.25, 240.25)
+rotation = 3.14159
+scale = Vector2(0.472656, -1.30078)
+texture = ExtResource("4_1jlup")
+
+[node name="PlaceholderBlock5" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(440.959, 285.129)
+rotation = 3.14159
+scale = Vector2(1.19595, -0.60358)
+texture = ExtResource("4_1jlup")
+
+[node name="PlaceholderBlock6" type="Sprite2D" parent="StaticBody2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(183.618, 299.25)
+rotation = 3.14159
+scale = Vector2(2.85753, -0.386719)
+texture = ExtResource("4_1jlup")
+
 [node name="Stand1" parent="." instance=ExtResource("3_ostk4")]
-position = Vector2(160, 495)
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_4c7ub")
+position = Vector2(153, 462)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
-"pending_changes": {
-"source": "res://levels/level_02/stand/Stand.aseprite"
-},
+"pending_changes": {},
 "slice_section": true
 }

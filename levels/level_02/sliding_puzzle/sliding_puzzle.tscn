@@ -7,6 +7,7 @@ size = Vector2(360, 360)
 size = Vector2(60, 60)
 
 [node name="SlidingPuzzle" type="Node2D"]
+z_index = 1
 
 [node name="OuterBody" type="Area2D" parent="."]
 collision_layer = 4
@@ -15,9 +16,39 @@ collision_mask = 0
 [node name="OuterBodyTop" type="CollisionPolygon2D" parent="OuterBody"]
 polygon = PackedVector2Array(300, -300, -300, -300, -300, 0, -180, 0, -180, -180, 180, -180, 180, 0, 300, 0)
 
+[node name="ColorRect" type="ColorRect" parent="OuterBody/OuterBodyTop"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.5
+offset_top = -299.0
+offset_right = 301.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
 [node name="OuterBodyBottom" type="CollisionPolygon2D" parent="OuterBody"]
 scale = Vector2(1, -1)
 polygon = PackedVector2Array(300, -300, -300, -300, -300, 0, -180, 0, -180, -180, 180, -180, 180, -60, 240, -60, 240, 0, 300, 0)
+
+[node name="ColorRect" type="ColorRect" parent="OuterBody/OuterBodyBottom"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.5
+offset_top = -299.0
+offset_right = 301.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
 
 [node name="InnerBody" type="Area2D" parent="."]
 collision_layer = 2
@@ -26,6 +57,21 @@ collision_mask = 0
 [node name="InnerBodyShape" type="CollisionShape2D" parent="InnerBody"]
 shape = SubResource("RectangleShape2D_njvoi")
 
+[node name="ColorRect" type="ColorRect" parent="InnerBody/InnerBodyShape"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -181.0
+offset_right = 180.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="End" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 16
@@ -33,5 +79,20 @@ collision_mask = 16
 [node name="EndShape" type="CollisionShape2D" parent="End"]
 position = Vector2(210, 30)
 shape = SubResource("RectangleShape2D_h3r4m")
+
+[node name="ColorRect" type="ColorRect" parent="End/EndShape"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="area_entered" from="End" to="." method="_on_area_2d_area_entered"]

@@ -7,6 +7,7 @@
 size = Vector2(60, 120)
 
 [node name="VerticalTile" type="Node2D"]
+z_index = 1
 script = ExtResource("1_0f43c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

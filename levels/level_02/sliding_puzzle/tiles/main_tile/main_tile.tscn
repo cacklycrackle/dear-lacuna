@@ -10,6 +10,7 @@ _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAB+AQAAUklGRnYBAABXRUJQVlA4TGo
 size_override = Vector2(64, 64)
 
 [node name="MainTile" type="Node2D"]
+z_index = 1
 script = ExtResource("1_rx8yh")
 
 [node name="Area2D" type="Area2D" parent="."]
