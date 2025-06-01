@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcl76nm5mxywj"]
+[gd_scene load_steps=9 format=3 uid="uid://dcl76nm5mxywj"]
 
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="1_glw66"]
 [ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://levels/level_02/level_2.gd" id="1_vgr4u"]
-[ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://levels/level_02/stand/stand.tscn" id="3_ostk4"]
+[ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="3_ostk4"]
 [ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="4_1jlup"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wlyq"]
@@ -10,6 +10,9 @@ light_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1jlup"]
 light_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jlup"]
+size = Vector2(42, 247.5)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c7ub"]
 light_mode = 2
@@ -28,23 +31,12 @@ position = Vector2(1153, 1)
 scale = Vector2(-2, 2)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = -1
 polygon = PackedVector2Array(0, 324, 576, 324, 576, 130, 450, 130, 450, 155, 516, 155, 516, 247, 364, 247, 364, 274, 0, 274)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = -1
 polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(113, -33.5)
-polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
-
-[node name="PlaceholderBlock" type="Sprite2D" parent="StaticBody2D"]
-light_mask = 2
-visibility_layer = 2
-material = SubResource("CanvasItemMaterial_1jlup")
-position = Vector2(390.771, 179.172)
-rotation = 3.14159
-scale = Vector2(0.543305, -0.192628)
-texture = ExtResource("4_1jlup")
 
 [node name="PlaceholderBlock2" type="Sprite2D" parent="StaticBody2D"]
 light_mask = 2
@@ -91,6 +83,25 @@ rotation = 3.14159
 scale = Vector2(2.85753, -0.386719)
 texture = ExtResource("4_1jlup")
 
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(1153, 1)
+rotation = 3.14159
+scale = Vector2(2, -2)
+
+[node name="Area2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/Area2D"]
+position = Vector2(385, 123.25)
+shape = SubResource("RectangleShape2D_1jlup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall/Area2D"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(385, 123.25)
+scale = Vector2(0.328032, 1.93359)
+texture = ExtResource("4_1jlup")
+
 [node name="Stand1" parent="." instance=ExtResource("3_ostk4")]
 light_mask = 2
 visibility_layer = 2
@@ -99,6 +110,8 @@ position = Vector2(153, 462)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
-"pending_changes": {},
+"pending_changes": {
+"source": "res://entities/props/stand/Stand.aseprite"
+},
 "slice_section": true
 }

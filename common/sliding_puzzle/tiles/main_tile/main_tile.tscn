@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://cqc5twvmb4gpa"]
 
-[ext_resource type="Script" uid="uid://kwohfvnc5blt" path="res://levels/level_02/sliding_puzzle/tiles/main_tile/main_tile.gd" id="1_rx8yh"]
+[ext_resource type="Script" uid="uid://kwohfvnc5blt" path="res://common/sliding_puzzle/tiles/main_tile/main_tile.gd" id="1_rx8yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcpe0"]
 size = Vector2(60, 60)

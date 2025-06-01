@@ -3,13 +3,11 @@ extends Sprite2D
 
 var interactable = false
 #var puzzle_tiles = []
-var puzzle_tiles_dict = {
-	"v" : Vector2(-2, 1),
-	"h" : Vector2(1, 1),
-	"m" : Vector2(2, 2),
-}
-var puzzle_base = preload("res://levels/level_02/sliding_puzzle/puzzle_base.tscn")
+var puzzle_tiles_dict = {}
+var puzzle_base = preload("res://common/sliding_puzzle/puzzle_base.tscn")
 var puzzle = null
+
+signal solved
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -26,10 +24,17 @@ func _input(event: InputEvent) -> void:
 		puzzle.tile_location = puzzle_tiles_dict
 		puzzle.offset = global_position
 		puzzle.solved.connect(_on_puzzle_solved)
+		puzzle.exited.connect(_on_puzzle_exited)
 		add_child(puzzle)
 		GameManager.in_puzzle = true
 
 func _on_puzzle_solved() -> void:
 	puzzle.queue_free()
 	# call_deferred("remove_child", puzzle)
+	GameManager.in_puzzle = false
+	solved.emit()
+
+func _on_puzzle_exited() -> void:
+	puzzle.queue_free()
+	await get_tree().process_frame
 	GameManager.in_puzzle = false
