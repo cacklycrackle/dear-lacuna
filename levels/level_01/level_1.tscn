@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cor22x52a3jas"]
+
+[ext_resource type="Script" uid="uid://cyxbwivokf3nu" path="res://levels/level_01/level_1.gd" id="1_vnunq"]
+[ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_i63mn"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_vnunq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 324, 576, 324, 576, 130, 450, 130, 450, 155, 516, 155, 516, 247, 364, 247, 364, 274, 0, 274)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(113, -33.5)
+polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
+
+[node name="Portal1" parent="." instance=ExtResource("2_i63mn")]
+position = Vector2(1120, 228)

@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=4 uid="uid://3ji28055mk56"]
+
+[ext_resource type="Script" uid="uid://b7jfclf3t3noa" path="res://entities/player/player.gd" id="1_p1g6d"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_p1g6d"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAADoAAAAUklGRuAAAABXRUJQVlA4TNMAAAAvf8APEBcw//M///MfgAfHtW2ryUd+KsCr+SVgCfA7INXgNobIKRN5D7dRRP8ZuG3bSLc3r88wf9IpDO1tOfAFFSo3ASJ5DkGe9wA1qTaAlcoBYtXZUqOgOgvSnWc91uFz/G2OVcIquMkR7ghb1ztMTrgkrL60IzoQ2Vsc5+N8kwNWPNrBHRz2FkeSQBK8ssPn4K2ePo7XOx3nva5jcnP7u2eW6kGi5liSiP9xICERM2PHNJYYk3jK1BupynGnJeWqk/jkUHaszHAtZ81N03HvRScDAA==")
+size_override = Vector2(128, 64)
+
+[sub_resource type="Gradient" id="Gradient_p1g6d"]
+offsets = PackedFloat32Array(0.932489, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_twcmd"]
+gradient = SubResource("Gradient_p1g6d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.830275, 0.252294)
+
+[sub_resource type="Animation" id="Animation_twcmd"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppook"]
+_data = {
+&"Idle": SubResource("Animation_twcmd")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_p1g6d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-16, 18, 18, 18, 18, -27, -16, -27)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+texture = SubResource("PortableCompressedTexture2D_p1g6d")
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"source": "res://entities/player/Main_Ghost.aseprite"
+},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Assets/Main_Ghost.aseprite",
+"source_uid": 1408612478824931064
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d018147a408de95b4620596bc9e646af"
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(1, 12)
+scale = Vector2(1.74219, 1.44531)
+energy = 2.0
+blend_mode = 2
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_twcmd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ppook")
+}
