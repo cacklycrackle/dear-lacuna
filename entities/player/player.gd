@@ -69,6 +69,7 @@ func jump(delta):
 			in_jump = true	
 			has_jumped = true
 			jumpcount -= 1
+			jump_timer = 0.0
 	elif Input.is_action_pressed("up") and in_jump:
 			jump_timer += delta
 			if jump_timer < max_jump_time:
