@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="1_glw66"]
 [ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://levels/level_02/level_2.gd" id="1_vgr4u"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://levels/level_02/stand/stand.tscn" id="3_ostk4"]
-[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://icon.svg" id="4_1jlup"]
+[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="4_1jlup"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7wlyq"]
 light_mode = 2
