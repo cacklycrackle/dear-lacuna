@@ -5,8 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcpe0"]
 size = Vector2(60, 60)
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_rx8yh"]
-_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAB+AQAAUklGRnYBAABXRUJQVlA4TGoBAAAvP8APAA9wjsNzHJ7jcP4DD5Kk7V8jJaP/0fxGDoDDtostRX5H4Ah6AF2OpIMuuy9A5QrcYFxWsHX44w5fe6fy63zI6A0i+j8BwaGDeSNlMgrm+e8YbgcpHNjIOwkF/J2fw07jRvdfwh1uYYf3s0YOgNl4scPc8k4n+kCOghIs//dGLg2TE4G4+cg4cf3a+Px8lxO4VKbV4hD0tPdxiNizu6UhFMyeqGAJrFVUoOi8T4+4ILD3nzV1/owlFU1HccQGjujjEEcKp/Oh4GLhFi9tCi5ArM8LBsoKeedwdXjRx2cDXI/Mx9Xw+i3rLuu2VBtWS/SH+Mw+b+2Qbf2WTwKrVSgdgTVSSkNg74/Qdd31Ykv5gK5UVJQrHCjxSBSB4yXqfIS+sRJ5abhrI4/IgcAKqZJSPk9ZJuO1hzvh5Q4avaZ40j14s0Nf4w0F1KfZDvK6t8PK7yyl+Nh3eksUL+z0HlCqd5hZjRIcOg==")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_8d6bk"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAByAQAAUklGRmoBAABXRUJQVlA4TF0BAAAvP8APAA9wjsNzHJ7jcP4DD3Js21Lspnp9KHGJWXrKFEpm7jcVDcDsVBg59HLEMBVmD4DtMrNd39TVq99/N/g0hYj+T4Dp2KNe/MINGxoouoi8yEpKgqw44MENvbFZgianQge1EQFINqRXG3DoerOzSQCcwJrrDZldqSoW/a3Sahrb+f68sioBi7OT1yHvsEM4QO5hh1BAdNgmLiIn7JOliBrpPnExe8e6t5Ux+u4T5KB065aD9InVEune3XIaluO+vXIOVq9PpTISnZQMr5rrHKiLV8+X1j0eJLOXSTxu7Dw8ux6vYyE9flBrCZb5YKqf7jWsy71fNMmXN+IZ0It2kF8DPebLqBGc58d4x3DKt3GPUQK9h0tT30CrqbeD77GxUg1/bKu/QMnEggPgTCEcgY1bB7RJ2IcGTg+CBbCWmyR/OqAneRP7qs7guOF/5awUKGR1qPO3kNWdWtMxAA==")
 size_override = Vector2(64, 64)
 
 [node name="MainTile" type="Node2D"]
@@ -19,14 +19,14 @@ collision_layer = 20
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-z_index = 1
+z_index = -1
 shape = SubResource("RectangleShape2D_dcpe0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(9.53674e-07, -9.53674e-07)
 scale = Vector2(0.9375, 0.9375)
-texture = SubResource("PortableCompressedTexture2D_rx8yh")
+texture = SubResource("PortableCompressedTexture2D_8d6bk")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -41,10 +41,10 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://Assets/Main Tile.aseprite",
+"source": "res://common/sliding_puzzle/tiles/main_tile/MainTile.aseprite",
 "source_uid": 537145249072736631
 }
-metadata/_aseprite_wizard_source_file_hash_ = "e6fc87decbb83056b60ca506ad6b2375"
+metadata/_aseprite_wizard_source_file_hash_ = "8900366fb4042f3e497d73df684646ea"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

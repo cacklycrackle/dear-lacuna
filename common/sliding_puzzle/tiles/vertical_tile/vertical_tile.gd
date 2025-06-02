@@ -11,6 +11,7 @@ var axis = "x"
 
 
 func _ready() -> void:
+	$Sprite2D.scale = Vector2(0.9375, 0.9375)
 	top_query.position = Vector2(global_position)
 	top_query.position.y -= 90
 	top_query.collision_mask = 4
@@ -32,7 +33,6 @@ func _input(event: InputEvent) -> void:
 				cursor.global_position.y -= 60
 		if event.is_action_pressed("down"):
 			cursor.moveable = false
-			print(space_state.intersect_point(bottom_query))
 			if space_state.intersect_point(bottom_query).size() == 0:
 				global_position.y += 60
 				top_query.position.y += 60

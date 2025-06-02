@@ -10,7 +10,8 @@ var cursor
 var axis = "y"
 
 
-func _ready() -> void:	
+func _ready() -> void:
+	$Sprite2D.scale = Vector2(0.9375, 0.9375)	
 	left_query.position = Vector2(global_position)
 	left_query.position.x -= 90
 	left_query.collision_mask = 4

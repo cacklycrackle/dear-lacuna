@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://jc3lqnqqamsl"]
+[gd_scene load_steps=4 format=4 uid="uid://jc3lqnqqamsl"]
 
 [ext_resource type="Script" uid="uid://cgvotdforsld" path="res://common/sliding_puzzle/tiles/horizontal_tile/horizontal_tile.gd" id="1_b547u"]
-[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="2_jqal7"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_53mgb"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAADwAAAAUklGRugAAABXRUJQVlA4TNwAAAAvP8AfAA9wjsNzHJ7jcP4DD3Bb25ZTMRO6hNcI0m3sS+ZHhJTgRv48hm6BmfSR2ebKJ3jniDmP6P8EdE5egI4jyyoWnNlVHFj+wdAX2ZSZSM0rEcVazEQQJnAfyrN9i0+WR9avWLdlB7Ba4MGsxQIozBEikJmj78DcHM8ASvM8sqxi45YhVfOTChFOspOCOTLlQJHEJUFnwfoVS68ptKwvpiBPFZu4aAXYi/AzuahEFEuxFv8nlWfDPVifNBNjYcne3FqWJ0vzvGJIanOkqmJ5ZVViHiJpswXBuHMy")
+size_override = Vector2(64, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbplr"]
 size = Vector2(60, 120)
@@ -12,9 +15,27 @@ rotation = -1.5708
 script = ExtResource("1_b547u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, 1.90735e-06)
-scale = Vector2(0.46875, 0.9375)
-texture = ExtResource("2_jqal7")
+texture = SubResource("PortableCompressedTexture2D_53mgb")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/sliding_puzzle/tiles/tiletestsprite.aseprite",
+"source_uid": 1628408946113368118
+}
+metadata/_aseprite_wizard_source_file_hash_ = "cbd04fd2c142ac934403e7736a77c836"
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -22,6 +43,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
 shape = SubResource("RectangleShape2D_nbplr")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
