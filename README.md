@@ -47,7 +47,7 @@ Run `dear_lacuna.exe` to start the game.
 | Pause | Esc |
 
 ## Flow & Architecture
-![Flow and architecture diagram of game](https://github.com/user-attachments/assets/9602cb4-f550-491c-81f2-0547ee71c203)
+![Flow and architecture diagram of game](https://github.com/user-attachments/assets/761a1da4-3425-45de-badb-48e4d06aec7c)
 
 ## Use cases
 1. Actor : User \
