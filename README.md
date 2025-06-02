@@ -1,44 +1,85 @@
-[Dear Lacuna]
-A small-scale platformer game built with Godot, featuring multiple levels, complex puzzles with fluid movement.
+# Dear Lacuna
 
-Description
-[----]
+Dear Lacuna is a small-scale platformer game built with Godot, featuring multiple levels, complex puzzles with fluid movement.
 
-Features
-Core Features
-Save/Load System - Multiple save slots for game progress
+## Features
+### Current Progress
+* Basic movement
+    * Player can move horizontally, jump vertically and double jump with gravity accounted for
+* Basic vision radius
+    * Vision is restricted to small circular region centred on player
+* Basic collisions
+    * Player collisions with walls and floors detected
+* Basic save / load system for keybinds
+    * User-modified keybinds are locally saved and loaded when game runs again
+* Two basic levels
+* One in-level puzzle
+    * Sliding block puzzle, as inspired by [Move the block](https://play.google.com/store/apps/details?id=com.bitmango.go.unblockcasual&hl=en_SG) and similar games
 
-Multiple Levels - Engaging levels that can be re-explored to discover new areas
+### To Be Completed
+* Multiple keybinds per action
+* In-game characters for player interaction
+* Storyline and integration with in-game characters
+* Render tiles and sprites for each level based on tileset
+* Save / Load system for user progression through levels
+* At least five levels
+* Variable vision radius
+    * Allow player vision to increase with level
+* Music and sound effects
 
-Basic Movement & Collisions - Smooth character controls and physics
 
-Engaging Puzzles - Solve challenging puzzles in order to advance the campaign
+## Installation
+Download the latest release from [here](exports/windows).
 
-Extended Features
+Extract all the files for your operating system to your desired location.
 
-Local Multiplayer - Play with another friend on the same device, to get to previously inaccessable levels
+Run `dear_lacuna.exe` to start the game.
 
-Installation
-Download the latest release from [Release Link]
+## Controls
 
-Extract the files to your desired location
+> [!NOTE]
+> Keybinds for the following actions can be viewed and modified from the start menu
 
-Run [Executable Name] to start the game
+| **Action**   | **Keys (default)** |
+| :------: | :------------: |
+| Movement | Arrow keys |
+| Interact | Z |
+| Pause | Esc |
 
-Controls
+## Flow & Architecture
+![Flow and architecture diagram of game](https://github.com/user-attachments/assets/9602cb4-f550-491c-81f2-0547ee71c203)
 
-Arrow Keys/WASD: Movement
+## Use cases
+1. Actor : User \
+Use Case : Rebind action keys.
+    * User enters Controls Menu from Start Menu.
+    * User clicks on button for action to rebind key for.
+    * User rebinds action with desired keypress or mouse click.
+    * Game writes changes to local config file.
+    * User quits game.
+    * Upon re-entry, game loads with user-modified keybinds.
 
-Space: Jump
+2. Actor : User \
+Use Case : Return to default keybinds for all actions.
+    * User enters Control Menu from Start Menu.
+    * User select "reset all to default" button.
+    * Game rebinds each allowed action to the single default key defined in Project Settings.
+    * Game writes each change to local config file.
+    * User quits game.
+    * Upon re-entry, game loads with default keybinds.
 
-Z: Interact
 
-Tech Stack
-Engine: Godot with GDScript
+## Tech Stack
+Godot with GDScript
+* Game enginer and editor
 
-Version Control: Git & GitHub
+Git & GitHub
+* Version Control
 
-Graphics: Aseprite
+Aseprite
+* Used to create game assets (images and animations)
 
-Development Team
+## Project Log
+[Project Log](https://docs.google.com/spreadsheets/d/1YbEd0rHw6HKd-1JRQwQTvf6US5fMhkmUJgZpu2ZH8-c/edit?usp=sharing)
+### Development Team
 Team JVM - Orbital 25 Project Gemini
