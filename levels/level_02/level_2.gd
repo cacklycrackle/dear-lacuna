@@ -4,6 +4,8 @@ var stand1_solved = false
 func _ready():
 	$Portal1.target_scene = "res://levels/level_01/level_1.tscn"
 	$Portal1.target_portal = "Portal1"
+	$Portal2.target_scene = "res://common/ui/start_menu/start_menu.tscn"
+	$Portal2.target_portal = "Portal1"
 	var portal = get_node(GameManager.spawn_at_portal)
 	var player_instance = GameManager.player.instantiate()
 	player_instance.global_position = portal.global_position
@@ -14,8 +16,7 @@ func _ready():
 		"m" : [[0, 0]]
 		}
 	$Stand1.solved.connect(_on_puzzle_solved.bind(1))
-	
-	
+
 func _on_puzzle_solved(stand):
 	if stand == 1 and not stand1_solved:
 		$Wall.position.y -= 100
