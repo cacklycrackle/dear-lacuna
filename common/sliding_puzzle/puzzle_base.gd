@@ -21,6 +21,8 @@ func _ready() -> void:
 	screen_center = get_viewport().get_visible_rect().size / 2 - offset
 	
 	var puzzle_scene = sliding_puzzle.instantiate()
+	var sprite = puzzle_scene.get_node("Sprite2D")
+	sprite.scale = Vector2(0.9375, 0.9375)
 	puzzle_scene.global_position = screen_center
 	puzzle_scene.get_node("End") \
 	  .area_entered \
