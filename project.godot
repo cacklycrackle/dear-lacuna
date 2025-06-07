@@ -24,6 +24,10 @@ ConfigFileHandler="*res://common/autoload/config_file_handler.gd"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/joshua/Videos/Godot/movie.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")

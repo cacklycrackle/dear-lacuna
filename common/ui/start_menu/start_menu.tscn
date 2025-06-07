@@ -61,16 +61,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = 26.0
+offset_top = -45.5
 offset_right = 100.0
-offset_bottom = 119.0
+offset_bottom = 161.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(100, 0)
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="New Game" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -99,8 +99,39 @@ theme_override_styles/pressed_mirrored = ExtResource("2_52ajb")
 theme_override_styles/pressed = ExtResource("2_52ajb")
 theme_override_styles/normal_mirrored = ExtResource("2_52ajb")
 theme_override_styles/normal = ExtResource("2_52ajb")
-text = "Start
+text = "New Game
 "
+
+[node name="Load Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(0.525101, 0.525101, 0.525101, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_rl8pc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = ExtResource("2_52ajb")
+theme_override_styles/disabled_mirrored = ExtResource("2_52ajb")
+theme_override_styles/disabled = ExtResource("2_52ajb")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_52ajb")
+theme_override_styles/hover_pressed = ExtResource("2_52ajb")
+theme_override_styles/hover_mirrored = ExtResource("2_52ajb")
+theme_override_styles/hover = ExtResource("2_52ajb")
+theme_override_styles/pressed_mirrored = ExtResource("2_52ajb")
+theme_override_styles/pressed = ExtResource("2_52ajb")
+theme_override_styles/normal_mirrored = ExtResource("2_52ajb")
+theme_override_styles/normal = ExtResource("2_52ajb")
+text = "Load Game"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -161,7 +192,9 @@ texture = SubResource("PortableCompressedTexture2D_52ajb")
 hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://common/assets/Selection.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -192,7 +225,9 @@ texture = SubResource("PortableCompressedTexture2D_52ajb")
 hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://common/assets/Selection.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -215,6 +250,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_exq0c")
 }
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

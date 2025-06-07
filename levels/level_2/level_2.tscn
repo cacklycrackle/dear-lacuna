@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcl76nm5mxywj"]
 
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="1_glw66"]
-[ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://levels/level_02/level_2.gd" id="1_vgr4u"]
+[ext_resource type="Script" uid="uid://c8as32j12mf5x" path="res://levels/level_2/level_2.gd" id="1_vgr4u"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="3_ostk4"]
 [ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="4_1jlup"]
 
@@ -17,7 +17,7 @@ size = Vector2(42, 247.5)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c7ub"]
 light_mode = 2
 
-[node name="Level2" type="Node2D"]
+[node name="level_2" type="Node2D"]
 script = ExtResource("1_vgr4u")
 
 [node name="Portal1" parent="." instance=ExtResource("1_glw66")]
@@ -44,7 +44,7 @@ polygon = PackedVector2Array(0, 324, 576, 324, 576, 130, 450, 130, 450, 155, 516
 z_index = -1
 polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
 
-[node name="PlaceholderBlock2" type="Sprite2D" parent="StaticBody2D"]
+[node name="PlaceholderBlock2" type="Sprite2D" parent="StaticBody2D/CollisionPolygon2D2"]
 light_mask = 2
 visibility_layer = 2
 material = SubResource("CanvasItemMaterial_1jlup")
@@ -87,6 +87,21 @@ material = SubResource("CanvasItemMaterial_1jlup")
 position = Vector2(183.618, 299.25)
 rotation = 3.14159
 scale = Vector2(2.85753, -0.386719)
+texture = ExtResource("4_1jlup")
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = -1
+position = Vector2(324.5, -74.5)
+scale = Vector2(0.335384, 1.4289)
+polygon = PackedVector2Array(243, 200, 243, 225, 313, 225, 313, 200)
+
+[node name="PlaceholderBlock2" type="Sprite2D" parent="StaticBody2D/CollisionPolygon2D3"]
+light_mask = 2
+visibility_layer = 2
+material = SubResource("CanvasItemMaterial_1jlup")
+position = Vector2(277.5, 212.672)
+rotation = 3.14159
+scale = Vector2(0.55469, -0.192628)
 texture = ExtResource("4_1jlup")
 
 [node name="Wall" type="Node2D" parent="."]

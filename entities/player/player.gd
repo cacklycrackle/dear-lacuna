@@ -48,7 +48,8 @@ func _physics_process(delta):
 	
 func handle_gravity(delta):
 	if in_jump:
-		pass # placeholder
+		if not Input.is_action_pressed("up"):
+			in_jump = false
 	elif not is_on_floor():
 		var current_gravity = gravity
 		velocity.y += current_gravity * delta
