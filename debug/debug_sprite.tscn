@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://0bn72yc20wob"]
-
-[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="1_kn5pd"]
-
-[node name="DEBUG SPRITE" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_kn5pd")
