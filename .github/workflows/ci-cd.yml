@@ -6,6 +6,9 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
       - 'v[0-9]+.[0-9]+.[0-9]+-*'
 
+permissions:
+  contents: write
+
 jobs:
   # Builds the game for supported platforms
   build:
