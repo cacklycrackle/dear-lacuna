@@ -76,3 +76,7 @@ exit={
 2d_physics/layer_3="Sliding Tile"
 2d_physics/layer_4="Cursor"
 2d_physics/layer_5="Main Tile"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
