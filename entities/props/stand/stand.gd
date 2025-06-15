@@ -1,13 +1,12 @@
 extends Sprite2D
 
 
-var interactable = false
-#var puzzle_tiles = []
-var puzzle_tiles_dict = {}
-var puzzle_base = preload("res://common/sliding_puzzle/puzzle_base.tscn")
-var puzzle = null
-
+signal started
 signal solved
+
+var interactable = false
+var puzzle_base = null
+var puzzle = null
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -21,8 +20,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and interactable and not GameManager.in_puzzle:
 		puzzle = puzzle_base.instantiate()
-		puzzle.tile_location = puzzle_tiles_dict
-		puzzle.offset = global_position
+		started.emit() # to handle any puzzle-specific settings
 		puzzle.solved.connect(_on_puzzle_solved)
 		puzzle.exited.connect(_on_puzzle_exited)
 		add_child(puzzle)
@@ -30,7 +28,6 @@ func _input(event: InputEvent) -> void:
 
 func _on_puzzle_solved() -> void:
 	puzzle.queue_free()
-	# call_deferred("remove_child", puzzle)
 	GameManager.in_puzzle = false
 	solved.emit()
 

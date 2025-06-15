@@ -8,7 +8,7 @@ var target_scene
 var target_portal
 
 
-func _ready():
+func _ready() -> void:
 	animation.play("Default")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

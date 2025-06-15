@@ -23,10 +23,10 @@ var jump_timer = 0.0
 var jumpcount = 2
 
 
-func _ready():
+func _ready() -> void:
 	animation.play("Idle")
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	var viewport_rect = get_viewport_rect()
 	position = position.clamp(Vector2.ZERO, viewport_rect.size)
 	global_position.x = clamp(global_position.x, 17, viewport_rect.size.x - 17)
@@ -45,8 +45,8 @@ func _physics_process(delta):
 		move_and_slide()
 	handle_gravity(delta)
 
-	
-func handle_gravity(delta):
+
+func handle_gravity(delta) -> void:
 	if in_jump:
 		if not Input.is_action_pressed("up"):
 			in_jump = false
@@ -54,7 +54,7 @@ func handle_gravity(delta):
 		var current_gravity = gravity
 		velocity.y += current_gravity * delta
 
-func handle_horizontal(delta):
+func handle_horizontal(delta) -> void:
 	var direction = Input.get_axis("left", "right")
 	if direction == 0:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
@@ -62,7 +62,7 @@ func handle_horizontal(delta):
 		velocity.x = SPEED * direction
 		sprite.flip_h = (direction < 0)
 
-func jump(delta):
+func jump(delta) -> void:
 	if Input.is_action_just_pressed("up"):
 		if (not has_jumped and is_on_floor()) or (has_jumped and can_double_jump and jumpcount > 0):
 			start_jump_y_coord = global_position.y
