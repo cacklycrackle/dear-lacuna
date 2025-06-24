@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv0h4vq25x7w0"]
+
+[ext_resource type="Script" uid="uid://n4llpu0gj7m8" path="res://common/slingshot_puzzle/rock/rock.gd" id="1_ch4u7"]
+[ext_resource type="Texture2D" uid="uid://dnxq0n2lny82q" path="res://common/assets/icon.svg" id="1_ndq5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch4u7"]
+size = Vector2(44, 42)
+
+[node name="Rock" type="RigidBody2D"]
+collision_layer = 3
+script = ExtResource("1_ch4u7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ch4u7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.34375, 0.328125)
+texture = ExtResource("1_ndq5n")

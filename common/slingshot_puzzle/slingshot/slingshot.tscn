@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=4 uid="uid://c7it2gq5w8gmr"]
+
+[ext_resource type="Script" uid="uid://cc06acqr7278u" path="res://common/slingshot_puzzle/slingshot/slingshot.gd" id="1_vm5qp"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_l0va6"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAA4AQAAUklGRjABAABXRUJQVlA4TCMBAAAvP8APEDegqG0bONaTQfnsPSIBEjrNUa7xvl0xI0nQEAzDabH+TPud/wAA8DeVnLfL9QB2Y9txG8oV8Hr7Dh7hApQLFSCAJfAVkE3995Cn90hv3xH9R5i2bdRtIesn6S0OgMCHyMGVv7YtOJ8s4tu27Tq5SRYnrCAy6VVTYiWCYWeMqhdg0EKepsjk04Uc03RMWmMix0ANgCLH5A4icyxXJeH0Xievl9iqC0+m7sGXVn8xs4hMAVRd9ovMkKltX/NMihx9u2oDJo/+tdVGnjvlqjYyDcTWpsoTAHZtTG26kNxlh4yqaoj09P/1PqSrm3Vtav6OQOoaoFpIvYPajCl1jV0vd0AZo6+u3gHLKL0Nfj8DeW76BtwG1XHt7anj5LFgJwIA")
+size_override = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ub6oi"]
+radius = 25.0
+
+[node name="Slingshot" type="Node2D"]
+script = ExtResource("1_vm5qp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-11, -24.5)
+scale = Vector2(1.03125, 1.35938)
+texture = SubResource("PortableCompressedTexture2D_l0va6")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/slingshot_puzzle/slingshot/Slingshot.aseprite",
+"source_uid": 5586951136577472353
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5e60bd9ab55ce5a4bd8384d49d75b175"
+
+[node name="LeftLine" type="Line2D" parent="."]
+points = PackedVector2Array(0, -47, -41, -40)
+width = 5.0
+default_color = Color(0.109804, 0.439216, 0.345098, 1)
+
+[node name="RightLine" type="Line2D" parent="."]
+points = PackedVector2Array(-30, -47, -64, -39)
+width = 5.0
+default_color = Color(0.109804, 0.439216, 0.345098, 1)
+
+[node name="TouchArea" type="Area2D" parent="."]
+position = Vector2(-10, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+position = Vector2(-5, -69)
+shape = SubResource("CircleShape2D_ub6oi")
+
+[node name="Center" type="Marker2D" parent="."]
+position = Vector2(-15, -48)
+
+[connection signal="input_event" from="TouchArea" to="." method="_on_touch_area_input_event"]
