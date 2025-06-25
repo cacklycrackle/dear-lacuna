@@ -6,11 +6,12 @@ var player = preload("res://entities/player/player.tscn")
 var spawn_at_portal = "Portal1"
 var in_puzzle = false
 var load_from_save = false
+# Note: standardise keys to snake_case
 var save_data = {
 	"level": null,
 	"position": null,
 	"first_start" : true,
-	"level_2" : {"Stand_1": false} 
+	"level_2" : {"stand_1": false} 
 }
 
 func _ready() -> void:

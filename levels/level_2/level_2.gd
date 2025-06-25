@@ -1,13 +1,16 @@
 extends Node2D
 
+
+var save_name
 var stand1_solved
 
 
 func _ready() -> void:
-	stand1_solved = GameManager.save_data[name]["Stand_1"]
+	save_name = name.to_snake_case()
+	stand1_solved = GameManager.save_data[save_name]["stand_1"]
 	$Portal1.target_scene = "res://levels/level_1/level_1.tscn"
 	$Portal1.target_portal = "Portal1"
-	$Portal2.target_scene = "res://common/ui/start_menu/start_menu.tscn"
+	$Portal2.target_scene = "res://levels/level_3/level_3.tscn"
 	$Portal2.target_portal = "Portal1"
 	
 	$Stand1.puzzle_base = preload("res://common/sliding_puzzle/puzzle_base.tscn")
@@ -40,4 +43,4 @@ func _on_puzzle_solved(stand) -> void:
 	if stand == 1 and not stand1_solved:
 		$Wall.position.y -= 150
 		stand1_solved = true
-		GameManager.save_data[name]["Stand_1"] = true
+		GameManager.save_data[save_name]["stand_1"] = true
