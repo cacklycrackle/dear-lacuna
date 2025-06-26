@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://cxr8v6umigqii"]
+[gd_scene load_steps=7 format=4 uid="uid://cxr8v6umigqii"]
 
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="1_fqu2u"]
 [ext_resource type="Script" uid="uid://bao8woifdt41g" path="res://levels/level_3/level_3.gd" id="1_upa32"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_1ylvm"]
-[ext_resource type="Shader" uid="uid://bvnxpiwy1qq18" path="res://common/shaders/vision_radius.gdshader" id="4_0c4fo"]
+[ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="4_1ylvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35b77"]
 texture = ExtResource("1_fqu2u")
@@ -460,19 +460,6 @@ texture = ExtResource("1_fqu2u")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_35b77")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0c4fo"]
-shader = ExtResource("4_0c4fo")
-shader_parameter/player_pos = Vector2(0, 0)
-shader_parameter/radius = 50.0
-shader_parameter/ratio = 0.7
-shader_parameter/darkness_factor = 0.9
-
-[sub_resource type="Gradient" id="Gradient_e2rvl"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rpg41"]
-gradient = SubResource("Gradient_e2rvl")
-
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_upa32")
 
@@ -496,16 +483,4 @@ scale = Vector2(0.65625, 0.84375)
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 position = Vector2(41, 556)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 10
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" groups=["fade_on_vision"]]
-material = SubResource("ShaderMaterial_0c4fo")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource("GradientTexture2D_rpg41")
+[node name="VisionOverlay" parent="." instance=ExtResource("4_1ylvm")]

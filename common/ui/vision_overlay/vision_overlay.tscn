@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj5rh6knp25oi"]
+
+[ext_resource type="Shader" uid="uid://bvnxpiwy1qq18" path="res://shaders/vision_radius.gdshader" id="1_s73g5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys057"]
+shader = ExtResource("1_s73g5")
+shader_parameter/player_pos = Vector2(0, 0)
+shader_parameter/radius = 50.0
+shader_parameter/ratio = 0.7
+shader_parameter/darkness_factor = 0.9
+
+[sub_resource type="Gradient" id="Gradient_k8iai"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p6qx8"]
+gradient = SubResource("Gradient_k8iai")
+
+[node name="VisionOverlay" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="." groups=["fade_on_vision"]]
+material = SubResource("ShaderMaterial_ys057")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_p6qx8")

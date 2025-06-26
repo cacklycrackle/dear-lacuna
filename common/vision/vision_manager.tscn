@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://drr463o7eomch"]
-
-[ext_resource type="Script" uid="uid://dx5whlb8gnopw" path="res://common/autoload/vision_manager.gd" id="1_yvvna"]
-
-[node name="VisionManager" type="Node"]
-script = ExtResource("1_yvvna")
