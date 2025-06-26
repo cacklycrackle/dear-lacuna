@@ -23,3 +23,4 @@ func _ready() -> void:
 		player_instance.global_position = portal.global_position
 	add_child(player_instance)
 	player_instance.add_to_group("player_group")
+	VisionManager.init_vision_for_level()

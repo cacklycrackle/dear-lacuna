@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://cxr8v6umigqii"]
+[gd_scene load_steps=10 format=4 uid="uid://cxr8v6umigqii"]
 
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="1_fqu2u"]
 [ext_resource type="Script" uid="uid://bao8woifdt41g" path="res://levels/level_3/level_3.gd" id="1_upa32"]
-[ext_resource type="PackedScene" uid="uid://drr463o7eomch" path="res://common/vision/vision_manager.tscn" id="2_0c4fo"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_1ylvm"]
 [ext_resource type="Shader" uid="uid://bvnxpiwy1qq18" path="res://common/shaders/vision_radius.gdshader" id="4_0c4fo"]
 
@@ -476,8 +475,6 @@ gradient = SubResource("Gradient_e2rvl")
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_upa32")
-
-[node name="VisionManager" parent="." instance=ExtResource("2_0c4fo")]
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="."]
 light_mask = 2
