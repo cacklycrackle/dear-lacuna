@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bb8qkyec4yc5k"
+path="res://.godot/imported/hand_cursor.aseprite-1508012c84f1d3aa7d550e2c9657ff5f.res"
+
+[deps]
+
+source_file="res://common/assets/hand_cursor.aseprite"
+dest_files=["res://.godot/imported/hand_cursor.aseprite-1508012c84f1d3aa7d550e2c9657ff5f.res"]
+
+[params]
+

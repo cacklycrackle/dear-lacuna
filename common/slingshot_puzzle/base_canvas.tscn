@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=4 uid="uid://co3nq8iiygjro"]
 
-[ext_resource type="Script" uid="uid://dqpkewp8s2hah" path="res://common/slingshot_puzzle/base.gd" id="1_so66j"]
-[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="2_361ll"]
-[ext_resource type="PackedScene" uid="uid://c7it2gq5w8gmr" path="res://common/slingshot_puzzle/slingshot/slingshot.tscn" id="2_ifgoc"]
-[ext_resource type="PackedScene" uid="uid://lajnvi4qp8e3" path="res://common/slingshot_puzzle/target/target.tscn" id="2_s7aoo"]
+[ext_resource type="Script" uid="uid://dqpkewp8s2hah" path="res://common/slingshot_puzzle/puzzle_base.gd" id="1_wcu4r"]
+[ext_resource type="PackedScene" uid="uid://lajnvi4qp8e3" path="res://common/slingshot_puzzle/target/target.tscn" id="2_5lp7m"]
+[ext_resource type="PackedScene" uid="uid://c7it2gq5w8gmr" path="res://common/slingshot_puzzle/slingshot/slingshot.tscn" id="3_rhu4e"]
+[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="4_4ajeh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oi70x"]
-texture = ExtResource("2_361ll")
+texture = ExtResource("4_4ajeh")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -464,31 +464,31 @@ texture = ExtResource("2_361ll")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oi70x")
 
-[node name="Base" type="CanvasLayer"]
+[node name="PuzzleBaseCanvas" type="CanvasLayer"]
 
-[node name="PlayArea" type="Node2D" parent="."]
-script = ExtResource("1_so66j")
+[node name="PuzzleBase" type="Node2D" parent="."]
+script = ExtResource("1_wcu4r")
 
-[node name="Target1" parent="PlayArea" instance=ExtResource("2_s7aoo")]
+[node name="Target1" parent="PuzzleBase" groups=["target_to_hit"] instance=ExtResource("2_5lp7m")]
 position = Vector2(536, 448)
 scale = Vector2(3.75, 1.5)
 
-[node name="Target2" parent="PlayArea" instance=ExtResource("2_s7aoo")]
+[node name="Target2" parent="PuzzleBase" groups=["target_to_hit"] instance=ExtResource("2_5lp7m")]
 position = Vector2(632, 448)
 scale = Vector2(3.75, 1.5)
 
-[node name="Target3" parent="PlayArea" instance=ExtResource("2_s7aoo")]
+[node name="Target3" parent="PuzzleBase" groups=["target_to_hit"] instance=ExtResource("2_5lp7m")]
 position = Vector2(728, 448)
 scale = Vector2(3.75, 1.5)
 
-[node name="Target4" parent="PlayArea" instance=ExtResource("2_s7aoo")]
+[node name="Target4" parent="PuzzleBase" groups=["target_to_hit"] instance=ExtResource("2_5lp7m")]
 position = Vector2(832, 448)
 scale = Vector2(4.5, 1.5)
 
-[node name="Camera2D" type="Camera2D" parent="PlayArea"]
+[node name="Camera2D" type="Camera2D" parent="PuzzleBase"]
 position = Vector2(578, 319)
 
-[node name="Slingshot" parent="PlayArea" instance=ExtResource("2_ifgoc")]
+[node name="Slingshot" parent="PuzzleBase" instance=ExtResource("3_rhu4e")]
 position = Vector2(191, 348)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

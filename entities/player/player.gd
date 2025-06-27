@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
-@onready var collision = $CollisionPolygon2D
 
 const SPEED = 280.0
 const ACCELERATION = 2200.0
@@ -16,7 +15,7 @@ var can_move = true
 const JUMP_VELOCITY = -250.0
 var has_jumped = true
 var in_jump = false
-var start_jump_y_coord = 0
+#var start_jump_y_coord = 0
 var max_jump_time = 0.3
 var can_double_jump = false
 var jump_timer = 0.0
@@ -65,7 +64,7 @@ func handle_horizontal(delta) -> void:
 func jump(delta) -> void:
 	if Input.is_action_just_pressed("up"):
 		if (not has_jumped and is_on_floor()) or (has_jumped and can_double_jump and jumpcount > 0):
-			start_jump_y_coord = global_position.y
+			#start_jump_y_coord = global_position.y
 			velocity.y = JUMP_VELOCITY
 			in_jump = true	
 			has_jumped = true

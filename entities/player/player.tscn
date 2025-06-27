@@ -53,7 +53,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": false,
 "pending_changes": {
-"source": "res://entities/player/Main_Ghost.aseprite"
+"source": "res://common/assets/main_player.aseprite"
 },
 "slice_section": false
 }

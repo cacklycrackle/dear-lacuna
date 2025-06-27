@@ -15,7 +15,7 @@ var targets: Array[Node]
 
 
 func _ready() -> void:
-	targets = find_children("Target*")
+	targets = get_tree().get_nodes_in_group("target_to_hit")
 	var numbers = range(start, targets.size() + start)
 	numbers.shuffle()
 	for i in range(numbers.size()):

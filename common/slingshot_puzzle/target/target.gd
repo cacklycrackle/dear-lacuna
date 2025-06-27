@@ -1,8 +1,8 @@
 extends Node2D
 
 
-@onready var label = $Label
-@onready var area = $Area2D
+@onready var _label = $Label
+@onready var area = $TargetArea
 
 var number: int:
 	set(value):
@@ -16,16 +16,16 @@ var color: Color:
 
 func _ready() -> void:
 	color = Color.SALMON
-	label.pivot_offset = label.size / 2
+	_label.pivot_offset = _label.size / 2
 
 func _update_label_text():
-	if is_instance_valid(label):
-		label.text = str(number)
+	if is_instance_valid(_label):
+		_label.text = str(number)
 	else:
 		print("ERROR: label not found")
 
 func _update_label_color():
-	if is_instance_valid(label):
-		label.set("theme_override_colors/font_color", color)
+	if is_instance_valid(_label):
+		_label.set("theme_override_colors/font_color", color)
 	else:
 		print("ERROR: label not found")

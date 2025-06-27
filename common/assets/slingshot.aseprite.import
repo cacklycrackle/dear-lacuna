@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://clumje6begtyv"
+path="res://.godot/imported/slingshot.aseprite-5870ac4a85ccc7f671bd9ae1929f5d6d.res"
+
+[deps]
+
+source_file="res://common/assets/slingshot.aseprite"
+dest_files=["res://.godot/imported/slingshot.aseprite-5870ac4a85ccc7f671bd9ae1929f5d6d.res"]
+
+[params]
+

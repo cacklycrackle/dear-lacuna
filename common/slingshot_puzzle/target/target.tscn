@@ -8,11 +8,11 @@
 [node name="Target" type="Node2D"]
 script = ExtResource("1_ba8uo")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TargetArea" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea"]
 shape = SubResource("RectangleShape2D_bl0r4")
 
 [node name="Label" type="Label" parent="."]

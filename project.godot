@@ -23,7 +23,8 @@ VisionManager="*res://common/autoload/vision_manager.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/size/resizable=false
+window/stretch/aspect="ignore"
 
 [editor]
 

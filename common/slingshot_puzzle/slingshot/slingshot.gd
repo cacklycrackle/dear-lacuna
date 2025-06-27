@@ -12,7 +12,7 @@ enum SlingState {
 	RESET
 }
 var state: SlingState
-var rock: RigidBody2D
+var rock: Rock
 
 
 func _ready() -> void:

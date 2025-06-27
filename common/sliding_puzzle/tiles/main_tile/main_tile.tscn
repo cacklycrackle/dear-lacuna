@@ -2,25 +2,16 @@
 
 [ext_resource type="Script" uid="uid://kwohfvnc5blt" path="res://common/sliding_puzzle/tiles/main_tile/main_tile.gd" id="1_rx8yh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcpe0"]
-size = Vector2(60, 60)
-
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_8d6bk"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAByAQAAUklGRmoBAABXRUJQVlA4TF0BAAAvP8APAA9wjsNzHJ7jcP4DD3Js21Lspnp9KHGJWXrKFEpm7jcVDcDsVBg59HLEMBVmD4DtMrNd39TVq99/N/g0hYj+T4Dp2KNe/MINGxoouoi8yEpKgqw44MENvbFZgianQge1EQFINqRXG3DoerOzSQCcwJrrDZldqSoW/a3Sahrb+f68sioBi7OT1yHvsEM4QO5hh1BAdNgmLiIn7JOliBrpPnExe8e6t5Ux+u4T5KB065aD9InVEune3XIaluO+vXIOVq9PpTISnZQMr5rrHKiLV8+X1j0eJLOXSTxu7Dw8ux6vYyE9flBrCZb5YKqf7jWsy71fNMmXN+IZ0It2kF8DPebLqBGc58d4x3DKt3GPUQK9h0tT30CrqbeD77GxUg1/bKu/QMnEggPgTCEcgY1bB7RJ2IcGTg+CBbCWmyR/OqAneRP7qs7guOF/5awUKGR1qPO3kNWdWtMxAA==")
 size_override = Vector2(64, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcpe0"]
+size = Vector2(60, 60)
+
 [node name="MainTile" type="Node2D"]
 z_index = 1
 script = ExtResource("1_rx8yh")
-
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(0.75, 0.75)
-collision_layer = 20
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-z_index = -1
-shape = SubResource("RectangleShape2D_dcpe0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -45,6 +36,15 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 537145249072736631
 }
 metadata/_aseprite_wizard_source_file_hash_ = "8900366fb4042f3e497d73df684646ea"
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+collision_layer = 20
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -1
+shape = SubResource("RectangleShape2D_dcpe0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

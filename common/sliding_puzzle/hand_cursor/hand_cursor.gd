@@ -1,4 +1,5 @@
 extends Node2D
+class_name HandCursor
 
 const SPEED = 280.0
 var moveable = true
