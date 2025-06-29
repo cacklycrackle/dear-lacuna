@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Player
 
 
-@onready var animation = $AnimationPlayer
-@onready var sprite = $Sprite2D
+@onready var _animation = $AnimationPlayer
+@onready var _sprite = $Sprite2D
 
 const SPEED = 280.0
 const ACCELERATION = 2200.0
@@ -23,7 +24,7 @@ var jumpcount = 2
 
 
 func _ready() -> void:
-	animation.play("Idle")
+	_animation.play("Idle")
 
 func _physics_process(delta) -> void:
 	var viewport_rect = get_viewport_rect()
@@ -39,13 +40,13 @@ func _physics_process(delta) -> void:
 		#velocity.y += gravity * delta
 	can_move = not GameManager.in_puzzle
 	if can_move:
-		jump(delta)
-		handle_horizontal(delta)
+		_jump(delta)
+		_handle_horizontal(delta)
 		move_and_slide()
-	handle_gravity(delta)
+	_handle_gravity(delta)
 
 
-func handle_gravity(delta) -> void:
+func _handle_gravity(delta) -> void:
 	if in_jump:
 		if not Input.is_action_pressed("up"):
 			in_jump = false
@@ -53,15 +54,15 @@ func handle_gravity(delta) -> void:
 		var current_gravity = gravity
 		velocity.y += current_gravity * delta
 
-func handle_horizontal(delta) -> void:
+func _handle_horizontal(delta) -> void:
 	var direction = Input.get_axis("left", "right")
 	if direction == 0:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
 		velocity.x = SPEED * direction
-		sprite.flip_h = (direction < 0)
+		_sprite.flip_h = (direction < 0)
 
-func jump(delta) -> void:
+func _jump(delta) -> void:
 	if Input.is_action_just_pressed("up"):
 		if (not has_jumped and is_on_floor()) or (has_jumped and can_double_jump and jumpcount > 0):
 			#start_jump_y_coord = global_position.y

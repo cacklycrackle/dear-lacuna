@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var save_name
+var save_name: String
 var stand1_solved
 
 

@@ -6,7 +6,7 @@ var player: Node2D = null
 
 
 func init_vision_for_level() -> void:
-	var players = get_tree().get_nodes_in_group("player_group")
+	var players = get_tree().get_nodes_in_group(GameManager.player_group)
 	if players.size() > 0:
 		player = players[0]
 		set_process(true)

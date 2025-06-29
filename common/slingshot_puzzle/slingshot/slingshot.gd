@@ -20,7 +20,7 @@ func _ready() -> void:
 	_set_lines(center)
 	_spawn_new_rock()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match state:
 		SlingState.IDLE:
 			pass
@@ -51,7 +51,6 @@ func _process(delta: float) -> void:
 				state = SlingState.IDLE
 				_set_lines(center)
 				_spawn_new_rock()
-
 func _set_lines(loc: Vector2) -> void:
 	l_line.points[1] = l_line.to_local(loc)
 	r_line.points[1] = r_line.to_local(loc)
@@ -61,7 +60,7 @@ func _spawn_new_rock() -> void:
 	add_child(rock)
 	rock.global_position = center
 
-func _on_touch_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_touch_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if state == SlingState.IDLE and not rock.is_thrown:
 		if (event is InputEventMouseMotion) and Input.is_action_pressed("interact"):
 			state = SlingState.PULLING

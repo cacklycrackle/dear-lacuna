@@ -6,8 +6,8 @@
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAADwAAAAUklGRugAAABXRUJQVlA4TNwAAAAvP8AfAA9wjsNzHJ7jcP4DD3Bb25ZTMRO6hNcI0m3sS+ZHhJTgRv48hm6BmfSR2ebKJ3jniDmP6P8EdE5egI4jyyoWnNlVHFj+wdAX2ZSZSM0rEcVazEQQJnAfyrN9i0+WR9avWLdlB7Ba4MGsxQIozBEikJmj78DcHM8ASvM8sqxi45YhVfOTChFOspOCOTLlQJHEJUFnwfoVS68ptKwvpiBPFZu4aAXYi/AzuahEFEuxFv8nlWfDPVifNBNjYcne3FqWJ0vzvGJIanOkqmJ5ZVViHiJpswXBuHMy")
 size_override = Vector2(64, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbplr"]
-size = Vector2(60, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87qa7"]
+size = Vector2(64, 128)
 
 [node name="VerticalTile" type="Node2D"]
 z_index = 1
@@ -19,7 +19,9 @@ texture = SubResource("PortableCompressedTexture2D_87qa7")
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
-"pending_changes": {},
+"pending_changes": {
+"source": "res://common/assets/sliding_long_tile.aseprite"
+},
 "slice_section": true
 }
 metadata/_aseprite_wizard_config_ = {
@@ -38,15 +40,11 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "cbd04fd2c142ac934403e7736a77c836"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="VerticalArea" type="Area2D" parent="."]
 scale = Vector2(0.75, 0.75)
 collision_layer = 4
-collision_mask = 8
+collision_mask = 12
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalArea"]
 z_index = -1
-shape = SubResource("RectangleShape2D_nbplr")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+shape = SubResource("RectangleShape2D_87qa7")

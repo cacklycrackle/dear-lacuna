@@ -4,9 +4,9 @@ extends Sprite2D
 signal started
 signal solved
 
-var interactable = false
-var puzzle_base = null
-var puzzle = null
+var interactable: bool = false
+var puzzle_base: Resource = null
+var puzzle: Node = null
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

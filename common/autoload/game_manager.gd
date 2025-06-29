@@ -1,6 +1,7 @@
 extends Node
 
 
+const player_group = "main_player"
 var pause_menu = preload("res://common/ui/pause_menu/pause_menu.tscn")
 var player = preload("res://entities/player/player.tscn")
 var spawn_at_portal = "Portal1"
@@ -11,8 +12,11 @@ var save_data = {
 	"level": null,
 	"position": null,
 	"first_start" : true,
-	"level_2" : {"stand_1": false} 
+	"level_2": {"stand_1": false},
+	"level_3": {"stand_1": false},
+	"level_4": {"stand_1": false}
 }
+
 
 func _ready() -> void:
 	var canvas_layer_instance: CanvasLayer = CanvasLayer.new()
@@ -20,3 +24,16 @@ func _ready() -> void:
 	canvas_layer_instance.layer = 100
 	canvas_layer_instance.add_child(pause_menu_instance)
 	get_tree().root.add_child.call_deferred(canvas_layer_instance)
+
+func spawn_player(level: Node2D) -> Player:
+	var player_inst = player.instantiate()
+	if load_from_save:
+		load_from_save = false
+		var coords_str = save_data["position"]
+		var coords = coords_str.substr(1, coords_str.length() - 2).split(",")
+		player_inst.global_position = Vector2(coords[0].to_float(), coords[1].to_float())
+	else:
+		var portal = level.get_node(spawn_at_portal)
+		player_inst.global_position = portal.global_position
+	player_inst.add_to_group(player_group)
+	return player_inst

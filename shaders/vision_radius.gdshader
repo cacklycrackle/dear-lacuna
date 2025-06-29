@@ -13,11 +13,11 @@ void fragment() {
 	vec2 pixel_pos = SCREEN_UV * (1.0 / SCREEN_PIXEL_SIZE);
 	float dist = distance(pixel_pos, player_pos);
 	float fade_start = radius * ratio;
-	
+
 	float fade_value = smoothstep(fade_start, radius, dist);
 	float darkness_multiplier = 1.0 - (darkness_factor * fade_value);
 	darkness_multiplier = max(0.0, darkness_multiplier);
-	
+
 	vec4 bg_color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	bg_color.rgb *= darkness_multiplier;
 	vec4 overlay_color = vec4(0.0, 0.0, 0.0, fade_value);

@@ -6,17 +6,16 @@
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAADwAAAAUklGRugAAABXRUJQVlA4TNwAAAAvP8AfAA9wjsNzHJ7jcP4DD3Bb25ZTMRO6hNcI0m3sS+ZHhJTgRv48hm6BmfSR2ebKJ3jniDmP6P8EdE5egI4jyyoWnNlVHFj+wdAX2ZSZSM0rEcVazEQQJnAfyrN9i0+WR9avWLdlB7Ba4MGsxQIozBEikJmj78DcHM8ASvM8sqxi45YhVfOTChFOspOCOTLlQJHEJUFnwfoVS68ptKwvpiBPFZu4aAXYi/AzuahEFEuxFv8nlWfDPVifNBNjYcne3FqWJ0vzvGJIanOkqmJ5ZVViHiJpswXBuHMy")
 size_override = Vector2(64, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbplr"]
-size = Vector2(60, 120)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53mgb"]
+size = Vector2(110, 50)
 
 [node name="HorizontalTile" type="Node2D"]
 z_index = 1
-rotation = -1.5708
 script = ExtResource("1_b547u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 1.90735e-06)
+rotation = 1.5708
 texture = SubResource("PortableCompressedTexture2D_53mgb")
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -32,19 +31,15 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://common/sliding_puzzle/tiles/tiletestsprite.aseprite",
+"source": "res://common/assets/sliding_long_tile.aseprite",
 "source_uid": 1628408946113368118
 }
 metadata/_aseprite_wizard_source_file_hash_ = "cbd04fd2c142ac934403e7736a77c836"
 
-[node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(0.75, 0.75)
+[node name="HorizontalArea" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 8
+collision_mask = 12
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalArea"]
 z_index = -1
-shape = SubResource("RectangleShape2D_nbplr")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+shape = SubResource("RectangleShape2D_53mgb")
