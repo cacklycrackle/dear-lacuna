@@ -10,7 +10,7 @@ func _ready() -> void:
 	save_name = name.to_snake_case()
 	$Portal1.target_scene = "res://levels/level_3/level_3.tscn"
 	$Portal1.target_portal = "Portal2"
-	$Portal2.target_scene = "res://common/ui/start_menu/start_menu.tscn"
+	$Portal2.target_scene = "res://levels/level_5/level_5.tscn"
 	$Portal2.target_portal = "Portal1"
 	
 	$Stand1.puzzle_base = preload("res://common/slingshot_puzzle/puzzle_base.tscn")

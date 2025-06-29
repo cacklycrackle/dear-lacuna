@@ -4,8 +4,8 @@ class_name BaseTile
 
 @onready var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 
-var _area: Area2D
-var _collider: CollisionShape2D
+var _tile_area: Area2D
+var _tile_collider: CollisionShape2D
 var _moveable: bool = false
 var queries: Dictionary[String, Array] 
 # string one of [up, down, left, right], array of the form [PhysicsShapeQueryParameters2D, Vector2]
@@ -15,11 +15,11 @@ var axis: AxisType
 
 
 func _ready() -> void:
-	if not is_instance_valid(_area) or not is_instance_valid(_collider):
+	if not is_instance_valid(_tile_area) or not is_instance_valid(_tile_collider):
 		return
 	
-	_area.area_entered.connect(_on_area_2d_area_entered)
-	_area.area_exited.connect(_on_area_2d_area_exited)
+	_tile_area.area_entered.connect(_on_area_2d_area_entered)
+	_tile_area.area_exited.connect(_on_area_2d_area_exited)
 	for dir in queries:
 		var q = queries[dir]
 		q[0].collision_mask = 0b100
@@ -41,9 +41,9 @@ func _try_move(event: InputEvent) -> bool:
 			cursor.moveable = false
 			var q = queries[dir]
 			var intended_pos = global_position + q[1]
-			q[0].shape = _collider.shape
-			q[0].transform = Transform2D(0, intended_pos + _area.position)
-			q[0].exclude = [_area]
+			q[0].shape = _tile_collider.shape
+			q[0].transform = Transform2D(0, intended_pos + _tile_area.position)
+			q[0].exclude = [_tile_area]
 			
 			var result = space_state.intersect_shape(q[0])
 			if result.size() == 0:

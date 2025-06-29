@@ -14,6 +14,6 @@ func _init() -> void:
 
 func _ready() -> void:
 	$Sprite2D.scale = Vector2(0.9375, 0.9375)
-	_area = _v_area
-	_collider = _v_collider
+	_tile_area = _v_area
+	_tile_collider = _v_collider
 	super._ready()
