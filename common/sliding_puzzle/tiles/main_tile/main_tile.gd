@@ -16,6 +16,6 @@ func _init() -> void:
 	axis = AxisType.M
 
 func _ready() -> void:
-	_area = _m_area
-	_collider = _m_collider
+	_tile_area = _m_area
+	_tile_collider = _m_collider
 	super._ready()

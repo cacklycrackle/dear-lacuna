@@ -15,7 +15,8 @@ var save_data = {
 	"first_start" : true,
 	"level_2": {"stand_1": false},
 	"level_3": {"stand_1": false},
-	"level_4": {"stand_1": false}
+	"level_4": {"stand_1": false},
+	"level_5": {"stand_1" : false, "stand_2": false},
 }
 
 
