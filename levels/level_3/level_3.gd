@@ -23,6 +23,7 @@ func _ready() -> void:
 			stands_solved[i] = false
 			_on_puzzle_solved(i + 1)
 	
+	GameManager.curr_level = 3
 	var player_inst = GameManager.spawn_player(self)
 	add_child(player_inst)
 	VisionManager.init_vision_for_level()

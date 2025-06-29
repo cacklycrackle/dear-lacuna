@@ -1,10 +1,11 @@
 extends Node
 
 
-const player_group = "main_player"
+const PLAYER_GROUP = "main_player"
 var pause_menu = preload("res://common/ui/pause_menu/pause_menu.tscn")
 var player = preload("res://entities/player/player.tscn")
 var spawn_at_portal = "Portal1"
+var curr_level: int = 1
 var in_puzzle = false
 var load_from_save = false
 # Note: standardise keys to snake_case
@@ -35,5 +36,5 @@ func spawn_player(level: Node2D) -> Player:
 	else:
 		var portal = level.get_node(spawn_at_portal)
 		player_inst.global_position = portal.global_position
-	player_inst.add_to_group(player_group)
+	player_inst.add_to_group(PLAYER_GROUP)
 	return player_inst

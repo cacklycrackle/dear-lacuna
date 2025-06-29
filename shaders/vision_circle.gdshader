@@ -3,7 +3,7 @@ render_mode blend_mix;
 
 uniform sampler2D SCREEN_TEXTURE: hint_screen_texture;
 uniform vec2 player_pos;             // Player global position, in pixels
-uniform float radius = 50.0;        // Max radius of vision, in pixels
+uniform float radius;        // Max radius of vision, in pixels
 uniform float ratio = 0.7;           // Ratio of pixels within radius where fading vision begins
 uniform float darkness_factor = 0.9; // Amount of darkening for colour outside vision
 

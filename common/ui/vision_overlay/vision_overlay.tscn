@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj5rh6knp25oi"]
 
-[ext_resource type="Shader" uid="uid://bvnxpiwy1qq18" path="res://shaders/vision_radius.gdshader" id="1_s73g5"]
+[ext_resource type="Shader" uid="uid://bvnxpiwy1qq18" path="res://shaders/vision_circle.gdshader" id="1_s73g5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ys057"]
 shader = ExtResource("1_s73g5")
 shader_parameter/player_pos = Vector2(0, 0)
-shader_parameter/radius = 50.0
+shader_parameter/radius = 0.0
 shader_parameter/ratio = 0.7
 shader_parameter/darkness_factor = 0.9
 

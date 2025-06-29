@@ -20,16 +20,19 @@ func _ready() -> void:
 		stand1_solved = false
 		_on_puzzle_solved(1)
 	
-	var player_instance = GameManager.player.instantiate()
-	if GameManager.load_from_save:
-		GameManager.load_from_save = false
-		var coords_str = GameManager.save_data["position"]
-		var coords = coords_str.substr(1, coords_str.length() - 2).split(",")
-		player_instance.global_position = Vector2(coords[0].to_float(), coords[1].to_float())
-	else:
-		var portal = get_node(GameManager.spawn_at_portal)
-		player_instance.global_position = portal.global_position
-	add_child(player_instance)
+	#var player_instance = GameManager.player.instantiate()
+	#if GameManager.load_from_save:
+		#GameManager.load_from_save = false
+		#var coords_str = GameManager.save_data["position"]
+		#var coords = coords_str.substr(1, coords_str.length() - 2).split(",")
+		#player_instance.global_position = Vector2(coords[0].to_float(), coords[1].to_float())
+	#else:
+		#var portal = get_node(GameManager.spawn_at_portal)
+		#player_instance.global_position = portal.global_position
+	GameManager.curr_level = 2
+	var player_inst = GameManager.spawn_player(self)
+	add_child(player_inst)
+	VisionManager.init_vision_for_level()
 
 func _on_puzzle_started() -> void:
 	$Stand1.puzzle.tile_location = {
