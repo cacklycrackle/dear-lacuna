@@ -1,23 +1,28 @@
 extends Control
+
+
 @onready var selection = $VBoxContainer/HBoxContainer
 @onready var highlight = $Highlight
+
 var index = 0
 var saves = []
-const _SAVE_FILE_PATH = "user://Saves"
+const _SAVE_DIR = "user://Saves"
 var save_path
+
+
 func _ready() -> void:
 	await get_tree().process_frame
 	var all_saves = selection.get_children()
 	for i in range(len(all_saves)):
-		var check = _SAVE_FILE_PATH + "/Save" + str(i + 1) + ".json"
+		var check = "%s/Save%d.json" % [_SAVE_DIR, i + 1]
 		if FileAccess.file_exists(check):
 			saves.append(all_saves[i])
 		else:
 			all_saves[i].add_theme_color_override("font_color", Color(1,0,0))
-	print(saves)
+	
 	highlight.global_position = saves[0].global_position - Vector2(5, 5)
 	highlight.size = saves[0].size + Vector2(10, 10)
-	
+
 func update_sel():
 	highlight.global_position = saves[index].global_position - Vector2(5, 5)
 
@@ -30,6 +35,7 @@ func _input(event):
 		update_sel()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		press()
+
 func press():
 	saves[index].pressed.emit()
 	var file = FileAccess.open(save_path, FileAccess.READ)
@@ -38,20 +44,20 @@ func press():
 	load_data(data)
 
 func _on_save_1_pressed():
-	save_path =  _SAVE_FILE_PATH + "/Save1.json"
-	
+	save_path =  _SAVE_DIR + "/Save1.json"
+
 func _on_save_2_pressed():
-	save_path = _SAVE_FILE_PATH + "/Save2.json"
-	
+	save_path = _SAVE_DIR + "/Save2.json"
+
 func _on_save_3_pressed():
-	save_path = _SAVE_FILE_PATH + "/Save3.json"
+	save_path = _SAVE_DIR + "/Save3.json"
 
 func load_data(data):
 	for i in data:
 		GameManager.save_data[i] = data[i]
 	GameManager.load_from_save = true
-	var num_str =  str(int(GameManager.save_data["level"]))
-	var load_scene = "res://levels/level_" + num_str + "/level_" + num_str + ".tscn"
+	var level = int(GameManager.save_data["level"])
+	var load_scene = "res://levels/level_{0}/level_{0}.tscn".format([level])
 	
 	set_process_input(false)
 	

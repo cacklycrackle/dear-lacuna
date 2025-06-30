@@ -7,7 +7,7 @@ extends Control
 @onready var r_arrow = $RightArrow
 @onready var title = $Title
 @onready var load_button = $"VBoxContainer/Load Game"
-#var menu_buttons = []
+
 var menu_buttons: Array[Node]
 var current_selection = 0
 
@@ -98,6 +98,5 @@ func can_load():
 	var files = DirAccess.get_files_at("user://Saves")
 	if not files:
 		load_button.disabled = true
-		print("d")
 	else:
 		load_button.disabled = false

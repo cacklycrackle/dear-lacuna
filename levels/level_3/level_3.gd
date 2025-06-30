@@ -1,13 +1,10 @@
-extends Node2D
+extends BaseLevel
 
 
-var save_name: String
-var stands_solved: Array[bool]
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	save_name = name.to_snake_case()
+	super._ready()
+	level_id = 3
+	
 	$Portal1.target_scene = "res://levels/level_2/level_2.tscn"
 	$Portal1.target_portal = "Portal2"
 	$Portal2.target_scene = "res://levels/level_4/level_4.tscn"
@@ -23,7 +20,6 @@ func _ready() -> void:
 			stands_solved[i] = false
 			_on_puzzle_solved(i + 1)
 	
-	GameManager.curr_level = 3
 	var player_inst = GameManager.spawn_player(self)
 	add_child(player_inst)
 	VisionManager.init_vision_for_level()

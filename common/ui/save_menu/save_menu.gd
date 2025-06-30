@@ -25,26 +25,31 @@ func _input(event):
 		update_sel()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		press()
+	elif event.is_action_pressed("pause"):
+		get_tree().paused = true
+		queue_free()
+
 func press():
 	saves[index].pressed.emit()
-	for i in get_tree().root.get_children():
-		if "level_" in i.name:
-			GameManager.save_data["position"] = i.get_node("Player").global_position
-			GameManager.save_data["level"] = int(i.name.substr(6))
+	for node in get_tree().root.get_children():
+		if node is BaseLevel:
+			GameManager.save_data["position"] = node.get_node("Player").global_position
+			GameManager.save_data["level"] = node.level_id
 			GameManager.save_data["first_start"] = false
-	var json = JSON.stringify(GameManager.save_data)
 	
+	var json = JSON.stringify(GameManager.save_data)
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_string(json)
 	file.close()
+	
 	get_tree().paused = false
 	queue_free()
+
 func _on_save_1_pressed() -> void:
 	save_path = _SAVE_FILE_PATH + "/Save1.json"
-	
-	
+
 func _on_save_2_pressed() -> void:
 	save_path = _SAVE_FILE_PATH + "/Save2.json"
-	
+
 func _on_save_3_pressed() -> void:
 	save_path = _SAVE_FILE_PATH + "/Save3.json"

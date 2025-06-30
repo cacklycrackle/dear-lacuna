@@ -5,7 +5,7 @@ const PLAYER_GROUP = "main_player"
 var pause_menu = preload("res://common/ui/pause_menu/pause_menu.tscn")
 var player = preload("res://entities/player/player.tscn")
 var spawn_at_portal = "Portal1"
-var curr_level: int = 1
+var curr_level: int = 0
 var in_puzzle = false
 var load_from_save = false
 # Note: standardise keys to snake_case
@@ -27,7 +27,8 @@ func _ready() -> void:
 	canvas_layer_instance.add_child(pause_menu_instance)
 	get_tree().root.add_child.call_deferred(canvas_layer_instance)
 
-func spawn_player(level: Node2D) -> Player:
+func spawn_player(level: BaseLevel) -> Player:
+	curr_level = level.level_id
 	var player_inst = player.instantiate()
 	if load_from_save:
 		load_from_save = false

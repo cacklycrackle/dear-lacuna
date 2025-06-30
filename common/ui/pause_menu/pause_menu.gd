@@ -21,10 +21,11 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_save_pressed() -> void:
-	print("hi")
-	var save_menu_int = save_menu.instantiate()
+	var canvas_layer_inst: CanvasLayer = CanvasLayer.new()
+	canvas_layer_inst.layer = 10
+	var save_menu_inst = save_menu.instantiate()
+	save_menu_inst.process_mode = Node.PROCESS_MODE_ALWAYS
+	canvas_layer_inst.add_child(save_menu_inst)
 	is_paused = false
-	get_tree().root.add_child(save_menu_int)
+	get_tree().root.add_child(canvas_layer_inst)
 	get_tree().paused = true
-	save_menu_int.process_mode = Node.PROCESS_MODE_ALWAYS
-	pass # Replace with function body.

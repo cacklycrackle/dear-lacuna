@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_614ur"]
 [ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="3_susa0"]
 
-[node name="load_menu" type="Control"]
+[node name="LoadMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +67,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 250
 
-[node name="Save 1" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Save1" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -98,7 +98,7 @@ theme_override_styles/normal_mirrored = ExtResource("3_susa0")
 theme_override_styles/normal = ExtResource("3_susa0")
 text = "Save 1"
 
-[node name="Save 2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Save2" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -130,7 +130,7 @@ theme_override_styles/normal = ExtResource("3_susa0")
 text = "Save 2
 "
 
-[node name="Save 3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Save3" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
@@ -161,6 +161,6 @@ theme_override_styles/normal_mirrored = ExtResource("3_susa0")
 theme_override_styles/normal = ExtResource("3_susa0")
 text = "Save 3"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save 1" to="." method="_on_save_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save 2" to="." method="_on_save_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save 3" to="." method="_on_save_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save3" to="." method="_on_save_3_pressed"]
