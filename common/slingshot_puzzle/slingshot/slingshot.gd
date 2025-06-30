@@ -3,7 +3,7 @@ extends Node2D
 @onready var l_line: Line2D = $LeftLine
 @onready var r_line: Line2D = $RightLine
 @onready var center: Vector2 = $Center.global_position
-@export var rock_scene = preload("res://common/slingshot_puzzle/rock/rock.tscn")
+@export var _rock_scene = preload("res://common/slingshot_puzzle/rock/rock.tscn")
 
 enum SlingState {
 	IDLE,
@@ -11,17 +11,17 @@ enum SlingState {
 	SHOT,
 	RESET
 }
-var state: SlingState
+var _state: SlingState
 var rock: Rock
 
 
 func _ready() -> void:
-	state = SlingState.IDLE
+	_state = SlingState.IDLE
 	_set_lines(center)
 	_spawn_new_rock()
 
 func _process(_delta: float) -> void:
-	match state:
+	match _state:
 		SlingState.IDLE:
 			pass
 		SlingState.PULLING:
@@ -38,17 +38,17 @@ func _process(_delta: float) -> void:
 				var velocity = center - mouse
 				rock.throw_rock(velocity / 5 * distance)
 				_set_lines(center)
-				state = SlingState.SHOT
+				_state = SlingState.SHOT
 		SlingState.SHOT:
 			# Despawn rock once it has stopped
 			if is_instance_valid(rock) and not rock.is_thrown:
-				state = SlingState.RESET
+				_state = SlingState.RESET
 				rock.queue_free()
 				rock = null
 		SlingState.RESET:
 			# Respawn a new rock on slingshot
 			if not is_instance_valid(rock):
-				state = SlingState.IDLE
+				_state = SlingState.IDLE
 				_set_lines(center)
 				_spawn_new_rock()
 func _set_lines(loc: Vector2) -> void:
@@ -56,11 +56,11 @@ func _set_lines(loc: Vector2) -> void:
 	r_line.points[1] = r_line.to_local(loc)
 
 func _spawn_new_rock() -> void:
-	rock = rock_scene.instantiate()
+	rock = _rock_scene.instantiate()
 	add_child(rock)
 	rock.global_position = center
 
 func _on_touch_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if state == SlingState.IDLE and not rock.is_thrown:
+	if _state == SlingState.IDLE and not rock.is_thrown:
 		if (event is InputEventMouseMotion) and Input.is_action_pressed("interact"):
-			state = SlingState.PULLING
+			_state = SlingState.PULLING
