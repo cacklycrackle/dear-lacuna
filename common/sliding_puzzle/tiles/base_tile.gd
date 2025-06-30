@@ -27,9 +27,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if _moveable and Input.is_action_pressed("interact"):
-		var initial_pos = global_position
 		if _try_move(event):
-			var delta = global_position - initial_pos
 			cursor.global_position = global_position
 	
 	if event.is_action_released("interact") and cursor:

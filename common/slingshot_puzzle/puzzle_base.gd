@@ -17,9 +17,10 @@ var _targets: Array[Node]
 
 
 func _ready() -> void:
-	var orig_size = get_viewport().get_visible_rect().size
-	scale = Vector2(0.75, 0.75)
-	offset = (Vector2(1.0, 1.0) - scale) * orig_size / 2
+	# Scale puzzle down to 3/4 of screen size
+	#var orig_size = get_viewport().get_visible_rect().size
+	#scale = Vector2(0.75, 0.75)
+	#offset = (Vector2(1.0, 1.0) - scale) * orig_size / 2
 	
 	_targets = get_tree().get_nodes_in_group("target_to_hit")
 	var numbers = range(1, _targets.size() + 1)

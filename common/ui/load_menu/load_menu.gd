@@ -4,10 +4,12 @@ extends Control
 @onready var selection = $VBoxContainer/HBoxContainer
 @onready var highlight = $Highlight
 
-var index = 0
-var saves = []
+var _index: int = 0:
+	set(value):
+		_index = value
+		_update_sel()
+var saves: Array[Node] = []
 const _SAVE_DIR = "user://Saves"
-var save_path
 
 
 func _ready() -> void:
@@ -20,39 +22,28 @@ func _ready() -> void:
 		else:
 			all_saves[i].add_theme_color_override("font_color", Color(1,0,0))
 	
-	highlight.global_position = saves[0].global_position - Vector2(5, 5)
+	_update_sel()
 	highlight.size = saves[0].size + Vector2(10, 10)
 
-func update_sel():
-	highlight.global_position = saves[index].global_position - Vector2(5, 5)
+func _update_sel():
+	highlight.global_position = saves[_index].global_position - Vector2(5, 5)
 
 func _input(event):
 	if event.is_action_pressed("right"):
-		index = (index + 1) % saves.size()
-		update_sel()
+		_index = (_index + 1) % saves.size()
 	elif event.is_action_pressed("left"):
-		index = (index - 1) % saves.size()
-		update_sel()
+		_index = (_index - 1) % saves.size()
 	elif event.is_action_pressed("ui_accept"): # Enter key
-		press()
+		_press()
 
-func press():
-	saves[index].pressed.emit()
+func _press():
+	var save_path = "{0}/{1}.json".format([_SAVE_DIR, saves[_index].name])
 	var file = FileAccess.open(save_path, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	file.close()
-	load_data(data)
+	_load_data(data)
 
-func _on_save_1_pressed():
-	save_path =  _SAVE_DIR + "/Save1.json"
-
-func _on_save_2_pressed():
-	save_path = _SAVE_DIR + "/Save2.json"
-
-func _on_save_3_pressed():
-	save_path = _SAVE_DIR + "/Save3.json"
-
-func load_data(data):
+func _load_data(data):
 	for i in data:
 		GameManager.save_data[i] = data[i]
 	GameManager.load_from_save = true
@@ -60,9 +51,14 @@ func load_data(data):
 	var load_scene = "res://levels/level_{0}/level_{0}.tscn".format([level])
 	
 	set_process_input(false)
-	
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
-	
 	get_tree().change_scene_to_file(load_scene)
+
+func _on_back_button_pressed() -> void:
+	set_process_input(false)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")

@@ -160,7 +160,3 @@ theme_override_styles/pressed = ExtResource("3_vpbwl")
 theme_override_styles/normal_mirrored = ExtResource("3_vpbwl")
 theme_override_styles/normal = ExtResource("3_vpbwl")
 text = "Save 3"
-
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save1" to="." method="_on_save_1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save2" to="." method="_on_save_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save3" to="." method="_on_save_3_pressed"]

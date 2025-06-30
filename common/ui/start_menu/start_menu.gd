@@ -75,15 +75,17 @@ func _on_exit_pressed() -> void:
 
 func _on_controls_pressed() -> void:
 	set_process_input(false)
-	
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
-	
 	get_tree().change_scene_to_file("res://common/ui/settings_menu/input_settings.tscn")
 
 
 func _on_load_game_pressed() -> void:
+	set_process_input(false)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tween.finished
 	get_tree().change_scene_to_file("res://common/ui/load_menu/load_menu.tscn")
 
 func make_save_dir():

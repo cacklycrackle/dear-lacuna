@@ -89,7 +89,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_o5dqa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mb4aw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xn3ta")
 theme_override_styles/normal = SubResource("StyleBoxFlat_l02xd")
-button_mask = 0
 text = "back"
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
