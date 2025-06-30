@@ -12,9 +12,11 @@ Dear Lacuna is a small-scale platformer game built with Godot, featuring multipl
     * Player collisions with walls and floors detected
 * Basic save / load system for keybinds
     * User-modified keybinds are locally saved and loaded when game runs again
-* Two basic levels
+* Five basic levels
 * One in-level puzzle
     * Sliding block puzzle, as inspired by [Move the block](https://play.google.com/store/apps/details?id=com.bitmango.go.unblockcasual&hl=en_SG) and similar games
+* One slingshot puzzle
+   * ...
 
 ### To Be Completed
 * Multiple keybinds per action
