@@ -18,7 +18,9 @@ position = Vector2(-11, -24.5)
 scale = Vector2(1.03125, 1.35938)
 texture = SubResource("PortableCompressedTexture2D_l0va6")
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://common/assets/slingshot.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
