@@ -20,9 +20,7 @@ Dear Lacuna is a small-scale platformer game built with Godot, featuring multipl
 * Multiple keybinds per action
 * In-game characters for player interaction
 * Storyline and integration with in-game characters
-* Render tiles and sprites for each level based on tileset
-* Save / Load system for user progression through levels
-* At least five levels
+* Different puzzles for each levels
 * Variable vision radius
     * Allow player vision to increase with level
 * Music and sound effects
