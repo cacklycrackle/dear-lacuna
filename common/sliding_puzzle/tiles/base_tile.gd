@@ -10,7 +10,7 @@ var _moveable: bool = false
 var queries: Dictionary[String, Array] 
 # string one of [up, down, left, right], array of the form [PhysicsShapeQueryParameters2D, Vector2]
 var cursor: HandCursor
-enum AxisType {X, Y, M}
+enum AxisType {X = 1, Y, M}
 var axis: AxisType
 
 
