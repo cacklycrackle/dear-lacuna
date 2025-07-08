@@ -29,11 +29,12 @@ func _ready() -> void:
 func _on_puzzle_started(stand: int) -> void:
 	if stand == 2:
 		var stand_node = get_node("Stand%d" % stand)
-		stand_node.puzzle.tile_location = {
-			"v2" : [[-2, -2], [-1, -1], [0, 2], [1, 0], [2, -1], [3, 2]],
-			"h2" : [[-2, 3], [-1, -2], [0, -1], [1, 2], [2, -2], [2, 1]],
-			"m" : [[0, 0]]
-		}
+		#stand_node.puzzle.tile_location = {
+			#"h2" : [[-2, 3], [-1, -2], [0, -1], [1, 2], [2, -2], [2, 1]],
+			#"v2" : [[-2, -1], [-1, 0], [0, 3], [1, 1], [2, 0], [3, 3]],
+			#"m" : [[0, 0]]
+		#}
+		stand_node.puzzle.tile_location = SlidingPuzzleGenerator.generate_tiles()
 		stand_node.puzzle.offset = stand_node.global_position
 
 func _on_puzzle_solved(stand: int) -> void:

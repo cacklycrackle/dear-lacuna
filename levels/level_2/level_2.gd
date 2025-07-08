@@ -25,11 +25,12 @@ func _ready() -> void:
 	VisionManager.init_vision_for_level()
 
 func _on_puzzle_started() -> void:
-	$Stand1.puzzle.tile_location = {
-		"v2" : [[-2, -2], [-2, 0], [-2, 2], [-1, 0], [-1 ,2], [1, -1], [3, -1]],
-		"h2" : [[0, 1], [0, 2], [0, 3], [2, 1], [-1, -1], [-1, -2], [1, -2]],
-		"m" : [[0, 0]]
-	}
+	#$Stand1.puzzle.tile_location = {
+		#"h2" : [[0, 1], [0, 2], [0, 3], [2, 1], [-1, -1], [-1, -2], [1, -2]],
+		#"v2" : [[-2, -1], [-2, 1], [-2, 3], [-1, 1], [-1 ,3], [1, 0], [3, 0]],
+		#"m" : [[0, 0]]
+	#}
+	$Stand1.puzzle.tile_location = SlidingPuzzleGenerator.generate_tiles()
 	$Stand1.puzzle.offset = $Stand1.global_position
 
 func _on_puzzle_solved(stand: int) -> void:

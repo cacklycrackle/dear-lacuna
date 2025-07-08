@@ -10,7 +10,7 @@ func _init() -> void:
 		"left": [PhysicsShapeQueryParameters2D.new(), Vector2(-60, 0)],
 		"right": [PhysicsShapeQueryParameters2D.new(), Vector2(60, 0)],
 	}
-	axis = AxisType.Y
+	axis = AxisType.X
 
 func _ready() -> void:
 	$Sprite2D.scale = Vector2(0.9375, 0.9375)
