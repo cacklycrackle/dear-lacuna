@@ -1,145 +1,118 @@
 extends RefCounted
 class_name SlidingPuzzleGenerator
 
-
 const GRID_SIZE = 6
-const EXIT_POS = Vector2i(5, 3)
-const AXIS = BaseTile.AxisType
-
-class _Tile:
-	var axis: AXIS
-	var start: Vector2i
-	
-	func _init(p_axis: AXIS, p_start: Vector2i = Vector2i.ZERO) -> void:
-		self.axis = p_axis
-		self.start = p_start
-	
-	func _to_string() -> String:
-		return "Tile({0}, {1})".format([self.axis, self.start])
-	
-	static func _get_coords(tile: _Tile) -> Array[Vector2i]:
-		match tile.axis:
-			AXIS.X:
-				return [tile.start, tile.start + Vector2i.RIGHT]
-			AXIS.Y:
-				return [tile.start, tile.start + Vector2i.DOWN]
-			AXIS.M:
-				return [tile.start]
-			_:
-				return []
-	
-	static func _get_scramble_moves(tile: _Tile) -> Array[Vector2i]:
-		match tile.axis:
-			AXIS.X:
-				return [Vector2i.LEFT, Vector2i.RIGHT]
-			AXIS.Y:
-				return [Vector2i.UP, Vector2i.DOWN]
-			AXIS.M:
-				return [Vector2i.LEFT, Vector2i.UP, Vector2i.DOWN]
-			_:
-				return []
-
+const END_POS = Vector2i(5, 3)
+const MOVES = {
+	AXIS.M: [1, GRID_SIZE, -GRID_SIZE, -1],
+	AXIS.X: [-1, 1],
+	AXIS.Y: [GRID_SIZE, -GRID_SIZE],
+}
+const AXIS := BaseTile.AxisType
 
 static func generate_tiles():
-	var grid := _create_empty_grid() # Array[Array[int]]
-	#_print_grid(grid)
-	if grid.is_empty(): return null
+	var board: String
+	var queue: Array[String] = []
+	while true:
+		board = _create_board()
+		queue.clear()
+		queue.push_back(board)
+		if _bfs(queue): break
 	
-	var sec_tiles: Array[_Tile] = []
-	var moves: Array[Vector2i]
+	var locs: Dictionary[AXIS, Array] = {}
+	var seen: Dictionary[int, bool] = {} # set of seen tile positions
+	for ax in MOVES.keys():
+		var arr: Array[Vector2i] = []
+		var start := -1
+		var c := str(ax)
+		while true:
+			start = board.find(c, start + 1)
+			if start == -1: break
+			if seen.has(start): continue
+			for coord in _get_tile_coords(ax, start): seen[coord] = true
+			arr.push_back(Vector2i(start % GRID_SIZE, start / GRID_SIZE))
+		locs[ax] = arr
+	return locs
+			
 	
-	# Place main tile at exit
-	var main_tile = _Tile.new(AXIS.M, EXIT_POS)
-	_set_tile(grid, main_tile)
+static func _create_board() -> String:
+	var board: PackedStringArray =  '0'.repeat(GRID_SIZE * GRID_SIZE).split()
 	
-	# Add some secondary tiles at random positions
-	var n = randi_range(4, 6)
-	for i in range(n):
-		for orientation in [AXIS.X, AXIS.Y]:
-			for attempt in range(20):
-				var tile = _Tile.new(
-					orientation,
-					Vector2i(randi() % GRID_SIZE, randi() % GRID_SIZE)
-				)
-				#print(pos)
-				
-				if _is_tile_valid(grid, tile):
-					_set_tile(grid, tile)
-					sec_tiles.append(tile)
+	# Add main tile
+	var pstart := Vector2i(randi() % (GRID_SIZE / 2), randi() % GRID_SIZE)
+	board[pstart.y * GRID_SIZE + pstart.x] = str(AXIS.M)
+	
+	# Add secondary tiles
+	var coords: Array[int]
+	for _i in range(GRID_SIZE):
+		for ax in [AXIS.X, AXIS.Y]:
+			coords = _get_tile_coords(ax, 0)
+			for _j in range(10):
+				var start = randi() % (GRID_SIZE * GRID_SIZE)
+				if _is_valid_tile("".join(board), coords, start):
+					print("Axis {axis}, Start: {start}".format({"axis": ax, "start": start}))
+					for coord in coords:
+						board[coord + start] = str(ax)
 					break
-	#print(sec_tiles)
-	#_print_grid(grid)
-	
-	# Scramble secondary tiles
-	for attempt in range(20):
-		var tile_to_move = sec_tiles.pick_random()
-		assert(tile_to_move != null, "ERROR: No secondary tiles generated")
-		#if tile_to_move == null:
-			#push_error("ERROR: No secondary tiles generated")
-			#return
-		
-		_scramble_tile_if_possible(grid, tile_to_move)
-		_scramble_tile_if_possible(grid, main_tile)
-		#print(main_tile)
-	
-	# Create result
-	var tile_locs = {
-		AXIS.X: [],
-		AXIS.Y: [],
-		AXIS.M: [main_tile.start],
-	}
-	for tile in sec_tiles:
-		tile_locs[tile.axis].append(tile.start)
-	#_print_grid(grid)
-	return tile_locs
-	
-static func _create_empty_grid() -> Array[PackedByteArray]:
-	var grid: Array[PackedByteArray] = []
-	if grid.resize(GRID_SIZE) != OK:
-		print("ERROR: in creating grid")
-	for i in range(GRID_SIZE):
-		grid[i] = PackedByteArray()
-		if grid[i].resize(GRID_SIZE) != OK:
-			print("ERROR: in creating grid")
-			return []
-	return grid
+	return "".join(board)
 
-static func _is_tile_valid(grid: Array[PackedByteArray], tile: _Tile) -> bool:
-	var positions = _Tile._get_coords(tile)
-	assert(positions, "ERROR: Unexpected tile axis when positioning")
-	for pos in positions:
-		if pos.x < 0 or pos.x >= GRID_SIZE or pos.y < 0 or pos.y >= GRID_SIZE or grid[pos.y][pos.x] != 0:
+static func _bfs(queue: Array[String]) -> bool:
+	var seen: Dictionary[String, bool] = {}
+	while not queue.is_empty():
+		if seen.size() > 1e6: return false
+		var board: String = queue.pop_front()
+		if _is_end_state(board): return true
+		if seen.has(board): continue
+		#print(board)
+		seen[board] = true
+		_find_next_states(queue, board)
+	return false
+
+static func _find_next_states(queue: Array[String], state: String) -> void:
+	var seen: Dictionary[int, bool] = {}
+	for ax in MOVES:
+		var c := str(ax)
+		var start := -1
+		while true:
+			start = state.find(c, start + 1)
+			if start == -1: break
+			if seen.has(start): continue
+			
+			var coords := _get_tile_coords(ax, start)
+			for coord in coords: seen[coord] = true
+			for delta in MOVES[ax]:
+				if _is_valid_move(state, coords, delta):
+					var moved := String(state)
+					for coord in coords: moved[coord] = '0'
+					for coord in coords: moved[coord + delta] = c
+					queue.push_back(moved)
+
+static func _get_tile_coords(axis: AXIS, start: int) -> Array[int]:
+	match axis:
+		AXIS.X:
+			return [start, start + 1]
+		AXIS.Y:
+			return [start, start + GRID_SIZE]
+		AXIS.M:
+			return [start]
+		_:
+			return []
+
+static func _is_valid_move(state: String, coords: Array[int], delta: int) -> bool:
+	var c := state[coords[0]]
+	for coord in coords: state[coord] = '0'
+	var valid: bool = _is_valid_tile(state, coords, delta)
+	for coord in coords: state[coord] = c
+	return valid
+
+static func _is_valid_tile(state: String, coords: Array[int], delta: int) -> bool:
+	for coord in coords:
+		var nc = coord + delta
+		if nc < 0 or nc >= state.length() \
+		or (delta != 0 and nc % GRID_SIZE - coord % GRID_SIZE != delta % GRID_SIZE) \
+		or state[nc] != '0':
 			return false
 	return true
 
-static func _is_move_valid(grid: Array[PackedByteArray], tile: _Tile, offset: Vector2i) -> bool:
-	_set_tile(grid, tile, true)
-	tile.start += offset
-	var valid = _is_tile_valid(grid, tile)
-	tile.start -= offset
-	_set_tile(grid, tile)
-	return valid
-
-static func _scramble_tile_if_possible(grid: Array[PackedByteArray], tile: _Tile) -> void:#, offset: Vector2i):
-	var moves: Array[Vector2i] = _Tile._get_scramble_moves(tile)
-	assert(moves, "ERROR: Unexpected tile axis when scrambling")
-	var valid_moves: Array[Vector2i] = moves.filter(
-		func(move): return _is_move_valid(grid, tile, move)
-	)
-	
-	if not valid_moves.is_empty():
-		_set_tile(grid, tile, true)
-		tile.start += valid_moves.pick_random()
-		_set_tile(grid, tile)
-
-static func _set_tile(grid: Array[PackedByteArray], tile: _Tile, remove: bool = false) -> void:
-	var positions = _Tile._get_coords(tile)
-	var x = remove as int
-	assert(positions, "ERROR: Unexpected tile axis when positioning")
-	var value = 0 if remove else tile.axis
-	for pos in positions:
-		grid[pos.y][pos.x] = value
-#
-#static func _print_grid(grid: Array[PackedByteArray]) -> void:
-	#for row in grid:
-		#print(row)
+static func _is_end_state(state: String) -> bool:
+	return state[END_POS.y * GRID_SIZE + END_POS.x] == str(AXIS.M)
