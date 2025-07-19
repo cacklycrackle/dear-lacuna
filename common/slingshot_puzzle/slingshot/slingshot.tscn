@@ -51,7 +51,7 @@ default_color = Color(0.109804, 0.439216, 0.345098, 1)
 [node name="TouchArea" type="Area2D" parent="."]
 position = Vector2(-10, 21)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+[node name="TouchCircle" type="CollisionShape2D" parent="TouchArea"]
 position = Vector2(-5, -69)
 shape = SubResource("CircleShape2D_ub6oi")
 

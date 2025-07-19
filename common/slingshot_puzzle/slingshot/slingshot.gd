@@ -28,14 +28,14 @@ func _process(_delta: float) -> void:
 			var mouse = get_global_mouse_position()
 			if Input.is_action_pressed("interact"):
 				# Slingshot pulled back
-				if mouse.distance_to(center) > 100:
-					mouse = center + (mouse - center).normalized() * 100
+				if mouse.distance_to(center) > 75:
+					mouse = center + (mouse - center).normalized() * 75
 				rock.global_position = mouse
 				_set_lines(mouse)
 			else:
 				# Rock launched
-				var distance = mouse.distance_to(center)
-				var velocity = center - mouse
+				var distance = rock.global_position.distance_to(center)
+				var velocity = center - rock.global_position
 				rock.throw_rock(velocity / 5 * distance)
 				_set_lines(center)
 				_state = SlingState.SHOT

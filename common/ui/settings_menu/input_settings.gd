@@ -17,6 +17,7 @@ var input_actions: Dictionary[String, String] = {
 	"right"    : "move right",
 	"interact" : "interact",
 	"pause"    : "pause",
+	"puzzle_help": "help in puzzle",
 }
 
 
