@@ -4,6 +4,14 @@ extends CanvasLayer
 signal solved
 signal exited
 
+const _descr = """[b][color=#074799]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
+Strike [i]any[/i] target out of order and thou shalt be compelled to commence anew!
+[ul] Employ thy [color=#065084]mouse[/color] to guide thy cursor o'er the rock[/ul]
+[ul] Whilst engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z),[/ul]
+[indent]   sway thy [color=#065084]mouse[/color] about to tension the slingshot[/indent]
+[ul] Release thine [color=#065084]interact key[/color] to unleash the rock upon its fateful path[/ul]
+[ul] Bide thy time until the rock doth rematerialise on the slingshot[/ul]
+"""
 @onready var slingshot = $Slingshot
 
 enum PuzzleState {
@@ -54,3 +62,5 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		exited.emit()
+	elif event.is_action_pressed("puzzle_help"):
+		GlobalPopup.show_help(_descr)

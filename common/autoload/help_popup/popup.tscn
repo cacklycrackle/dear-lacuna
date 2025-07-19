@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf87npaau77hs"]
+
+[ext_resource type="Script" uid="uid://bx4r7rib7ay74" path="res://common/autoload/help_popup/popup.gd" id="1_g1u65"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_5ekh5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ekh5"]
+bg_color = Color(0.643137, 0.756863, 0.631373, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_g1u65")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HelpPopup" type="PopupPanel" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2i(500, 0)
+size = Vector2i(1043, 1824)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ekh5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HelpPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 1038.0
+offset_bottom = 1819.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="CanvasLayer/HelpPopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5ekh5")
+theme_override_font_sizes/font_size = 32
+text = "Help"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HelpPopup/VBoxContainer"]
+custom_minimum_size = Vector2(550, 150)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HelpPopup/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="CanvasLayer/HelpPopup/VBoxContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+z_index = 1
+clip_contents = false
+custom_minimum_size = Vector2(375, 125)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "test"
+fit_content = true
+autowrap_mode = 0
