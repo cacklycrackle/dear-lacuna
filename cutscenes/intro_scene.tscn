@@ -1,0 +1,973 @@
+[gd_scene load_steps=18 format=4 uid="uid://cpyul0n71l25b"]
+
+[ext_resource type="Script" uid="uid://fknc8ssxqut6" path="res://cutscenes/intro_scene.gd" id="1_1lbm6"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_yeu1f"]
+[ext_resource type="Texture2D" uid="uid://bk1v0qc3vusuc" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="3_lull0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlvuq"]
+bg_color = Color(0.351675, 0.450129, 0.361786, 1)
+
+[sub_resource type="Animation" id="Animation_rlvuq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Entities/Lacuna:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Entities/Lacuna:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 551)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueUI/Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueUI/Panel/VBoxContainer/NameLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Lacuna"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[b]What[/b] am I?"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Entities/Duchess:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(914, 440)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Entities/Duchess:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Entities/Portal:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Entities/Portal:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(567, 586)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Entities/Lacuna:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fchh6"]
+resource_name = "intro_seq"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Entities/Lacuna:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 20.4, 20.7, 21.1, 21.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [6.28319, 4.71239, 3.14159, 1.5708, 0.785398, 0.0, 0.0, 1.5708, 1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Entities/Lacuna:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 2.2, 2.35, 3.6, 3.7, 3.9, 6.55, 6.7, 6.8, 11.75, 12.35, 12.65, 17.1, 17.3, 17.5, 20.4, 20.7, 21.1, 21.3, 23, 23.3, 23.5, 28.8, 29.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-83, 368), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(225, 581), Vector2(225, 581), Vector2(205, 551), Vector2(205, 551), Vector2(205, 531), Vector2(205, 551), Vector2(205, 551), Vector2(522, 551)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueUI/Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1, 5, 5.4, 6.2, 6.6, 7.5, 8.5, 11.4, 11.7, 13.4, 13.7, 16.9, 17.1, 18, 18.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 27, 28.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueUI/Panel/VBoxContainer/NameLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.1, 5.4, 6.2, 6.6, 7.5, 8.7, 11.4, 11.7, 13.4, 13.7, 16.9, 17.1, 18.0333, 18.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 27, 28.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Lacuna", "???", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3, 3.5, 5.3, 6.2, 6.6, 7.5, 8.7, 10, 10.2, 11.4, 11.7, 13.4, 13.7, 14.8, 15, 16.9, 17.1, 18.0333, 18.3, 19.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 25.7, 25.8, 27, 28.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[b]What[/b] am I?", "", "[b]Where[/b] is this place?", "[color=BROWN][b]WELCOME . . .[/b][/color]", "", "[b]Who[/b] said that?", "", "[color=BROWN][b]It is I, Duchess Aki.[/b][/color]", "", "[color=BROWN][b]Whom dost thou claim to be?[/b][/color]", "", "I dost discover mine own self... to be unable to remembre", "", "[color=BROWN][b]There doth seem to be a void in thy remembrance[/b][/color]", "", "[color=BROWN][b]A tempest gathering in the heavens, 
+there is... Lost souls are being pruned![/b][/color]", "", "However shall I survive?!", "", "[color=BROWN][b]Complete puzzles to free thy path, 
+thou must[/b][/color]", "[color=BROWN][b]Jump through the portals and venture as far as fate alloweth[/b][/color]", "", "Might I beseech thy succour upon this journey forth?", "", "[color=BROWN][b]Alas, thou must fend for thyself in these ends[/b][/color]", "", "I do most aspire to weave anew the tapestry of mine erstwhile existence, now adrift.", "", "[color=BROWN][b]Make haste now! I sense a tingle in my wrinkle...[/b][/color]", "", "[color=BROWN][b]Journey to the terminus, and meet once more we shall[/b][/color]", "", "Oh! A portal..."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.9, 2.5, 2.8, 3, 3.4, 4, 4.5, 5.3, 5.75, 6, 6.2, 6.5, 7, 7.2, 7.5, 8.7, 9.2, 9.7, 10, 10.2, 10.7, 11.1, 11.4, 11.7, 12.2, 12.5, 12.8, 13.2, 13.4, 13.7, 14, 14.6, 14.8, 15, 15.5, 15.8, 16.1, 16.5, 16.9, 17.1, 17.4, 17.8, 18.0333, 18.3, 18.6, 19.1, 19.3, 19.6, 20.1, 20.3, 20.5, 20.9, 21.3, 21.6, 21.8, 22.2, 22.6, 22.8, 23, 23.5, 24, 24.3, 24.5, 24.8, 25.5, 25.7, 25.8, 26.5, 26.8, 27, 28.4, 28.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.58, 0.58, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.64, 0.64, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Entities/Duchess:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8, 26.6, 27.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(914, 440), Vector2(914, 440), Vector2(1308, 144)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Entities/Duchess:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8, 9, 13.7, 13.85, 14, 15.3, 15.7, 15.9, 18.3, 18.6, 18.8, 19.4, 19.6, 19.8, 21.8, 22, 22.1, 24.5, 24.7, 24.95, 26.6, 27.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.6), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Entities/Portal:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(27.4667, 27.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(568, 77), Vector2(567, 586)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Entities/Portal:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(27.4667, 27.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(29.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_start_game"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Entities/Lacuna:flip_h")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5uejo"]
+_data = {
+&"RESET": SubResource("Animation_rlvuq"),
+&"intro_seq": SubResource("Animation_fchh6")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5o6ql"]
+_data = PackedByteArray("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")
+size_override = Vector2(1152, 648)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uejo"]
+texture = ExtResource("3_lull0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+18:17/0 = 0
+19:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+16:18/0 = 0
+17:18/0 = 0
+18:18/0 = 0
+19:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+16:19/0 = 0
+17:19/0 = 0
+18:19/0 = 0
+19:19/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fchh6"]
+sources/0 = SubResource("TileSetAtlasSource_5uejo")
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5uejo"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAADoAAAAUklGRuAAAABXRUJQVlA4TNMAAAAvf8APEBcw//M///MfgAfHtW2ryUd+KsCr+SVgCfA7INXgNobIKRN5D7dRRP8ZuG3bSLc3r88wf9IpDO1tOfAFFSo3ASJ5DkGe9wA1qTaAlcoBYtXZUqOgOgvSnWc91uFz/G2OVcIquMkR7ghb1ztMTrgkrL60IzoQ2Vsc5+N8kwNWPNrBHRz2FkeSQBK8ssPn4K2ePo7XOx3nva5jcnP7u2eW6kGi5liSiP9xICERM2PHNJYYk3jK1BupynGnJeWqk/jkUHaszHAtZ81N03HvRScDAA==")
+size_override = Vector2(128, 64)
+
+[sub_resource type="Animation" id="Animation_sbp1j"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nd11m"]
+_data = {
+&"Idle": SubResource("Animation_sbp1j")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o1cr6"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACmAAAAUklGRp4AAABXRUJQVlA4TJEAAAAvP8APEBcw//M///MfgAe3kSS5zb/xyIAymksC6kJANNTKhpw0UbinJs2I/k+A+1OnabAJqDdtgMxbaoC5ZRhVUfgp4Ql0QG2nllNiSm+k6yk3kB5JZy+VNWTBpAPqTXDiUdwhWNoW2uSVdAANFsZ+Sni1TVT9sE0bIw0trcVtqi1bdUaZbSpZW5yTtYSI4F4VAA==")
+size_override = Vector2(64, 64)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fchh6"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAAB6BAAAUklGRnIEAABXRUJQVlA4TGUEAAAvf8APED9AJoKZ/UkIZxVGAGQimNmfhHBWYQRAJoKZ/UkIZxVGAPMfAKAk2yRh239twZNr25kkybY2t2A3YC8HNbNKJ7QLFlbdVOwOKOKv/G/lhCHM+m9KowbUPesR/XfgSJLT1BrwEof4CL6Tqn8V5aHSCnybAyr8gcJDVXOnVcnSHjhlKb+f41F0I6harQl0o8cs5UNWQWrJKTlUOQ72INCkskw3iHSPkiY8CJo1wSTzDDDPkAJatcc0knACZjkNJlkNjETSg7Y2kExMJjQaCgkC50EiwggjA0/MWWKY3TGOnT7uwIyFIRELIrg36jj0A5Lj7kixrKjCgpLWHHa3ORKODt7ZCVEtsJBJ4WFpUsgCm4Vsb9n2SPbAYjohDGxCCwhkZLPYz6GTN75k2P/VhOUU4/N8rc+ybY2DI2+Nd/q4I+b6/AqFCTVxY3tr2DNc1lPYkckcYLrZ9RSRjQ8ZCu04zuACZwZJ7kWkBJGhpx9lbiC52R2Z9MQTP3DfCQzJmeXW4ulHm5HVSIlg16Ynwz09c+Dpe8sWjYy4MXOmmtjzo+M5Lunn4cnRt+0sh6py1/X1+aTMqmJ9fXfOpI9edYx0Ljsyy6zWpCz99fr8i8qlOcs9dguyEujHl6/9ALx807doTZMUdX1+f389FXKa5rT5qU3oOcY4+vV09DGGH/DpTwaWgDe4/vH+/sMJ5hIkMP/c0yn6cbmezv2gOEg2wEkm8fTy/v72o9GWIOwkZ6gxvvzz69cxCi7sIlnTdEf+MX17+ZikyGyawWdUHgw/ri9vp56D7rW7pTWdrFJcX/9+efv7+WSqcrJVsqvz6H6+ueQxLuwqIcuDxvX17T+/vTyfmFiWg38y+hiXKr9c315O56w6j3EM7pQynv54kd5++NFc3KvlZvfLl3/eXn79ej6WR4B7wuLp7V16f/nRwu7p4wDGuP793//9fRpjjfLtffPmO1jlm+/o2z+338F7883f2+/muyGzzGpNytJfr8+/qFyas9wjNsfNSqAfX772A/Dy3cqzHKrKXdfX55MyqwqyGnzmx5n00auOkc6l52eBgaYaGRFPP5qZM9W0RNrpeI5L+nl4ctwjObPc2s2MrEZKe6Qnwz09c+C57WURKUFk6OlHmRtIbhbatpn0xBM/cM89mS+Hc7PrKSIbQIbuwBlc4Mwg2QrFhGUDFCaWLaCZbKfTR+cMF45xcOzpRgbxeb5utLWGTY6OL6ewYzGdEB9sQosPyMhmsQWd7HD4kmH3n2qBhUwKD0uTQhbYLGTsZ/hN0tlXEgowSYUFJa05DIe95Nbg92Hr9U5DInzdILin49APSI67owhbBJ7YIszsjrEN28cdBpKJyYRGQyFBfHhEScKJ9fVtMNcX1kgkPeY3ay5rmmeAecayYqsmHiFYn9GyTDeIdI9an2XsQZKsgpQAJIcqxx8EkSCo4lNVLUEc8aBKlvJ/kYNHCQ9VzV2QViVLexzS6s5pJlQ4j6z6d1H+PwoA")
+size_override = Vector2(128, 64)
+
+[sub_resource type="Animation" id="Animation_nd11m"]
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nl4y"]
+_data = {
+&"Default": SubResource("Animation_nd11m")
+}
+
+[node name="IntroScene" type="Node2D"]
+script = ExtResource("1_1lbm6")
+
+[node name="DialogueUI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Panel" type="Panel" parent="DialogueUI"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -337.0
+offset_top = 69.0
+offset_right = 413.0
+offset_bottom = 244.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueUI/Panel"]
+layout_mode = 0
+offset_right = 750.0
+offset_bottom = 175.0
+
+[node name="NameLabel" type="Label" parent="DialogueUI/Panel/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_yeu1f")
+theme_override_font_sizes/font_size = 64
+text = "Lacuna"
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueUI/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+text = "[b]What[/b] am I?"
+scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="SkipLabel" type="Label" parent="DialogueUI"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -298.0
+offset_top = 11.0
+offset_right = -13.0
+offset_bottom = 59.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_yeu1f")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_rlvuq")
+text = "Press ‘S' to skip"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5uejo")
+}
+autoplay = "intro_seq"
+speed_scale = 0.35
+
+[node name="Background2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(579.5, 328.5)
+scale = Vector2(1.00608, 1.04784)
+texture = SubResource("PortableCompressedTexture2D_5o6ql")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/backdrop.aseprite",
+"source_uid": 7154844523075838859
+}
+metadata/_aseprite_wizard_source_file_hash_ = "e9d6415de7e34c0f9dd1d79a730dfe4b"
+
+[node name="ForegroundFrameLayer" type="TileMapLayer" parent="."]
+modulate = Color(1, 1, 1, 0.75)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAAAAAAPAAwAAAAAAAEAAAASAAkAAAAAAAIAAAASAAoAAAAAAAMAAAALAAoAAAAAAAQAAAASAAoAAAAAAAUAAAASAAoAAAAAAAYAAAAFAAkAAAAAAAcAAAASAAoAAAAAAAgAAAASAAoAAAAAAAkAAAALAAoAAAAAAAoAAAASAAoAAAAAAAsAAAASAAoAAAAAAAwAAAASAAsAAAAAAA0AAAAPAAwAAAABAA0AAAAQAAwAAAACAA0AAAAQAAwAAAADAA0AAAAQAAwAAAAEAA0AAAAQAAwAAAAFAA0AAAAQAAwAAAAGAA0AAAAQAAwAAAAHAA0AAAAQAAwAAAAIAA0AAAAQAAwAAAAJAA0AAAAQAAwAAAAKAA0AAAAQAAwAAAALAA0AAAAQAAwAAAAMAA0AAAAQAAwAAAANAA0AAAAQAAwAAAAOAA0AAAAQAAwAAAAPAA0AAAAQAAwAAAAQAA0AAAAQAAwAAAARAA0AAAAQAAwAAAASAA0AAAAQAAwAAAATAA0AAAAQAAwAAAAUAA0AAAAQAAwAAAAVAA0AAAAQAAwAAAAWAA0AAAAQAAwAAAAXAA0AAAARAAwAAAAXAAwAAAASAAsAAAAXAAsAAAASAAoAAAAXAAoAAAASAAoAAAAXAAkAAAAFAAkAAAAXAAgAAAASAAoAAAAXAAcAAAASAAoAAAAXAAYAAAALAAoAAAAXAAUAAAASAAoAAAAXAAQAAAASAAoAAAAXAAMAAAAFAAkAAAAXAAIAAAASAAoAAAAXAAEAAAASAAkAAAAXAAAAAAARAAwAAAABAAAAAAAQAAwAAAACAAAAAAAQAAwAAAADAAAAAAAQAAwAAAAEAAAAAAAQAAwAAAAFAAAAAAAQAAwAAAAGAAAAAAAQAAwAAAAHAAAAAAAQAAwAAAAIAAAAAAAQAAwAAAAJAAAAAAAQAAwAAAAKAAAAAAAQAAwAAAALAAAAAAAQAAwAAAAMAAAAAAAQAAwAAAANAAAAAAAQAAwAAAAOAAAAAAAQAAwAAAAPAAAAAAAQAAwAAAAQAAAAAAAQAAwAAAARAAAAAAAQAAwAAAASAAAAAAAQAAwAAAATAAAAAAAQAAwAAAAUAAAAAAAQAAwAAAAVAAAAAAAQAAwAAAAWAAAAAAAQAAwAAAABAAEAAAAGAA4AACABAAwAAAAGAA4AAAAWAAwAAAAGAA4AABA=")
+tile_set = SubResource("TileSet_fchh6")
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Lacuna" type="Sprite2D" parent="Entities"]
+texture_filter = 1
+position = Vector2(205, 551)
+scale = Vector2(2.51562, 2.42188)
+texture = SubResource("PortableCompressedTexture2D_5uejo")
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Node2D/Lacuna/AnimationPlayer",
+"slice": "",
+"source": "res://common/assets/main_player.aseprite",
+"source_uid": 1408612478824931064
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d018147a408de95b4620596bc9e646af"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Entities/Lacuna"]
+libraries = {
+&"": SubResource("AnimationLibrary_nd11m")
+}
+autoplay = "Idle"
+
+[node name="Duchess" type="Sprite2D" parent="Entities"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(914, 440)
+scale = Vector2(4.45313, 4.34375)
+texture = SubResource("PortableCompressedTexture2D_o1cr6")
+flip_h = true
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/main_player.aseprite",
+"source_uid": 1408612478824931064
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d018147a408de95b4620596bc9e646af"
+
+[node name="Portal" type="Sprite2D" parent="Entities"]
+texture_filter = 1
+position = Vector2(567, 586)
+scale = Vector2(1.34375, 1.39063)
+texture = SubResource("PortableCompressedTexture2D_fchh6")
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Entities/Portal/AnimationPlayer",
+"slice": "",
+"source": "res://common/assets/portal.aseprite",
+"source_uid": 474511757856907239
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3546b2e6b8e328754dd956eaa8eb1d77"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Entities/Portal"]
+libraries = {
+&"": SubResource("AnimationLibrary_1nl4y")
+}
+autoplay = "Default"

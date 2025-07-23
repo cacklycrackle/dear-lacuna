@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=4 uid="uid://co3nq8iiygjro"]
 
-[ext_resource type="Script" uid="uid://dqpkewp8s2hah" path="res://common/slingshot_puzzle/puzzle_base.gd" id="1_na2g0"]
-[ext_resource type="PackedScene" uid="uid://lajnvi4qp8e3" path="res://common/slingshot_puzzle/target/target.tscn" id="2_gs2n1"]
-[ext_resource type="PackedScene" uid="uid://c7it2gq5w8gmr" path="res://common/slingshot_puzzle/slingshot/slingshot.tscn" id="3_an5bb"]
+[ext_resource type="Script" uid="uid://dqpkewp8s2hah" path="res://puzzles/slingshot_puzzle/puzzle_base.gd" id="1_na2g0"]
+[ext_resource type="PackedScene" uid="uid://lajnvi4qp8e3" path="res://puzzles/slingshot_puzzle/target/target.tscn" id="2_gs2n1"]
+[ext_resource type="PackedScene" uid="uid://c7it2gq5w8gmr" path="res://puzzles/slingshot_puzzle/slingshot/slingshot.tscn" id="3_an5bb"]
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="4_e2b46"]
-[ext_resource type="PackedScene" uid="uid://cv0h4vq25x7w0" path="res://common/slingshot_puzzle/rock/rock.tscn" id="5_gs2n1"]
+[ext_resource type="PackedScene" uid="uid://cv0h4vq25x7w0" path="res://puzzles/slingshot_puzzle/rock/rock.tscn" id="5_gs2n1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oi70x"]
 texture = ExtResource("4_e2b46")

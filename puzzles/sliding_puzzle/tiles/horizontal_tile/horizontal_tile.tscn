@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://jc3lqnqqamsl"]
 
-[ext_resource type="Script" uid="uid://cgvotdforsld" path="res://common/sliding_puzzle/tiles/horizontal_tile/horizontal_tile.gd" id="1_b547u"]
+[ext_resource type="Script" uid="uid://cgvotdforsld" path="res://puzzles/sliding_puzzle/tiles/horizontal_tile/horizontal_tile.gd" id="1_b547u"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_53mgb"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAIAAAADwAAAAUklGRugAAABXRUJQVlA4TNwAAAAvP8AfAA9wjsNzHJ7jcP4DD3Bb25ZTMRO6hNcI0m3sS+ZHhJTgRv48hm6BmfSR2ebKJ3jniDmP6P8EdE5egI4jyyoWnNlVHFj+wdAX2ZSZSM0rEcVazEQQJnAfyrN9i0+WR9avWLdlB7Ba4MGsxQIozBEikJmj78DcHM8ASvM8sqxi45YhVfOTChFOspOCOTLlQJHEJUFnwfoVS68ptKwvpiBPFZu4aAXYi/AzuahEFEuxFv8nlWfDPVifNBNjYcne3FqWJ0vzvGJIanOkqmJ5ZVViHiJpswXBuHMy")

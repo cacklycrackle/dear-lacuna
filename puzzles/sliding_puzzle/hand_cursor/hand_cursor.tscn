@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://dpl47s7jygbfm"]
 
-[ext_resource type="Script" uid="uid://dyfynxi1186gf" path="res://common/sliding_puzzle/hand_cursor/hand_cursor.gd" id="1_5bvb5"]
+[ext_resource type="Script" uid="uid://dyfynxi1186gf" path="res://puzzles/sliding_puzzle/hand_cursor/hand_cursor.gd" id="1_5bvb5"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fx3lx"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAIAAAADgAAAAUklGRtgAAABXRUJQVlA4TMsAAAAvf8AfEB8gEEjyh1h1DYFAkj/EqgsEkvwhVn3+A/BXgePattXkIb8fdEwLenGZ00SqSAnYqyIlobOs5Z73smAW0f8JoPo4BiDaHKVApc7MXAhijF7evwyAUS+2kduZeaPfmfkEGPGAgnijAEwxzJWI/qAeXjRFVJsj8BUPKFlsGps34jGr1ChXnpWDobpEY/kA4C4ZOR7Ni/KW1SJyFQDupRuWy7Ok2aA46qQiJ4+MjgXY9cbzlsUBEIzIlc/zjgqkzkb0qD9e2hGVBgA=")

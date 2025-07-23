@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://cqc5twvmb4gpa"]
 
-[ext_resource type="Script" uid="uid://kwohfvnc5blt" path="res://common/sliding_puzzle/tiles/main_tile/main_tile.gd" id="1_rx8yh"]
+[ext_resource type="Script" uid="uid://kwohfvnc5blt" path="res://puzzles/sliding_puzzle/tiles/main_tile/main_tile.gd" id="1_rx8yh"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_8d6bk"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAByAQAAUklGRmoBAABXRUJQVlA4TF0BAAAvP8APAA9wjsNzHJ7jcP4DD3Js21Lspnp9KHGJWXrKFEpm7jcVDcDsVBg59HLEMBVmD4DtMrNd39TVq99/N/g0hYj+T4Dp2KNe/MINGxoouoi8yEpKgqw44MENvbFZgianQge1EQFINqRXG3DoerOzSQCcwJrrDZldqSoW/a3Sahrb+f68sioBi7OT1yHvsEM4QO5hh1BAdNgmLiIn7JOliBrpPnExe8e6t5Ux+u4T5KB065aD9InVEune3XIaluO+vXIOVq9PpTISnZQMr5rrHKiLV8+X1j0eJLOXSTxu7Dw8ux6vYyE9flBrCZb5YKqf7jWsy71fNMmXN+IZ0It2kF8DPebLqBGc58d4x3DKt3GPUQK9h0tT30CrqbeD77GxUg1/bKu/QMnEggPgTCEcgY1bB7RJ2IcGTg+CBbCWmyR/OqAneRP7qs7guOF/5awUKGR1qPO3kNWdWtMxAA==")

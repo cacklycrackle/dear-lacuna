@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://c7it2gq5w8gmr"]
 
-[ext_resource type="Script" uid="uid://cc06acqr7278u" path="res://common/slingshot_puzzle/slingshot/slingshot.gd" id="1_vm5qp"]
+[ext_resource type="Script" uid="uid://cc06acqr7278u" path="res://puzzles/slingshot_puzzle/slingshot/slingshot.gd" id="1_vm5qp"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_l0va6"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAAA4AQAAUklGRjABAABXRUJQVlA4TCMBAAAvP8APEDegqG0bONaTQfnsPSIBEjrNUa7xvl0xI0nQEAzDabH+TPud/wAA8DeVnLfL9QB2Y9txG8oV8Hr7Dh7hApQLFSCAJfAVkE3995Cn90hv3xH9R5i2bdRtIesn6S0OgMCHyMGVv7YtOJ8s4tu27Tq5SRYnrCAy6VVTYiWCYWeMqhdg0EKepsjk04Uc03RMWmMix0ANgCLH5A4icyxXJeH0Xievl9iqC0+m7sGXVn8xs4hMAVRd9ovMkKltX/NMihx9u2oDJo/+tdVGnjvlqjYyDcTWpsoTAHZtTG26kNxlh4yqaoj09P/1PqSrm3Vtav6OQOoaoFpIvYPajCl1jV0vd0AZo6+u3gHLKL0Nfj8DeW76BtwG1XHt7anj5LFgJwIA")

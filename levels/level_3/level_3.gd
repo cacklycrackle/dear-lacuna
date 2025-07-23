@@ -10,7 +10,7 @@ func _ready() -> void:
 	$Portal2.target_scene = "res://levels/level_4/level_4.tscn"
 	$Portal2.target_portal = "Portal1"
 	
-	$Stand1.puzzle_base = preload("res://common/sliding_puzzle/puzzle_base.tscn")
+	$Stand1.puzzle_base = preload("res://puzzles/sliding_puzzle/puzzle_base.tscn")
 	$Stand1.started.connect(_on_puzzle_started)
 	$Stand1.solved.connect(_on_puzzle_solved.bind(1))
 	stands_solved.resize(1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://jh8mb66frmun"]
 
-[ext_resource type="Script" uid="uid://dppjjm30od4xe" path="res://common/sliding_puzzle/puzzle_base.gd" id="1_22cb7"]
+[ext_resource type="Script" uid="uid://dppjjm30od4xe" path="res://puzzles/sliding_puzzle/puzzle_base.gd" id="1_22cb7"]
 
 [node name="PuzzleBase" type="CanvasLayer"]
 layer = 2

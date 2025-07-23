@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://cv0h4vq25x7w0"]
 
-[ext_resource type="Script" uid="uid://n4llpu0gj7m8" path="res://common/slingshot_puzzle/rock/rock.gd" id="1_ch4u7"]
+[ext_resource type="Script" uid="uid://n4llpu0gj7m8" path="res://puzzles/slingshot_puzzle/rock/rock.gd" id="1_ch4u7"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ch4u7"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAABYAgAAUklGRlACAABXRUJQVlA4TEQCAAAvP8APEDegqI0UOLrLDV9MoAFFbaTA0V1u+GICDShqIwWO7nLDFxNoYP4DAAD/3+66O+5uZoCStb1528r5m4u1j+eBcroAgtZc1nuwgZSeN0Sw/z3IkZi2944j+j8Bh//jw8N3pXN6+JaEkb4jzQ7loV+acTSfHnoNM0S5QuqVABuB00OfYYaiK1InKBrTApz6zFAWj37DCvcF/NwlEQbuRsTxocMwxwQ4xs+sXXwalxX+s0WP2UdZICCiWYdhVlmA8AjTpYeO+Y4BpUdSyeBhrLXDPOVmHs79fcMcEoQHeFgXPEeYm4EG5bgr4WHgBJRmum/mruNGWUo+7RlmUFthFOR63qVFm7E4RBTN7bRr0gjuwJijnR72RBjQDFBpEWXPYWatAWPWwErqk5upaDPg9LAjicKb6KRZAyhL2jG8ZtU3yTp+wWnHIWXVcXUtDVCOe4Y7qgLNKAvHhx3pCzeKoRXdltJrXlwMI1bvYcumYUYUz+aG41HabUdC8oKrBbhHRNSJLcMsWcGnsFWNqPWTtEWyAoQBHrXdav2cjhtSVtaOQNyq1lrrdN7wmqelAPEm+K1Wfa/1M7b8DlMFTK4RtaporRGnDa/XKAu4yUfc6mWUXKNuSvJhCo4Et6oiuU1qWwauAP4mxq1eRPJ7vSy7SrNVfFGXtGUG1WYihle9pw8bDjOlRZhcDb9dRERrPW9KSQNMPgy++DwfNg9po19GkVzjZdvWIf1SkdzOD70OwzyKSEuH/imJ/EgP33AYUno4/E8G")

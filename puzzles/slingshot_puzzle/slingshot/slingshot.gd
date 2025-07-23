@@ -3,7 +3,7 @@ extends Node2D
 @onready var l_line: Line2D = $LeftLine
 @onready var r_line: Line2D = $RightLine
 @onready var center: Vector2 = $Center.global_position
-@export var _rock_scene = preload("res://common/slingshot_puzzle/rock/rock.tscn")
+@export var _rock_scene = preload("res://puzzles/slingshot_puzzle/rock/rock.tscn")
 
 enum SlingState {
 	IDLE,

@@ -10,11 +10,11 @@ bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5dqa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn3ta"]
-bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l02xd"]
 bg_color = Color(0.638466, 0.586545, 0.583353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn3ta"]
+bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
@@ -78,6 +78,7 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 8
 
 [node name="BackButton" type="Button" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_force_pass_scroll_events = false
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -86,6 +87,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_tun2b")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_o5dqa")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_l02xd")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mb4aw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xn3ta")
 theme_override_styles/normal = SubResource("StyleBoxFlat_l02xd")
