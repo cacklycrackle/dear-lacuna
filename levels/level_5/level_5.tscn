@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="4_brddj"]
 [ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="5_oqpl7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gvy5e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqpl7"]
 texture = ExtResource("2_oqpl7")
 0:0/0 = 0
 1:0/0 = 0
@@ -479,7 +479,7 @@ texture = ExtResource("2_oqpl7")
 
 [sub_resource type="TileSet" id="TileSet_bvjqo"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_gvy5e")
+sources/0 = SubResource("TileSetAtlasSource_oqpl7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1khv"]
 texture = ExtResource("2_oqpl7")
@@ -1344,3 +1344,4 @@ tile_set = SubResource("TileSet_oqpl7")
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 
 [node name="VisionOverlay" parent="." instance=ExtResource("5_oqpl7")]
+visible = false

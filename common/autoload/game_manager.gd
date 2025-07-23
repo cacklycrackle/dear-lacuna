@@ -17,6 +17,7 @@ var save_data = {
 	"level_3": {"stand_1": false},
 	"level_4": {"stand_1": false},
 	"level_5": {"stand_1" : false, "stand_2": false},
+	"level_6": {"stand_1" : false, "stand_2": false},
 }
 
 

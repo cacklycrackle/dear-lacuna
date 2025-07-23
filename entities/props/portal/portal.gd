@@ -12,12 +12,14 @@ func _ready() -> void:
 	animation.play("Default")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.collision_layer == 1:
-		interactable = true
+	if body.name == "Player":
+		if body.collision_layer == 1:
+			interactable = true
 	
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.collision_layer == 1:
-		interactable = false
+	if body.name == "Player":
+		if body.collision_layer == 1:
+			interactable = false
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and interactable:
