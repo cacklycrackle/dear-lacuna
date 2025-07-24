@@ -5,22 +5,15 @@ func _ready() -> void:
 	super._ready()
 	level_id = 5
 	
-	$Portal1.target_scene = "res://levels/level_4/level_4.tscn"
-	$Portal1.target_portal = "Portal2"
-	$Portal2.target_scene = "res://common/ui/start_menu/start_menu.tscn"
-	$Portal2.target_portal = "Portal1"
-	
 	$Stand1.puzzle_base = preload("res://puzzles/slingshot_puzzle/puzzle_base.tscn")
 	$Stand1.solved.connect(_on_puzzle_solved.bind(1))
 	$Stand2.puzzle_base = preload("res://puzzles/sliding_puzzle/puzzle_base.tscn")
 	$Stand2.started.connect(_on_puzzle_started.bind(2))
 	$Stand2.solved.connect(_on_puzzle_solved.bind(2))
 	stands_solved.resize(2)
-	for i in range(stands_solved.size()):
-		stands_solved[i] = GameManager.save_data[save_name]["stand_%d" % (i + 1)]
-		if stands_solved[i]:
-			stands_solved[i] = false
-			_on_puzzle_solved(i + 1)
+	for i in range(1, stands_solved.size() + 1):
+		if GameManager.save_data[save_name]["stand_%d" % i]:
+			_on_puzzle_solved(i)
 	
 	var player_inst = GameManager.spawn_player(self)
 	add_child(player_inst)
@@ -30,16 +23,16 @@ func _on_puzzle_started(stand: int) -> void:
 	if stand == 2:
 		var stand_node = get_node("Stand%d" % stand)
 		stand_node.puzzle.tile_location = {
-			"v2" : [[-2, -2], [-1, -1], [0, 2], [1, 0], [2, -1], [3, 2]],
-			"h2" : [[-2, 3], [-1, -2], [0, -1], [1, 2], [2, -2], [2, 1]],
-			"m" : [[0, 0]]
+			"v2": [[0, 4], [1, 3], [2, 0], [3, 2], [4, 3], [5, 0]],
+			"h2": [[0, 0], [1, 5], [2, 4], [3, 1], [4, 5], [4, 2]],
+			"m" : [[2, 3]]
 		}
 		stand_node.puzzle.offset = stand_node.global_position
 
 func _on_puzzle_solved(stand: int) -> void:
 	if not stands_solved[stand - 1]:
-		var wall = get_node("Wall%d" % stand)
+		var wall := get_node("Stand%d/WallLayer" % stand)
+		wall.collision_enabled = false
 		wall.visible = false
-		wall.get_node("TileMapLayer").collision_enabled = false
 		stands_solved[stand - 1] = true
 		GameManager.save_data[save_name]["stand_%d" % stand] = true

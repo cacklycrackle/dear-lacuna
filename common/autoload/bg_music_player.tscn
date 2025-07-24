@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djf1a7461qdgp"]
+
+[ext_resource type="AudioStream" uid="uid://bqwmtirve4paf" path="res://common/assets/intro-test.wav" id="1_0adpu"]
+
+[node name="BgMusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_0adpu")
+volume_db = -34.0
+pitch_scale = 0.9
+autoplay = true

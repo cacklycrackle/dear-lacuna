@@ -53,11 +53,13 @@ func _inst_tile(x, y, tile):
 	var child = tile.instantiate()
 	match child.axis:
 		BaseTile.AxisType.X:
-			child.global_position = _screen_center + Vector2(x * 60 - 30, -y * 60)
+			#child.global_position = _screen_center + Vector2(x * 60 - 30, -y * 60)
+			child.global_position = _screen_center + Vector2(60 * (x - 2), 30 - 60 * (3 - y))
 		BaseTile.AxisType.Y:
-			child.global_position = _screen_center + Vector2(x * 60, -y * 60 + 30)
+			#child.global_position = _screen_center + Vector2(x * 60, -y * 60 + 30)
+			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 60 - 60 * (3 - y))
 		BaseTile.AxisType.M:
-			child.global_position = _screen_center + Vector2(x * 60 - 30, -y * 60 + 30)
+			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 30 - 60 * (3 - y))
 	add_child(child)
 
 func _input(event: InputEvent) -> void:

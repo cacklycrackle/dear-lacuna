@@ -84,7 +84,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Entities/Duchess:position")
+tracks/6/path = NodePath("Entities/Duke:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -96,7 +96,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Entities/Duchess:modulate")
+tracks/7/path = NodePath("Entities/Duke:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -203,7 +203,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(2.1, 5.4, 6.2, 6.6, 7.5, 8.7, 11.4, 11.7, 13.4, 13.7, 16.9, 17.1, 18.0333, 18.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 27, 28.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["Lacuna", "???", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna", "", "Duchess", "", "Lacuna"]
+"values": ["Lacuna", "???", "", "Lacuna", "", "Duke", "", "Lacuna", "", "Duke", "", "Lacuna", "", "Duke", "", "Lacuna", "", "Duke", "", "Lacuna", "", "Duke", "", "Lacuna"]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -215,9 +215,9 @@ tracks/4/keys = {
 "times": PackedFloat32Array(2, 3, 3.5, 5.3, 6.2, 6.6, 7.5, 8.7, 10, 10.2, 11.4, 11.7, 13.4, 13.7, 14.8, 15, 16.9, 17.1, 18.0333, 18.3, 19.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 25.7, 25.8, 27, 28.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["[b]What[/b] am I?", "", "[b]Where[/b] is this place?", "[color=BROWN][b]WELCOME . . .[/b][/color]", "", "[b]Who[/b] said that?", "", "[color=BROWN][b]It is I, Duchess Aki.[/b][/color]", "", "[color=BROWN][b]Whom dost thou claim to be?[/b][/color]", "", "I dost discover mine own self... to be unable to remembre", "", "[color=BROWN][b]There doth seem to be a void in thy remembrance[/b][/color]", "", "[color=BROWN][b]A tempest gathering in the heavens, 
+"values": ["[b]What[/b] am I?", "", "[b]Where[/b] is this place?", "[color=BROWN][b]WELCOME . . .[/b][/color]", "", "[b]Who[/b] said that?", "", "[color=BROWN][b]It is I, Duke Aki, watcher of souls.[/b][/color]", "", "[color=BROWN][b]Whom dost thou claim to be?[/b][/color]", "", "I dost discover mine own self... to be unable to remembre.", "", "[color=BROWN][b]There doth seem to be a void in thy remembrance.[/b][/color]", "", "[color=BROWN][b]A tempest gathering in the heavens, 
 there is... Lost souls are being pruned![/b][/color]", "", "However shall I survive?!", "", "[color=BROWN][b]Complete puzzles to free thy path, 
-thou must[/b][/color]", "[color=BROWN][b]Jump through the portals and venture as far as fate alloweth[/b][/color]", "", "Might I beseech thy succour upon this journey forth?", "", "[color=BROWN][b]Alas, thou must fend for thyself in these ends[/b][/color]", "", "I do most aspire to weave anew the tapestry of mine erstwhile existence, now adrift.", "", "[color=BROWN][b]Make haste now! I sense a tingle in my wrinkle...[/b][/color]", "", "[color=BROWN][b]Journey to the terminus, and meet once more we shall[/b][/color]", "", "Oh! A portal..."]
+thou must.[/b][/color]", "[color=BROWN][b]Jump through the portals and venture as far as fate alloweth.[/b][/color]", "", "Might I beseech thy succour upon this journey forth?", "", "[color=BROWN][b]Alas, thou must fend for thyself in these ends.[/b][/color]", "", "I do most aspire to weave anew the tapestry of mine erstwhile existence, now adrift.", "", "[color=BROWN][b]O' Lacuna, do make haste now! I sense a tingle in my wrinkle...[/b][/color]", "", "[color=BROWN][b]Journey to the terminus, and meet once more we shall.[/b][/color]", "", "Oh! A portal..."]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -234,7 +234,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Entities/Duchess:position")
+tracks/6/path = NodePath("Entities/Duke:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -246,7 +246,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Entities/Duchess:modulate")
+tracks/7/path = NodePath("Entities/Duke:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -312,7 +312,7 @@ tracks/12/path = NodePath(".:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -758,8 +758,8 @@ _data = {
 &"Idle": SubResource("Animation_sbp1j")
 }
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_o1cr6"]
-_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACmAAAAUklGRp4AAABXRUJQVlA4TJEAAAAvP8APEBcw//M///MfgAe3kSS5zb/xyIAymksC6kJANNTKhpw0UbinJs2I/k+A+1OnabAJqDdtgMxbaoC5ZRhVUfgp4Ql0QG2nllNiSm+k6yk3kB5JZy+VNWTBpAPqTXDiUdwhWNoW2uSVdAANFsZ+Sni1TVT9sE0bIw0trcVtqi1bdUaZbSpZW5yTtYSI4F4VAA==")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_yeu1f"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAADAAAAAUklGRrgAAABXRUJQVlA4TKsAAAAvP8APEBcw//M///MfgAe4tbW3bQClCbKmwQhKH84heiVMo5zqiG9NUh9ku3IX0f8JMP+VI8BK7kh2pRHJKB1I0iopx/Hv+Qd9U7ol3qwUEoNWliIDHhITAM0jZXkvBX9MRUeJBbwvlOcawPprI+CBSltxJ5+J5VbFCJ+HFcY4MuBhzUCJSHY0zNm0FIJ2ZHPM59Ix65TxJLX5lsdg1PYmuqFk3NA1M5rmrwIA")
 size_override = Vector2(64, 64)
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_fchh6"]
@@ -915,12 +915,12 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="Duchess" type="Sprite2D" parent="Entities"]
+[node name="Duke" type="Sprite2D" parent="Entities"]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(914, 440)
-scale = Vector2(4.45313, 4.34375)
-texture = SubResource("PortableCompressedTexture2D_o1cr6")
+scale = Vector2(5.126, 5)
+texture = SubResource("PortableCompressedTexture2D_yeu1f")
 flip_h = true
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
@@ -936,10 +936,10 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://common/assets/main_player.aseprite",
-"source_uid": 1408612478824931064
+"source": "res://common/assets/npc.aseprite",
+"source_uid": 5294638333874192441
 }
-metadata/_aseprite_wizard_source_file_hash_ = "d018147a408de95b4620596bc9e646af"
+metadata/_aseprite_wizard_source_file_hash_ = "dffe1a89f9d0cbfef8e89541cd53d7d7"
 
 [node name="Portal" type="Sprite2D" parent="Entities"]
 texture_filter = 1

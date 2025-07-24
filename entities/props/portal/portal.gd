@@ -1,11 +1,10 @@
 extends Sprite2D
 
-
+## Toggle whether portal leads to previous level (default) or next level
+@export var go_to_next_level: bool = false
 @onready var animation = $AnimationPlayer
 
 var interactable = false
-var target_scene
-var target_portal
 
 
 func _ready() -> void:
@@ -22,6 +21,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			interactable = false
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and interactable:
-		get_tree().change_scene_to_file(target_scene)
-		GameManager.spawn_at_portal = target_portal
+	if interactable and event.is_action_pressed("interact"):
+		#get_tree().change_scene_to_file(target_scene)
+		#GameManager.spawn_at_portal = target_portal
+		GameManager.move_level(go_to_next_level)

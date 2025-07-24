@@ -37,6 +37,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_p1g6d")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
