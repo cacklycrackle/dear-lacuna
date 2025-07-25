@@ -5,154 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bk1v0qc3vusuc" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="3_lull0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlvuq"]
-bg_color = Color(0.351675, 0.450129, 0.361786, 1)
-
-[sub_resource type="Animation" id="Animation_rlvuq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Entities/Lacuna:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Entities/Lacuna:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(205, 551)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DialogueUI/Panel:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("DialogueUI/Panel/VBoxContainer/NameLabel:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Lacuna"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:text")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["[b]What[/b] am I?"]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("DialogueUI/Panel/VBoxContainer/DialogueLabel:visible_ratio")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Entities/Duke:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(914, 440)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Entities/Duke:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Entities/Portal:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Entities/Portal:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(567, 586)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Entities/Lacuna:flip_h")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath(".:modulate")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
+bg_color = Color(0.352, 0.45, 0.362, 0)
 
 [sub_resource type="Animation" id="Animation_fchh6"]
 resource_name = "intro_seq"
@@ -215,9 +68,9 @@ tracks/4/keys = {
 "times": PackedFloat32Array(2, 3, 3.5, 5.3, 6.2, 6.6, 7.5, 8.7, 10, 10.2, 11.4, 11.7, 13.4, 13.7, 14.8, 15, 16.9, 17.1, 18.0333, 18.3, 19.3, 20.3, 20.5, 21.6, 21.8, 22.8, 23, 24.3, 24.5, 25.7, 25.8, 27, 28.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["[b]What[/b] am I?", "", "[b]Where[/b] is this place?", "[color=BROWN][b]WELCOME . . .[/b][/color]", "", "[b]Who[/b] said that?", "", "[color=BROWN][b]It is I, Duke Aki, watcher of souls.[/b][/color]", "", "[color=BROWN][b]Whom dost thou claim to be?[/b][/color]", "", "I dost discover mine own self... to be unable to remembre.", "", "[color=BROWN][b]There doth seem to be a void in thy remembrance.[/b][/color]", "", "[color=BROWN][b]A tempest gathering in the heavens, 
-there is... Lost souls are being pruned![/b][/color]", "", "However shall I survive?!", "", "[color=BROWN][b]Complete puzzles to free thy path, 
-thou must.[/b][/color]", "[color=BROWN][b]Jump through the portals and venture as far as fate alloweth.[/b][/color]", "", "Might I beseech thy succour upon this journey forth?", "", "[color=BROWN][b]Alas, thou must fend for thyself in these ends.[/b][/color]", "", "I do most aspire to weave anew the tapestry of mine erstwhile existence, now adrift.", "", "[color=BROWN][b]O' Lacuna, do make haste now! I sense a tingle in my wrinkle...[/b][/color]", "", "[color=BROWN][b]Journey to the terminus, and meet once more we shall.[/b][/color]", "", "Oh! A portal..."]
+"values": ["[b]What[/b] am I?", "", "[b]Where[/b] is this place?", "[color=CRIMSON][b]WELCOME . . .[/b][/color]", "", "[b]Who[/b] said that?", "", "[color=CRIMSON][b]It is I, Duke Aki, watcher of souls.[/b][/color]", "", "[color=CRIMSON][b]Whom dost thou claim to be?[/b][/color]", "", "I dost discover mine own self... to be unable to remembre.", "", "[color=CRIMSON][b]There doth seem to be a void in thy remembrance.[/b][/color]", "", "[color=CRIMSON][b]A tempest gathering in the heavens, 
+there is... Lost souls are being pruned![/b][/color]", "", "However shall I survive?!", "", "[color=CRIMSON][b]Complete puzzles to free thy path, 
+thou must.[/b][/color]", "[color=CRIMSON][b]Jump through the portals and venture as far as fate alloweth.[/b][/color]", "", "Might I beseech thy succour upon this journey forth?", "", "[color=CRIMSON][b]Alas, thou must fend for thyself in these ends.[/b][/color]", "", "I do most aspire to weave anew the tapestry of mine erstwhile existence, now adrift.", "", "[color=CRIMSON][b]O' Lacuna, do make haste now! I sense a tingle in my wrinkle...[/b][/color]", "", "[color=CRIMSON][b]Journey to the terminus, and meet once more we shall.[/b][/color]", "", "Oh! A portal..."]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -308,19 +161,46 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath(".:modulate")
+tracks/12/path = NodePath("DialogueUI/SkipLabel:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "times": PackedFloat32Array(0, 1.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1lbm6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueUI/SkipLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5uejo"]
 _data = {
-&"RESET": SubResource("Animation_rlvuq"),
+&"RESET": SubResource("Animation_1lbm6"),
 &"intro_seq": SubResource("Animation_fchh6")
 }
 
@@ -799,9 +679,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -337.0
-offset_top = 69.0
+offset_top = 89.0
 offset_right = 413.0
-offset_bottom = 244.0
+offset_bottom = 264.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueUI/Panel"]
@@ -833,11 +713,12 @@ unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -298.0
-offset_top = 11.0
-offset_right = -13.0
-offset_bottom = 59.0
+offset_left = -332.0
+offset_top = 48.0
+offset_right = -47.0
+offset_bottom = 96.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_yeu1f")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_rlvuq")
@@ -846,6 +727,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_5uejo")
 }
@@ -886,7 +768,8 @@ tile_set = SubResource("TileSet_fchh6")
 
 [node name="Lacuna" type="Sprite2D" parent="Entities"]
 texture_filter = 1
-position = Vector2(205, 551)
+position = Vector2(174.283, 531.482)
+rotation = 0.418841
 scale = Vector2(2.51562, 2.42188)
 texture = SubResource("PortableCompressedTexture2D_5uejo")
 hframes = 2
@@ -942,8 +825,9 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "dffe1a89f9d0cbfef8e89541cd53d7d7"
 
 [node name="Portal" type="Sprite2D" parent="Entities"]
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
-position = Vector2(567, 586)
+position = Vector2(568, 77)
 scale = Vector2(1.34375, 1.39063)
 texture = SubResource("PortableCompressedTexture2D_fchh6")
 hframes = 2

@@ -4,6 +4,6 @@
 
 [node name="BgMusicPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_0adpu")
-volume_db = -37.0
+volume_db = -32.0
 pitch_scale = 0.9
 autoplay = true
