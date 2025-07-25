@@ -5,7 +5,6 @@ signal solved
 signal exited
 
 const _descr = """[b][color=BLACK]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
-Strike [i]any[/i] target out of order and thou shalt be compelled to commence anew!
 [ul] While engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z), employ [/ul]
 [indent]   thy [color=#065084]movement keys[/color] to guide the hand cursor around[/indent]
 [ul] Release thine [color=#065084]interact key[/color] to launch the rock upon its fateful path[/ul]
