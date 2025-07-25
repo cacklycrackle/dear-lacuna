@@ -44,11 +44,6 @@ func _on_target_entered(body: Node2D, index: int, value: int) -> void:
 			#_targets[index].color = Color.PALE_GREEN
 			_targets[index].visible = false
 			_number += 1
-		else:
-			for target in _targets:
-				target.color = Color.SALMON
-				target.visible = true
-			_number = 1
 
 func _process(_delta: float) -> void:
 	match _state:
