@@ -551,3 +551,4 @@ tile_set = SubResource("TileSet_jri26")
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 
 [node name="VisionOverlay" parent="." instance=ExtResource("5_pyc81")]
+layer = 0

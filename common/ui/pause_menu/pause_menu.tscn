@@ -1,27 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://di3v7xgqdv0ef"]
+[gd_scene load_steps=10 format=4 uid="uid://cdjtn4u5hrdmo"]
 
-[ext_resource type="Script" uid="uid://c0nqoiiciufkm" path="res://common/ui/pause_menu/pause_menu.gd" id="1_4ekc8"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_hya0r"]
+[ext_resource type="Script" uid="uid://dpanx4akm3vgi" path="res://common/ui/pause_menu/pause_menu.gd" id="1_hya0r"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_2wdbx"]
+[ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="3_8rwjq"]
 
-[node name="PauseMenu" type="Control"]
-process_mode = 3
-visible = false
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_y0har"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAAsAgAAUklGRiQCAABXRUJQVlA4TBgCAAAvv8AfEBcw//M///MfgAdJtm01dsNbS7y2JNsKjIYhOClV2/GNBjmNgN/gDrOKz62Hs92J6L8Dt20jiQOc6S6cbfYT4W/5yNwpd0KUSL0R6oFJVFWqCWFc4pSAUMYlRikIZUzilCLB88bf6I423cF3/E7e4N9j4XctFBiPlfgHlcRCpLFMWONYmIXCBTPqJN/EFZ4N3DzbWKQWOc6gz7dc4yF9DbDyV6AvZynQ7REy3KTuwh/Ttuyrlm8bO+ixpbM0YW7X4AXQ9ZQbgDQ8PQcAHfqCrvOKb6liLa5sOCMVtNAA9HlSXUIHcsSkZ1yab/7D/CXTv2j+nMyfw/lzPv9/NBYpE4I1UmCBqGudBlcSOzEFyoOLOxY92YxYrPEdsZy/y/eucJVr33llgVAWqERYoBKnROKUEyJSb4R6CGM5UKeBOgn/l49MiVuJLPaFX2LMzxiIG4RRP2WSX2J2FXyNtF0LfcEqZAdfsPI9Fv5ohQJjsd2FCkQSGxd+C2Oy3/Mb2eDZsZtnK9z6hvZ5w6jcUj4AEN+e10Gwp9selZXud+jYQVevbz7mpfM1uU65Ad3WN9h22h5sZMdMFPTBMqw9QjPgKbSL1VGwDODRpKfzzX+YvmT+F82fk/lzOH3O5/+P3CJzEXwK27UMiFNG4rPjPimN7VUhNPYOvr7rj1dhMr7DSj9h1M0CI26JseAWmQu3THNI+Fs/Ag==")
+size_override = Vector2(192, 128)
+
+[sub_resource type="Animation" id="Animation_2wdbx"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8rwjq"]
+_data = {
+&"Default": SubResource("Animation_2wdbx")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4kfjk"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAAsAgAAUklGRiQCAABXRUJQVlA4TBgCAAAvv8AfEBcw//M///MfgAdJtm01dsNbS7y2JNsKjIYhOClV2/GNBjmNgN/gDrOKz62Hs92J6L8Dt20jiQOc6S6cbfYT4W/5yNwpd0KUSL0R6oFJVFWqCWFc4pSAUMYlRikIZUzilCLB88bf6I423cF3/E7e4N9j4XctFBiPlfgHlcRCpLFMWONYmIXCBTPqJN/EFZ4N3DzbWKQWOc6gz7dc4yF9DbDyV6AvZynQ7REy3KTuwh/Ttuyrlm8bO+ixpbM0YW7X4AXQ9ZQbgDQ8PQcAHfqCrvOKb6liLa5sOCMVtNAA9HlSXUIHcsSkZ1yab/7D/CXTv2j+nMyfw/lzPv9/NBYpE4I1UmCBqGudBlcSOzEFyoOLOxY92YxYrPEdsZy/y/eucJVr33llgVAWqERYoBKnROKUEyJSb4R6CGM5UKeBOgn/l49MiVuJLPaFX2LMzxiIG4RRP2WSX2J2FXyNtF0LfcEqZAdfsPI9Fv5ohQJjsd2FCkQSGxd+C2Oy3/Mb2eDZsZtnK9z6hvZ5w6jcUj4AEN+e10Gwp9selZXud+jYQVevbz7mpfM1uU65Ad3WN9h22h5sZMdMFPTBMqw9QjPgKbSL1VGwDODRpKfzzX+YvmT+F82fk/lzOH3O5/+P3CJzEXwK27UMiFNG4rPjPimN7VUhNPYOvr7rj1dhMr7DSj9h1M0CI26JseAWmQu3THNI+Fs/Ag==")
+size_override = Vector2(192, 128)
+
+[sub_resource type="Animation" id="Animation_gip8j"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exq0c"]
+_data = {
+&"Default": SubResource("Animation_gip8j")
+}
+
+[node name="Pause" type="Control"]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ekc8")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.147672, 0.147672, 0.147672, 0.901961)
+script = ExtResource("1_hya0r")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -38,37 +77,218 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_fonts/font = ExtResource("2_hya0r")
-theme_override_font_sizes/font_size = 48
-text = "Paused"
-
 [node name="Save" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_fonts/font = ExtResource("2_hya0r")
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
 theme_override_font_sizes/font_size = 32
-text = "Save
+theme_override_styles/focus = ExtResource("3_8rwjq")
+theme_override_styles/disabled_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/disabled = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed = ExtResource("3_8rwjq")
+theme_override_styles/hover_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover = ExtResource("3_8rwjq")
+theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/pressed = ExtResource("3_8rwjq")
+theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/normal = ExtResource("3_8rwjq")
+text = "Save"
+
+[node name="Load" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(0.52549, 0.52549, 0.52549, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = ExtResource("3_8rwjq")
+theme_override_styles/disabled_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/disabled = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed = ExtResource("3_8rwjq")
+theme_override_styles/hover_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover = ExtResource("3_8rwjq")
+theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/pressed = ExtResource("3_8rwjq")
+theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/normal = ExtResource("3_8rwjq")
+text = "Load"
+
+[node name="Main Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = ExtResource("3_8rwjq")
+theme_override_styles/disabled_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/disabled = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed = ExtResource("3_8rwjq")
+theme_override_styles/hover_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover = ExtResource("3_8rwjq")
+theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/pressed = ExtResource("3_8rwjq")
+theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/normal = ExtResource("3_8rwjq")
+text = "Main Menu
 "
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_fonts/font = ExtResource("2_hya0r")
+mouse_filter = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
 theme_override_font_sizes/font_size = 32
-text = "Resume"
-
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_fonts/font = ExtResource("2_hya0r")
-theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = ExtResource("3_8rwjq")
+theme_override_styles/disabled_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/disabled = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover_pressed = ExtResource("3_8rwjq")
+theme_override_styles/hover_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/hover = ExtResource("3_8rwjq")
+theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/pressed = ExtResource("3_8rwjq")
+theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
+theme_override_styles/normal = ExtResource("3_8rwjq")
 text = "Exit
 "
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -7
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.147672, 0.147672, 0.147672, 0.901961)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 152.0
+offset_right = 668.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+
+[node name="RightArrow" type="Sprite2D" parent="."]
+z_index = 4
+texture_filter = 1
+position = Vector2(730, 355)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = SubResource("PortableCompressedTexture2D_y0har")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "RightArrow/RightAnimation",
+"slice": "",
+"source": "res://common/assets/Selection.aseprite",
+"source_uid": 6834331695804360138
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
+
+[node name="RightAnimation" type="AnimationPlayer" parent="RightArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_8rwjq")
+}
+
+[node name="LeftArrow" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(485, 401)
+texture = SubResource("PortableCompressedTexture2D_4kfjk")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "LeftArrow/LeftAnimation",
+"slice": "",
+"source": "res://common/assets/Selection.aseprite",
+"source_uid": 6834331695804360138
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
+
+[node name="LeftAnimation" type="AnimationPlayer" parent="LeftArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_exq0c")
+}
+
 [connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

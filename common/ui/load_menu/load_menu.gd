@@ -3,6 +3,7 @@ extends Control
 
 @onready var selection = $VBoxContainer/HBoxContainer
 @onready var highlight = $Highlight
+@onready var pause_menu = load("res://common/ui/pause_menu/pause_menu.tscn")
 
 var _index: int = 0:
 	set(value):
@@ -35,6 +36,23 @@ func _input(event):
 		_index = (_index - 1) % saves.size()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		_press()
+	elif event.is_action_pressed("pause"):
+		if self.get_parent() is Window:
+			set_process_input(false)
+			var tween = create_tween()
+			tween.tween_property(self, "modulate:a", 0.0, 0.5)
+			await tween.finished
+			get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+		elif self.get_parent() is CanvasLayer:
+			var pause_menu_inst = pause_menu.instantiate()
+			get_tree().paused = true
+			self.get_parent().queue_free()
+			var top_layer = CanvasLayer.new()
+			top_layer.layer = 1
+			get_tree().root.add_child(top_layer)
+			get_tree().paused = true
+			pause_menu_inst.process_mode = Node.PROCESS_MODE_ALWAYS
+			top_layer.add_child(pause_menu_inst)
 
 func _press():
 	var save_path = "{0}/{1}.json".format([_SAVE_DIR, saves[_index].name])
@@ -49,16 +67,16 @@ func _load_data(data):
 	GameManager.load_from_save = true
 	var level = int(GameManager.save_data["level"])
 	var load_scene = "res://levels/level_{0}/level_{0}.tscn".format([level])
-	
 	set_process_input(false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
+	#print(self.get_parent())
+	if self.get_parent() is CanvasLayer:
+		self.get_parent().queue_free()
 	get_tree().change_scene_to_file(load_scene)
+	#if get_tree():
+		#print(get_tree().root.get_children())
 
-func _on_back_button_pressed() -> void:
-	set_process_input(false)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
-	get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+
+	

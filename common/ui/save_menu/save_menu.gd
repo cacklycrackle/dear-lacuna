@@ -3,6 +3,7 @@ extends Control
 
 @onready var selection = $VBoxContainer/HBoxContainer
 @onready var highlight = $Highlight
+@onready var pause_menu = load("res://common/ui/pause_menu/pause_menu.tscn")
 
 var _index: int = 0:
 	set(value):
@@ -28,9 +29,18 @@ func _input(event):
 		_index = (_index - 1) % saves.size()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		press()
+		GameManager.is_paused = false
 	elif event.is_action_pressed("pause"):
+		var pause_menu_inst = pause_menu.instantiate()
 		get_tree().paused = true
-		queue_free()
+		self.get_parent().queue_free()
+		var top_layer = CanvasLayer.new()
+		top_layer.layer = 1
+		get_tree().root.add_child(top_layer)
+		get_tree().paused = true
+		pause_menu_inst.process_mode = Node.PROCESS_MODE_ALWAYS
+		top_layer.add_child(pause_menu_inst)
+
 
 func press():
 	for node in get_tree().root.get_children():
@@ -46,4 +56,4 @@ func press():
 	file.close()
 	
 	get_tree().paused = false
-	queue_free()
+	self.get_parent().queue_free()

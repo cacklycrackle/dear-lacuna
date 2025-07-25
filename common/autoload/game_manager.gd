@@ -4,12 +4,12 @@ extends Node
 const PLAYER_GROUP = "main_player"
 const NO_OF_LEVELS = 6 # Change as needed
 
-var pause_menu = preload("res://common/ui/pause_menu/pause_menu.tscn")
 var player = preload("res://entities/player/player.tscn")
 var spawn_at_portal = "PortalNext" # Change to PortalPrev to debug individual level > 1
 var curr_level: int = 1
 var in_puzzle = false
 var load_from_save = false
+var is_paused = false
 # Note: standardise keys to snake_case
 var save_data = {
 	"level": null,
@@ -24,11 +24,7 @@ var save_data = {
 
 
 func _ready() -> void:
-	var canvas_layer_inst := CanvasLayer.new()
-	var pause_menu_inst: Control = pause_menu.instantiate()
-	canvas_layer_inst.layer = 100
-	canvas_layer_inst.add_child(pause_menu_inst)
-	get_tree().root.add_child.call_deferred(canvas_layer_inst)
+	pass
 
 
 func spawn_player(level: BaseLevel) -> Player:
