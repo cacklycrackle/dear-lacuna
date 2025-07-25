@@ -1,8 +1,8 @@
 extends Node2D
 class_name HandCursor
 
-const SPEED = 280.0
-var moveable = true
+var speed := 400.0
+var moveable := true
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -10,12 +10,12 @@ func _process(delta):
 	# Check input actions
 	if moveable:
 		if Input.is_action_pressed("right"):
-			velocity.x += 1
+			velocity.x += 0.5
 		if Input.is_action_pressed("left"):
-			velocity.x -= 1
+			velocity.x -= 0.5
 		if Input.is_action_pressed("down"):
-			velocity.y += 1
+			velocity.y += 0.5
 		if Input.is_action_pressed("up"):
-			velocity.y -= 1
+			velocity.y -= 0.5
 	
-	position += velocity * SPEED * delta
+	position += velocity * speed * delta

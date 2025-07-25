@@ -6,10 +6,9 @@ signal exited
 
 const _descr = """[b][color=BLACK]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
 Strike [i]any[/i] target out of order and thou shalt be compelled to commence anew!
-[ul] Employ thy [color=#065084]mouse[/color] to guide thy cursor o'er the rock[/ul]
-[ul] Whilst engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z),[/ul]
-[indent]   sway thy [color=#065084]mouse[/color] about to tension the slingshot[/indent]
-[ul] Release thine [color=#065084]interact key[/color] to unleash the rock upon its fateful path[/ul]
+[ul] While engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z), employ [/ul]
+[indent]   thy [color=#065084]movement keys[/color] to guide the hand cursor around[/indent]
+[ul] Release thine [color=#065084]interact key[/color] to launch the rock upon its fateful path[/ul]
 [ul] Bide thy time until the rock doth rematerialise on the slingshot[/ul]
 """
 @onready var slingshot = $Slingshot

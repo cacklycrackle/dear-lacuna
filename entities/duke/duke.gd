@@ -1,7 +1,8 @@
 extends Sprite2D
 
-
-@export var dialogue: String
+## Dialogue for NPC to display
+@export_multiline var dialogue: String
+## Max duration that dialogue will be visible for if player remains on NPC
 @export var duration := 10.0
 
 @onready var popup_panel = $Control/PopupPanel

@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var hand_cursor = $HandCursor
 @onready var l_line: Line2D = $LeftLine
 @onready var r_line: Line2D = $RightLine
 @onready var center: Vector2 = $Center.global_position
@@ -19,23 +20,26 @@ func _ready() -> void:
 	_state = SlingState.IDLE
 	_set_lines(center)
 	_spawn_new_rock()
+	hand_cursor.speed = 200.0
+	hand_cursor.global_position = center
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	match _state:
 		SlingState.IDLE:
 			pass
 		SlingState.PULLING:
-			var mouse = get_global_mouse_position()
+			var pos = hand_cursor.global_position
 			if Input.is_action_pressed("interact"):
 				# Slingshot pulled back
-				if mouse.distance_to(center) > 75:
-					mouse = center + (mouse - center).normalized() * 75
-				rock.global_position = mouse
-				_set_lines(mouse)
+				if pos.distance_to(center) > 75:
+					pos = center + (pos - center).normalized() * 75
+				rock.global_position = pos
+				_set_lines(pos)
 			else:
 				# Rock launched
-				var distance = rock.global_position.distance_to(center)
-				var velocity = center - rock.global_position
+				hand_cursor.moveable = false
+				var distance = pos.distance_to(center)
+				var velocity = center - pos
 				rock.throw_rock(velocity / 5 * distance)
 				_set_lines(center)
 				_state = SlingState.SHOT
@@ -51,6 +55,7 @@ func _process(_delta: float) -> void:
 				_state = SlingState.IDLE
 				_set_lines(center)
 				_spawn_new_rock()
+				hand_cursor.global_position = center
 func _set_lines(loc: Vector2) -> void:
 	l_line.points[1] = l_line.to_local(loc)
 	r_line.points[1] = r_line.to_local(loc)
@@ -60,7 +65,7 @@ func _spawn_new_rock() -> void:
 	add_child(rock)
 	rock.global_position = center
 
-func _on_touch_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if _state == SlingState.IDLE and not rock.is_thrown:
-		if (event is InputEventMouseMotion) and Input.is_action_pressed("interact"):
-			_state = SlingState.PULLING
+func _input(event: InputEvent) -> void:
+	if _state == SlingState.IDLE and not rock.is_thrown and Input.is_action_pressed("interact"):
+		_state = SlingState.PULLING
+		hand_cursor.moveable = true

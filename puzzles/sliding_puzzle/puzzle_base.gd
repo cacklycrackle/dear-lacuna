@@ -9,17 +9,18 @@ signal exited
 const _descr = """[b][color=BLACK]Objective[/color][/b]: Transport the [i]principal ocular tile[/i] 
 unto the designated square upon the rightward side
 [ul] Employ thy [color=#065084]movement keys[/color] ([i]default[/i]: arrow keys) to[/ul]
-[indent]   guide thy hand cursor o'er tile to shift henceforth[/indent]
+[indent]   guide the hand cursor o'er tile to shift henceforth[/indent]
 [ul] With thy cursor in position, hold the [color=#065084]interact key[/color] ([i]default[/i]: Z)[/ul]
 [indent]   and [color=#065084]movement keys[/color] in unison to nudge a tile most moveable[/indent]
 """
 var _puzzle_board = preload("res://puzzles/sliding_puzzle/puzzle_board.tscn")
-var _cursor_scene = preload("res://puzzles/sliding_puzzle/hand_cursor/hand_cursor.tscn")
 var _tile_dict = {
 	"v2": preload("res://puzzles/sliding_puzzle/tiles/vertical_tile/vertical_tile.tscn"),
 	"h2": preload("res://puzzles/sliding_puzzle/tiles/horizontal_tile/horizontal_tile.tscn"),
 	"m": preload("res://puzzles/sliding_puzzle/tiles/main_tile/main_tile.tscn"),
 }
+var _cursor_scene = preload("res://entities/props/hand_cursor/hand_cursor.tscn")
+
 var _screen_center: Vector2
 #var offset = Vector2.ZERO
 var tile_location

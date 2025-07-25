@@ -6,7 +6,7 @@ const NO_OF_LEVELS = 6 # Change as needed
 
 var pause_menu = preload("res://common/ui/pause_menu/pause_menu.tscn")
 var player = preload("res://entities/player/player.tscn")
-var spawn_at_portal = "PortalPrev" # Change to PortalPrev to debug individual level > 1
+var spawn_at_portal = "PortalNext" # Change to PortalPrev to debug individual level > 1
 var curr_level: int = 1
 var in_puzzle = false
 var load_from_save = false
@@ -32,7 +32,7 @@ func _ready() -> void:
 
 
 func spawn_player(level: BaseLevel) -> Player:
-	curr_level = level.level_id # Uncomment to run individual level for debugging
+	#curr_level = level.level_id # Uncomment only to debug individual level
 	var player_inst = player.instantiate()
 	if load_from_save:
 		load_from_save = false
