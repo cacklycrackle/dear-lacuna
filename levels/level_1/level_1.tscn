@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cor22x52a3jas"]
+[gd_scene load_steps=8 format=4 uid="uid://cor22x52a3jas"]
 
 [ext_resource type="Script" uid="uid://cyxbwivokf3nu" path="res://levels/level_1/level_1.gd" id="1_vnunq"]
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="2_5b03i"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_i63mn"]
 [ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="4_iey7c"]
+[ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="5_5b03i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6u7d"]
 texture = ExtResource("2_5b03i")
@@ -434,6 +435,10 @@ tile_set = SubResource("TileSet_mxc8w")
 [node name="PortalNext" parent="." instance=ExtResource("2_i63mn")]
 position = Vector2(1120, 228)
 go_to_next_level = true
+
+[node name="Duke" parent="." instance=ExtResource("5_5b03i")]
+position = Vector2(355, 482)
+dialogue = "Seek the portal that shall transport thee to the next realm. Employ the arrow signs to direct thy path. Pray, do employ double leaps if so required."
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 

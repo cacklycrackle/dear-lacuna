@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=4 uid="uid://c3wl3p1a5c1tm"]
+
+[ext_resource type="Script" uid="uid://bsb67eiwncorj" path="res://entities/duke/duke.gd" id="1_oq3sr"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_nou4n"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_u42ys"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAADAAAAAUklGRrgAAABXRUJQVlA4TKsAAAAvP8APEBcw//M///MfgAe4tbW3bQClCbKmwQhKH84heiVMo5zqiG9NUh9ku3IX0f8JMP+VI8BK7kh2pRHJKB1I0iopx/Hv+Qd9U7ol3qwUEoNWliIDHhITAM0jZXkvBX9MRUeJBbwvlOcawPprI+CBSltxJ5+J5VbFCJ+HFcY4MuBhzUCJSHY0zNm0FIJ2ZHPM59Ix65TxJLX5lsdg1PYmuqFk3NA1M5rmrwIA")
+size_override = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqntd"]
+size = Vector2(35, 40)
+
+[node name="Duke" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("PortableCompressedTexture2D_u42ys")
+script = ExtResource("1_oq3sr")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/npc.aseprite",
+"source_uid": 5294638333874192441
+}
+metadata/_aseprite_wizard_source_file_hash_ = "dffe1a89f9d0cbfef8e89541cd53d7d7"
+
+[node name="InteractableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(2.5, 11)
+shape = SubResource("RectangleShape2D_eqntd")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -52.0
+offset_right = -32.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="PopupPanel" type="PopupPanel" parent="Control"]
+size = Vector2i(258, 108)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/PopupPanel"]
+custom_minimum_size = Vector2(270, 100)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 274.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DialogueLabel" type="Label" parent="Control/PopupPanel/ScrollContainer"]
+custom_minimum_size = Vector2(260, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(100, 100, 100, 1)
+theme_override_fonts/font = ExtResource("2_nou4n")
+theme_override_font_sizes/font_size = 16
+text = "text"
+autowrap_mode = 2
+
+[connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
+[connection signal="body_exited" from="InteractableArea" to="." method="_on_interactable_area_body_exited"]

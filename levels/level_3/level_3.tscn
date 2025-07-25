@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cxr8v6umigqii"]
+[gd_scene load_steps=11 format=4 uid="uid://cxr8v6umigqii"]
 
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="1_fqu2u"]
 [ext_resource type="Script" uid="uid://bao8woifdt41g" path="res://levels/level_3/level_3.gd" id="1_upa32"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_1ylvm"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="4_0c4fo"]
 [ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="4_1ylvm"]
+[ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="4_e2rvl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35b77"]
 texture = ExtResource("1_fqu2u")
@@ -915,6 +916,11 @@ visibility_layer = 2
 position = Vector2(1105, 594)
 scale = Vector2(0.65625, 0.84375)
 go_to_next_level = true
+
+[node name="Duke" parent="." instance=ExtResource("4_e2rvl")]
+position = Vector2(245, 440)
+dialogue = "Thou shalt verily encounter puzzling conundrums to unravel in thy quest henceforth . . ."
+duration = 5.0
 
 [node name="Stand1" parent="." instance=ExtResource("4_0c4fo")]
 position = Vector2(595, 128)

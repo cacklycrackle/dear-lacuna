@@ -4,7 +4,9 @@ extends CanvasLayer
 signal solved
 signal exited
 
-const _descr = """[b][color=#074799]Objective[/color][/b]: Transport the [i]principal ocular tile[/i] 
+@onready var help_label = $HelpLabel
+
+const _descr = """[b][color=BLACK]Objective[/color][/b]: Transport the [i]principal ocular tile[/i] 
 unto the designated square upon the rightward side
 [ul] Employ thy [color=#065084]movement keys[/color] ([i]default[/i]: arrow keys) to[/ul]
 [indent]   guide thy hand cursor o'er tile to shift henceforth[/indent]
@@ -30,6 +32,7 @@ func _ready() -> void:
 	var sprite = puzzle_scene.get_node("Sprite2D")
 	sprite.scale = Vector2(0.9375, 0.9375)
 	puzzle_scene.global_position = _screen_center
+	help_label.global_position = _screen_center + Vector2(50, -260)
 	puzzle_scene.get_node("End").area_entered.connect(_on_puzzle_end_entered)
 	add_child(puzzle_scene)
 	_inst_at_middle(_cursor_scene)

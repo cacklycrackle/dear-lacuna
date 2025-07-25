@@ -1,7 +1,7 @@
 extends Node
 
 
-const BASE_RADIUS: float = 30.0
+const BASE_RADIUS: float = 25.0
 const BG_GROUP_NAME: String = "fade_on_vision"
 var player: Node2D = null
 
@@ -28,6 +28,6 @@ func _process(_delta: float) -> void:
 		if node is CanvasItem:
 			var material = node.material
 			if material is ShaderMaterial:
-				var radius = BASE_RADIUS + 7.5 * GameManager.curr_level
+				var radius = BASE_RADIUS + 8.5 * GameManager.curr_level
 				material.set_shader_parameter("radius", radius)
 				material.set_shader_parameter("player_pos", pos)

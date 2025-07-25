@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://b401btlgfd8f1"]
+[gd_scene load_steps=13 format=4 uid="uid://b401btlgfd8f1"]
 
 [ext_resource type="Script" uid="uid://cdq2wsxnywmlh" path="res://levels/level_5/level_5.gd" id="1_bh6pq"]
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="2_oqpl7"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="3_6ukfv"]
+[ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="4_6ukfv"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="4_brddj"]
 [ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="5_oqpl7"]
 
@@ -1320,6 +1321,10 @@ position = Vector2(38, 60)
 [node name="PortalNext" parent="." instance=ExtResource("3_6ukfv")]
 position = Vector2(1112, 43)
 go_to_next_level = true
+
+[node name="Duke" parent="." instance=ExtResource("4_6ukfv")]
+position = Vector2(237, 151)
+dialogue = "As thy journey doth but grows more arduous, do anticipate multiple conundrums ahead . . ."
 
 [node name="Stand1" parent="." instance=ExtResource("4_brddj")]
 position = Vector2(682, 503)

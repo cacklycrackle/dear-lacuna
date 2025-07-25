@@ -4,7 +4,7 @@ extends CanvasLayer
 signal solved
 signal exited
 
-const _descr = """[b][color=#074799]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
+const _descr = """[b][color=BLACK]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
 Strike [i]any[/i] target out of order and thou shalt be compelled to commence anew!
 [ul] Employ thy [color=#065084]mouse[/color] to guide thy cursor o'er the rock[/ul]
 [ul] Whilst engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z),[/ul]

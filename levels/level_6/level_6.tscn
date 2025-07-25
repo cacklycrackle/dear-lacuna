@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cn6wjvlhql2ri"]
+[gd_scene load_steps=9 format=4 uid="uid://cn6wjvlhql2ri"]
 
 [ext_resource type="Script" uid="uid://cth354x0ybxxa" path="res://levels/level_6/level_6.gd" id="1_w70bl"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="2_lrxy4"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="3_rkrwq"]
+[ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="4_jri26"]
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="4_xivbc"]
 [ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="5_pyc81"]
 
@@ -500,6 +501,11 @@ position = Vector2(43, 542)
 [node name="PortalNext" parent="." instance=ExtResource("3_rkrwq")]
 position = Vector2(1113, 67)
 go_to_next_level = true
+
+[node name="Duke" parent="." instance=ExtResource("4_jri26")]
+position = Vector2(160, 549)
+dialogue = "This day doth present a splendid occasion for double leaps 👀"
+duration = 5.0
 
 [node name="Stand1" parent="." groups=["left_rising"] instance=ExtResource("2_lrxy4")]
 position = Vector2(33, 384)
