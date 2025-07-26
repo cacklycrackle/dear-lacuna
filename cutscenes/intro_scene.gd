@@ -6,7 +6,7 @@ func _ready() -> void:
 	%SkipLabel.text = "Press ‘%s’ to skip" % e.as_text().trim_suffix(" (Physical)")
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("skip"):
+	if event.is_action_pressed("skip"):
 		_start_game()
 
 func _start_game() -> void:

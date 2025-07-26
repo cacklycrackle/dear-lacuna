@@ -1,14 +1,12 @@
 extends Control
 
-@onready var menu_container = $VBoxContainer
-@onready var l_ani = $LeftArrow/LeftAnimation
-@onready var l_arrow = $LeftArrow
-@onready var r_ani = $RightArrow/RightAnimation
-@onready var r_arrow = $RightArrow
-@onready var title = $Title
-@onready var load_button = $"VBoxContainer/Load Game"
 
-var menu_buttons: Array[Node]
+@onready var title = $TitleLabel
+@onready var menu_buttons = $MenuButtonContainer.get_children()
+@onready var load_button = $MenuButtonContainer/Load
+@onready var l_arrow = $LeftArrow
+@onready var r_arrow = $RightArrow
+
 var current_selection = 0
 
 var debug_timer_length = 2
@@ -24,10 +22,6 @@ func _ready():
 	title_initial_y = title.global_position.y
 	make_save_dir()
 	can_load()
-	# Initialize selection	
-	menu_buttons = menu_container.get_children()
-	r_ani.play("Default")
-	l_ani.play("Default")
 	call_deferred("update_selection")
 	
 
@@ -42,10 +36,15 @@ func _physics_process(delta):
 		debug_timer = 0
 
 func update_selection():
-	var button: Button = menu_buttons[current_selection]
-	l_arrow.global_position = button.global_position + Vector2(-30, button.size.y / 2)
-	r_arrow.global_position.y = l_arrow.global_position.y
-	r_arrow.global_position.x = button.global_position.x + button.size.x + 30
+	var btn: Button = menu_buttons[current_selection]
+	var btn_center = btn.global_position + btn.size / 2.0
+	var btn_half_width = btn.size.x / 2.0
+	
+	const padding = 5
+	l_arrow.global_position = btn_center
+	l_arrow.global_position.x -= btn_half_width + l_arrow.texture.get_width() / 2.0 - padding
+	r_arrow.global_position = btn_center
+	r_arrow.global_position.x += btn_half_width + r_arrow.texture.get_width() / 2.0 - padding
 
 func _input(event):
 	if event.is_action_pressed("down"):
@@ -54,7 +53,7 @@ func _input(event):
 	elif event.is_action_pressed("up"):
 		current_selection = (current_selection - 1) % menu_buttons.size()
 		update_selection()
-	elif event.is_action_pressed("ui_accept"): # Enter key
+	elif event.is_action_pressed("interact"): # Enter key
 		press(current_selection)
 
 func press(index):
@@ -63,25 +62,24 @@ func press(index):
 
 func _on_start_pressed() -> void:
 	set_process_input(false)
-	
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
-	
-	get_tree().change_scene_to_file("res://levels/level_1/level_1.tscn")
+	#get_tree().change_scene_to_file("res://levels/level_1/level_1.tscn")
+	GameManager.reset_levels()
+	GameManager.load_level()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
-func _on_controls_pressed() -> void:
+func _on_keybinds_pressed() -> void:
 	set_process_input(false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	get_tree().change_scene_to_file("res://common/ui/settings_menu/input_settings.tscn")
 
-
-func _on_load_game_pressed() -> void:
+func _on_load_pressed() -> void:
 	set_process_input(false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
@@ -98,7 +96,4 @@ func make_save_dir():
 
 func can_load():
 	var files = DirAccess.get_files_at("user://Saves")
-	if not files:
-		load_button.disabled = true
-	else:
-		load_button.disabled = false
+	load_button.disabled = not files

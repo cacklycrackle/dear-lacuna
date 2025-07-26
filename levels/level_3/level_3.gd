@@ -1,9 +1,11 @@
 extends BaseLevel
 
 
+func _init() -> void:
+	level_id = 3
+
 func _ready() -> void:
 	super._ready()
-	level_id = 3
 	
 	$Stand1.puzzle_base = preload("res://puzzles/sliding_puzzle/puzzle_base.tscn")
 	$Stand1.started.connect(_on_puzzle_started)
@@ -12,9 +14,6 @@ func _ready() -> void:
 	for i in range(1, stands_solved.size() + 1):
 		if GameManager.save_data[save_name]["stand_%d" % i]:
 			_on_puzzle_solved(i)
-	
-	GameManager.spawn_player(self)
-	VisionManager.init_vision_for_level()
 
 func _on_puzzle_started() -> void:
 	$Stand1.puzzle.tile_location = {

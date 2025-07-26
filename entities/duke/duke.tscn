@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://c3wl3p1a5c1tm"]
 
 [ext_resource type="Script" uid="uid://bsb67eiwncorj" path="res://entities/duke/duke.gd" id="1_oq3sr"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_nou4n"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_nou4n"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_u42ys"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAADAAAAAUklGRrgAAABXRUJQVlA4TKsAAAAvP8APEBcw//M///MfgAe4tbW3bQClCbKmwQhKH84heiVMo5zqiG9NUh9ku3IX0f8JMP+VI8BK7kh2pRHJKB1I0iopx/Hv+Qd9U7ol3qwUEoNWliIDHhITAM0jZXkvBX9MRUeJBbwvlOcawPprI+CBSltxJ5+J5VbFCJ+HFcY4MuBhzUCJSHY0zNm0FIJ2ZHPM59Ix65TxJLX5lsdg1PYmuqFk3NA1M5rmrwIA")

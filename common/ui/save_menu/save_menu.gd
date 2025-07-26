@@ -1,32 +1,40 @@
 extends Control
 
 
-@onready var selection = $VBoxContainer/HBoxContainer
-@onready var highlight = $Highlight
 @onready var pause_menu = load("res://common/ui/pause_menu/pause_menu.tscn")
+@onready var save_buttons = $MenuBoxContainer/MenuButtonContainer.get_children()
+@onready var l_arrow = $LeftArrow
+@onready var r_arrow = $RightArrow
 
 var _index: int = 0:
 	set(value):
 		_index = value
-		_update_sel()
-var saves: Array[Node] = []
+		_update_selection()
 const _SAVE_DIR = "user://Saves"
 
 
 func _ready() -> void:
-	await get_tree().process_frame
-	saves = selection.get_children()
-	_update_sel()
-	highlight.size = saves[0].size + Vector2(10, 10)
+	#var ini = Vector2(153.0, 281.0)
+	#l_arrow.global_position = ini + Vector2(-45, 33/2)
+	#r_arrow.global_position = ini + Vector2(45 + 115, 33/2)
+	call_deferred("_update_selection")
+
+func _update_selection():
+	var btn = save_buttons[_index]
+	var btn_center = btn.global_position + btn.size / 2.0
+	var btn_half_width = btn.size.x / 2.0
 	
-func _update_sel():
-	highlight.global_position = saves[_index].global_position - Vector2(5, 5)
+	const padding = 20
+	l_arrow.global_position = btn_center
+	l_arrow.global_position.x -= btn_half_width + l_arrow.texture.get_width() / 2.0 - padding
+	r_arrow.global_position = btn_center
+	r_arrow.global_position.x += btn_half_width + r_arrow.texture.get_width() / 2.0 - padding
 
 func _input(event):
 	if event.is_action_pressed("right"):
-		_index = (_index + 1) % saves.size()
+		_index = (_index + 1) % save_buttons.size()
 	elif event.is_action_pressed("left"):
-		_index = (_index - 1) % saves.size()
+		_index = (_index - 1) % save_buttons.size()
 	elif event.is_action_pressed("ui_accept"): # Enter key
 		press()
 		GameManager.is_paused = false
@@ -35,7 +43,7 @@ func _input(event):
 		get_tree().paused = true
 		self.get_parent().queue_free()
 		var top_layer = CanvasLayer.new()
-		top_layer.layer = 1
+		top_layer.layer = 2
 		get_tree().root.add_child(top_layer)
 		get_tree().paused = true
 		pause_menu_inst.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -47,10 +55,9 @@ func press():
 		if node is BaseLevel:
 			GameManager.save_data["position"] = node.get_node("Player").global_position
 			GameManager.save_data["level"] = node.level_id
-			GameManager.save_data["first_start"] = false
 	var json = JSON.stringify(GameManager.save_data)
 	
-	var save_path = "{0}/{1}.json".format([_SAVE_DIR, saves[_index].name])
+	var save_path = "{0}/{1}.json".format([_SAVE_DIR, save_buttons[_index].name])
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_string(json)
 	file.close()

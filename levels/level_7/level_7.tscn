@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://y5cbgn4j0x51" path="res://levels/level_7/level_7.gd" id="1_lg81t"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_kc3lp"]
-[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="3_jdrjf"]
+[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="3_jdrjf"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="4_3x2t3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7cbe"]

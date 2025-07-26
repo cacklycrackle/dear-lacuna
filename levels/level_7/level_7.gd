@@ -1,9 +1,11 @@
 extends BaseLevel
 
 
+func _init() -> void:
+	level_id = 7
+
 func _ready() -> void:
 	super._ready()
-	level_id = 7
 	
 	$Stand1.puzzle_base = preload("res://puzzles/slingshot_puzzle/puzzle_base.tscn")
 	$Stand1.solved.connect(_on_puzzle_solved.bind(1))
@@ -14,8 +16,6 @@ func _ready() -> void:
 	for i in range(1, stands_solved.size() + 1):
 		if GameManager.save_data[save_name]["stand_%d" % i]:
 			_on_puzzle_solved(i)
-	
-	GameManager.spawn_player(self)
 
 func _on_puzzle_started(stand: int) -> void:
 	if stand == 2:

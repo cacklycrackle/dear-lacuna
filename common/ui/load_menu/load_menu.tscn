@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgkqug7h0cxnj"]
+[gd_scene load_steps=8 format=4 uid="uid://cgkqug7h0cxnj"]
 
 [ext_resource type="Script" uid="uid://dtbeqk1cfw14k" path="res://common/ui/load_menu/load_menu.gd" id="1_dxods"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_614ur"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_614ur"]
 [ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="3_susa0"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_dxods"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAAsAgAAUklGRiQCAABXRUJQVlA4TBgCAAAvv8AfEBcw//M///MfgAdJtm01dsNbS7y2JNsKjIYhOClV2/GNBjmNgN/gDrOKz62Hs92J6L8Dt20jiQOc6S6cbfYT4W/5yNwpd0KUSL0R6oFJVFWqCWFc4pSAUMYlRikIZUzilCLB88bf6I423cF3/E7e4N9j4XctFBiPlfgHlcRCpLFMWONYmIXCBTPqJN/EFZ4N3DzbWKQWOc6gz7dc4yF9DbDyV6AvZynQ7REy3KTuwh/Ttuyrlm8bO+ixpbM0YW7X4AXQ9ZQbgDQ8PQcAHfqCrvOKb6liLa5sOCMVtNAA9HlSXUIHcsSkZ1yab/7D/CXTv2j+nMyfw/lzPv9/NBYpE4I1UmCBqGudBlcSOzEFyoOLOxY92YxYrPEdsZy/y/eucJVr33llgVAWqERYoBKnROKUEyJSb4R6CGM5UKeBOgn/l49MiVuJLPaFX2LMzxiIG4RRP2WSX2J2FXyNtF0LfcEqZAdfsPI9Fv5ohQJjsd2FCkQSGxd+C2Oy3/Mb2eDZsZtnK9z6hvZ5w6jcUj4AEN+e10Gwp9selZXud+jYQVevbz7mpfM1uU65Ad3WN9h22h5sZMdMFPTBMqw9QjPgKbSL1VGwDODRpKfzzX+YvmT+F82fk/lzOH3O5/+P3CJzEXwK27UMiFNG4rPjPimN7VUhNPYOvr7rj1dhMr7DSj9h1M0CI26JseAWmQu3THNI+Fs/Ag==")
+size_override = Vector2(192, 128)
+
+[sub_resource type="Animation" id="Animation_gip8j"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exq0c"]
+_data = {
+&"Default": SubResource("Animation_gip8j")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_614ur"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAAsAgAAUklGRiQCAABXRUJQVlA4TBgCAAAvv8AfEBcw//M///MfgAdJtm01dsNbS7y2JNsKjIYhOClV2/GNBjmNgN/gDrOKz62Hs92J6L8Dt20jiQOc6S6cbfYT4W/5yNwpd0KUSL0R6oFJVFWqCWFc4pSAUMYlRikIZUzilCLB88bf6I423cF3/E7e4N9j4XctFBiPlfgHlcRCpLFMWONYmIXCBTPqJN/EFZ4N3DzbWKQWOc6gz7dc4yF9DbDyV6AvZynQ7REy3KTuwh/Ttuyrlm8bO+ixpbM0YW7X4AXQ9ZQbgDQ8PQcAHfqCrvOKb6liLa5sOCMVtNAA9HlSXUIHcsSkZ1yab/7D/CXTv2j+nMyfw/lzPv9/NBYpE4I1UmCBqGudBlcSOzEFyoOLOxY92YxYrPEdsZy/y/eucJVr33llgVAWqERYoBKnROKUEyJSb4R6CGM5UKeBOgn/l49MiVuJLPaFX2LMzxiIG4RRP2WSX2J2FXyNtF0LfcEqZAdfsPI9Fv5ohQJjsd2FCkQSGxd+C2Oy3/Mb2eDZsZtnK9z6hvZ5w6jcUj4AEN+e10Gwp9selZXud+jYQVevbz7mpfM1uU65Ad3WN9h22h5sZMdMFPTBMqw9QjPgKbSL1VGwDODRpKfzzX+YvmT+F82fk/lzOH3O5/+P3CJzEXwK27UMiFNG4rPjPimN7VUhNPYOvr7rj1dhMr7DSj9h1M0CI26JseAWmQu3THNI+Fs/Ag==")
+size_override = Vector2(192, 128)
 
 [node name="LoadMenu" type="Control"]
 layout_mode = 3
@@ -13,24 +41,69 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dxods")
 
-[node name="Highlight" type="ReferenceRect" parent="."]
-z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -526.0
-offset_bottom = -274.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.993377, 1.01097)
-border_color = Color(1, 1, 1, 1)
-border_width = 2.0
-editor_only = false
+[node name="LeftArrow" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(110, 300)
+texture = SubResource("PortableCompressedTexture2D_dxods")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "LeftArrow/LeftAnimation",
+"slice": "",
+"source": "res://common/assets/Selection.aseprite",
+"source_uid": 6834331695804360138
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
+
+[node name="LeftAnimation" type="AnimationPlayer" parent="LeftArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_exq0c")
+}
+
+[node name="RightArrow" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(315, 300)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = SubResource("PortableCompressedTexture2D_614ur")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "RightArrow/RightAnimation",
+"slice": "",
+"source": "res://common/assets/Selection.aseprite",
+"source_uid": 6834331695804360138
+}
+metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
+
+[node name="RightAnimation" type="AnimationPlayer" parent="RightArrow"]
+libraries = {
+&"": SubResource("AnimationLibrary_exq0c")
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -51,7 +124,7 @@ offset_bottom = -109.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="MenuNameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
@@ -71,7 +144,7 @@ theme_override_constants/separation = 250
 [node name="Save1" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -102,7 +175,7 @@ text = "Save 1"
 [node name="Save2" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -134,7 +207,7 @@ text = "Save 2
 [node name="Save3" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -161,3 +234,24 @@ theme_override_styles/pressed = ExtResource("3_susa0")
 theme_override_styles/normal_mirrored = ExtResource("3_susa0")
 theme_override_styles/normal = ExtResource("3_susa0")
 text = "Save 3"
+
+[node name="ErrorPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ErrorPanelContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ErrorLabel" type="Label" parent="VBoxContainer/ErrorPanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("2_614ur")
+theme_override_font_sizes/font_size = 24
+text = "help"

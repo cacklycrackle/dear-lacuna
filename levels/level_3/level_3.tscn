@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://cxr8v6umigqii"]
+[gd_scene load_steps=10 format=4 uid="uid://cxr8v6umigqii"]
 
-[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="1_fqu2u"]
+[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="1_fqu2u"]
 [ext_resource type="Script" uid="uid://bao8woifdt41g" path="res://levels/level_3/level_3.gd" id="1_upa32"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_1ylvm"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="4_0c4fo"]
-[ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="4_1ylvm"]
 [ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="4_e2rvl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35b77"]
@@ -930,8 +929,3 @@ position = Vector2(-588.259, -128)
 scale = Vector2(0.98867, 1)
 tile_map_data = PackedByteArray("AAApAAcAAAALABEAAAApAAgAAAALABIAAAApAAkAAAALABMAAAAqAAcAAAAMABEAAAAqAAgAAAAMABIAAAAqAAkAAAAMABMAAAArAAcAAAANABEAAAArAAgAAAANABIAAAArAAkAAAANABMAAAApAAQAAAAOABEAAAApAAUAAAAOABIAAAApAAYAAAAOABMAAAAqAAQAAAAPABEAAAAqAAUAAAAPABIAAAAqAAYAAAAPABMAAAArAAQAAAAQABEAAAArAAUAAAAQABIAAAArAAYAAAAQABMAAAApAAEAAAARABEAAAApAAIAAAARABIAAAApAAMAAAARABMAAAAqAAEAAAASABEAAAAqAAIAAAASABIAAAAqAAMAAAASABMAAAArAAEAAAATABEAAAArAAIAAAATABIAAAArAAMAAAATABMAAAA=")
 tile_set = SubResource("TileSet_e2rvl")
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
-position = Vector2(41, 556)
-
-[node name="VisionOverlay" parent="." instance=ExtResource("4_1ylvm")]

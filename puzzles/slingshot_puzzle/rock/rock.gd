@@ -18,5 +18,5 @@ func _physics_process(_delta: float) -> void:
 
 func throw_rock(impulse: Vector2) -> void:
 	freeze = false
-	apply_central_impulse(impulse)
+	apply_central_impulse(impulse.clampf(-1900.0, 1900.0))
 	is_thrown = true
