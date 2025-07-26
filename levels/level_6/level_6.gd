@@ -33,9 +33,7 @@ func _ready() -> void:
 		}
 	]
 	
-	var player_inst = GameManager.spawn_player(self)
-	add_child(player_inst)
-	VisionManager.init_vision_for_level()
+
 
 func _on_puzzle_started(stand: int) -> void:
 	var stand_node = get_node("Stand%d" % stand)

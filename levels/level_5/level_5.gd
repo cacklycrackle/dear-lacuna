@@ -14,10 +14,6 @@ func _ready() -> void:
 	for i in range(1, stands_solved.size() + 1):
 		if GameManager.save_data[save_name]["stand_%d" % i]:
 			_on_puzzle_solved(i)
-	
-	var player_inst = GameManager.spawn_player(self)
-	add_child(player_inst)
-	VisionManager.init_vision_for_level()
 
 func _on_puzzle_started(stand: int) -> void:
 	if stand == 2:

@@ -2,8 +2,9 @@ extends Control
 
 
 @onready var selection = $VBoxContainer/HBoxContainer
-@onready var highlight = $Highlight
 @onready var pause_menu = load("res://common/ui/pause_menu/pause_menu.tscn")
+@onready var la = $LeftArrow
+@onready var ra = $RightArrow
 
 var _index: int = 0:
 	set(value):
@@ -14,13 +15,21 @@ const _SAVE_DIR = "user://Saves"
 
 
 func _ready() -> void:
-	await get_tree().process_frame
 	saves = selection.get_children()
-	_update_sel()
-	highlight.size = saves[0].size + Vector2(10, 10)
+	var ini = Vector2(153.0, 281.0)
+	la.global_position = ini + Vector2(-45, 33/2)
+	ra.global_position = ini + Vector2(45 + 115, 33/2)
+	$LeftArrow/LeftAnimation.play("Default")
+	$RightArrow/RightAnimation.play("Default")
+
+
 	
 func _update_sel():
-	highlight.global_position = saves[_index].global_position - Vector2(5, 5)
+	var ini = saves[_index].global_position
+
+	la.global_position = ini + Vector2(-45, 33/2)
+	ra.global_position = ini + Vector2(45 + 115, 33/2)
+	#highlight.global_position = saves[_index].global_position - Vector2(5, 5)
 
 func _input(event):
 	if event.is_action_pressed("right"):
