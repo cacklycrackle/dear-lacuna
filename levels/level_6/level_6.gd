@@ -33,8 +33,7 @@ func _ready() -> void:
 		}
 	]
 	
-	GameManager.spawn_player(self)
-	VisionManager.init_vision_for_level()
+
 
 func _on_puzzle_started(stand: int) -> void:
 	var stand_node = get_node("Stand%d" % stand)

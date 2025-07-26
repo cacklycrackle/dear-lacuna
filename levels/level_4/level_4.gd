@@ -12,8 +12,6 @@ func _ready() -> void:
 		if GameManager.save_data[save_name]["stand_%d" % i]:
 			_on_puzzle_solved(i)
 	
-	GameManager.spawn_player(self)
-	VisionManager.init_vision_for_level()
 
 func _on_puzzle_solved(stand: int) -> void:
 	if stands_solved[stand - 1]: return

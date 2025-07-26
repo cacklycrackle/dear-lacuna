@@ -12,7 +12,14 @@ func _ready() -> void:
 	get_tree().paused = false
 	GameManager.is_paused = false
 	save_name = name.to_snake_case()
-
+	
+	var player_inst = GameManager.spawn_player(self)
+	if GameManager.save_data["first_start"]:
+		GameManager.save_data["first_start"] = false
+		player_inst.global_position = Vector2(30, 500)
+	add_child(player_inst)
+	
+	VisionManager.init_vision_for_level()
 func _input(event):
 	if event.is_action_pressed("pause") and not GameManager.in_puzzle:
 		GameManager.is_paused = !GameManager.is_paused

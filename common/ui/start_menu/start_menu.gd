@@ -54,7 +54,7 @@ func _input(event):
 	elif event.is_action_pressed("up"):
 		current_selection = (current_selection - 1) % menu_buttons.size()
 		update_selection()
-	elif event.is_action_pressed("ui_accept"): # Enter key
+	elif event.is_action_pressed("interact"): # Enter key
 		press(current_selection)
 
 func press(index):

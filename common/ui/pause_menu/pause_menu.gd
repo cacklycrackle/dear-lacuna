@@ -50,7 +50,7 @@ func _input(event):
 		self.get_tree().paused = false
 		await get_tree().create_timer(0.1).timeout
 		GameManager.is_paused = false
-	elif event.is_action_pressed("ui_accept"): # Enter key
+	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"): # Enter key
 		press(current_selection)
 		
 func press(index):
