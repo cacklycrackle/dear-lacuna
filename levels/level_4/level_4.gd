@@ -12,14 +12,13 @@ func _ready() -> void:
 		if GameManager.save_data[save_name]["stand_%d" % i]:
 			_on_puzzle_solved(i)
 	
-	var player_inst = GameManager.spawn_player(self)
-	add_child(player_inst)
+	GameManager.spawn_player(self)
 	VisionManager.init_vision_for_level()
 
 func _on_puzzle_solved(stand: int) -> void:
-	if not stands_solved[stand - 1]:
-		var wall := get_node("Stand%d/WallLayer" % stand)
-		wall.collision_enabled = false
-		wall.visible = false
-		stands_solved[stand - 1] = true
-		GameManager.save_data[save_name]["stand_%d" % stand] = true
+	if stands_solved[stand - 1]: return
+	var wall := get_node("Stand%d/LockedLayer" % stand)
+	wall.collision_enabled = false
+	wall.visible = false
+	stands_solved[stand - 1] = true
+	GameManager.save_data[save_name]["stand_%d" % stand] = true

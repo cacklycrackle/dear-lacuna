@@ -33,8 +33,7 @@ func _ready() -> void:
 		}
 	]
 	
-	var player_inst = GameManager.spawn_player(self)
-	add_child(player_inst)
+	GameManager.spawn_player(self)
 	VisionManager.init_vision_for_level()
 
 func _on_puzzle_started(stand: int) -> void:
@@ -43,6 +42,7 @@ func _on_puzzle_started(stand: int) -> void:
 	stand_node.puzzle.offset = stand_node.global_position
 
 func _on_puzzle_solved(stand: int) -> void:
+	if stands_solved[stand - 1]: return
 	if not stands_solved[stand - 1]:
 		if stand == 1:
 			$Group1/Platform1.global_position.y += 16 * 9

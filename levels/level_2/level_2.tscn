@@ -892,7 +892,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 
-[node name="WallLayer" type="TileMapLayer" parent="Stand1"]
+[node name="LockedLayer" type="TileMapLayer" parent="Stand1"]
 position = Vector2(1047, -461)
 rotation = 3.14159
 scale = Vector2(0.98867, 1)

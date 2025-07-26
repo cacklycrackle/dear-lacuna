@@ -2,10 +2,10 @@ extends Node
 
 
 const PLAYER_GROUP = "main_player"
-const NO_OF_LEVELS = 6 # Change as needed
+const NO_OF_LEVELS = 7 # Change as needed
 
 var player = preload("res://entities/player/player.tscn")
-var spawn_at_portal = "PortalNext" # Change to PortalPrev to debug individual level > 1
+var spawn_at_portal = "PortalPrev" # Change to PortalPrev to debug individual level > 1
 var curr_level: int = 1
 var in_puzzle = false
 var load_from_save = false
@@ -20,6 +20,7 @@ var save_data = {
 	"level_4": {"stand_1": false},
 	"level_5": {"stand_1" : false, "stand_2": false},
 	"level_6": {"stand_1" : false, "stand_2": false},
+	"level_7": {"stand_1" : false, "stand_2": false},
 }
 
 
@@ -27,10 +28,14 @@ func _ready() -> void:
 	pass
 
 
-func spawn_player(level: BaseLevel) -> Player:
-	#curr_level = level.level_id # Uncomment only to debug individual level
+## Spawns a Player onto the specified level
+func spawn_player(level: BaseLevel) -> void:
+	curr_level = level.level_id # Uncomment only to debug individual level
 	var player_inst = player.instantiate()
-	if load_from_save:
+	if curr_level == 1 and save_data["first_start"]:
+		save_data["first_start"] = false
+		player_inst.global_position = Vector2(30, 500)
+	elif load_from_save:
 		load_from_save = false
 		var coords_str = save_data["position"]
 		var coords = coords_str.substr(1, coords_str.length() - 2).split(",")
@@ -39,7 +44,7 @@ func spawn_player(level: BaseLevel) -> Player:
 		var portal = level.get_node(spawn_at_portal)
 		player_inst.global_position = portal.global_position
 	player_inst.add_to_group(PLAYER_GROUP)
-	return player_inst
+	level.add_child(player_inst)
 
 func move_level(go_to_next: bool) -> void:
 	var target_scene := ""

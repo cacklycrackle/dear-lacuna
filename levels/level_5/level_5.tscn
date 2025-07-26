@@ -1330,7 +1330,7 @@ dialogue = "As thy journey doth but grows more arduous, do anticipate multiple c
 position = Vector2(682, 503)
 scale = Vector2(0.78698, 0.778064)
 
-[node name="WallLayer" type="TileMapLayer" parent="Stand1"]
+[node name="LockedLayer" type="TileMapLayer" parent="Stand1"]
 position = Vector2(-866.604, -643.906)
 scale = Vector2(1.27068, 1.28524)
 tile_map_data = PackedByteArray("AAAvABkAAAASAAkAAAAvABoAAAASAAoAAAAvABsAAAASAAoAAAAvABwAAAASAAsAAAA=")
@@ -1340,7 +1340,7 @@ tile_set = SubResource("TileSet_pjlmw")
 position = Vector2(568, 70)
 scale = Vector2(0.78698, 0.778064)
 
-[node name="WallLayer" type="TileMapLayer" parent="Stand2"]
+[node name="LockedLayer" type="TileMapLayer" parent="Stand2"]
 position = Vector2(-721.746, -89.9669)
 scale = Vector2(1.27068, 1.28524)
 tile_map_data = PackedByteArray("AAA3AAUAAAANABIAAAA3AAQAAAANABIAAAA3AAMAAAANABIAAAA3AAIAAAANABIAAAA3AAEAAAANABIAAAA3AAAAAAANABEAAAA2AAAAAAAMABEAAAA1AAAAAAAMABEAAAA0AAAAAAAMABEAAAAzAAAAAAAMABEAAAAxAAAAAAALABEAAAAxAAEAAAALABIAAAAxAAIAAAALABIAAAAxAAMAAAALABIAAAAxAAQAAAALABIAAAAxAAUAAAALABIAAAAxAAYAAAALABMAAAA3AAYAAAANABMAAAAyAAAAAAAMABEAAAA=")
