@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cdjtn4u5hrdmo"]
 
 [ext_resource type="Script" uid="uid://dpanx4akm3vgi" path="res://common/ui/pause_menu/pause_menu.gd" id="1_hya0r"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_2wdbx"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_2wdbx"]
 [ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="3_8rwjq"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_y0har"]
@@ -52,7 +52,7 @@ _data = {
 &"Default": SubResource("Animation_gip8j")
 }
 
-[node name="Pause" type="Control"]
+[node name="PauseMenu" type="Control"]
 z_index = 100
 layout_mode = 3
 anchors_preset = 15
@@ -62,23 +62,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hya0r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MenuBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -93.0
-offset_right = 92.0
-offset_bottom = 93.0
+offset_left = -149.0
+offset_top = -116.0
+offset_right = 149.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="TitleLabel" type="Label" parent="MenuBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
+theme_override_fonts/font = ExtResource("2_2wdbx")
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+
+[node name="MenuButtonContainer" type="VBoxContainer" parent="MenuBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Save" type="Button" parent="VBoxContainer"]
+[node name="Save" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
@@ -108,8 +127,9 @@ theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
 text = "Save"
 
-[node name="Load" type="Button" parent="VBoxContainer"]
+[node name="Load" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(0.52549, 0.52549, 0.52549, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
@@ -139,8 +159,9 @@ theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
 text = "Load"
 
-[node name="Main Menu" type="Button" parent="VBoxContainer"]
+[node name="MainMenu" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
@@ -168,11 +189,11 @@ theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/pressed = ExtResource("3_8rwjq")
 theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
-text = "Main Menu
-"
+text = "Exit to main menu"
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
@@ -200,8 +221,7 @@ theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/pressed = ExtResource("3_8rwjq")
 theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
-text = "Exit
-"
+text = "Exit game"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -7
@@ -213,18 +233,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.147672, 0.147672, 0.147672, 0.901961)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 484.0
-offset_top = 152.0
-offset_right = 668.0
-offset_bottom = 200.0
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
-theme_override_fonts/font = ExtResource("2_2wdbx")
-theme_override_font_sizes/font_size = 48
-text = "Paused"
-
 [node name="RightArrow" type="Sprite2D" parent="."]
 z_index = 4
 texture_filter = 1
@@ -235,7 +243,9 @@ texture = SubResource("PortableCompressedTexture2D_y0har")
 hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://common/assets/selection.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -257,6 +267,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
 libraries = {
 &"": SubResource("AnimationLibrary_8rwjq")
 }
+autoplay = "Default"
 
 [node name="LeftArrow" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -265,7 +276,9 @@ texture = SubResource("PortableCompressedTexture2D_4kfjk")
 hframes = 3
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://common/assets/selection.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -287,8 +300,9 @@ metadata/_aseprite_wizard_source_file_hash_ = "f82c0c0b29441610e8d6e599b1bd9546"
 libraries = {
 &"": SubResource("AnimationLibrary_exq0c")
 }
+autoplay = "Default"
 
-[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Exit" to="." method="_on_exit_pressed"]

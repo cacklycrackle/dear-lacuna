@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn6wjvlhql2ri"]
+[gd_scene load_steps=8 format=4 uid="uid://cn6wjvlhql2ri"]
 
 [ext_resource type="Script" uid="uid://cth354x0ybxxa" path="res://levels/level_6/level_6.gd" id="1_w70bl"]
 [ext_resource type="PackedScene" uid="uid://c17vgpwf1vfu1" path="res://entities/props/stand/stand.tscn" id="2_lrxy4"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="3_rkrwq"]
 [ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="4_jri26"]
-[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/tilesets/kenney_1-bit-platformer_tilemap.png" id="4_xivbc"]
-[ext_resource type="PackedScene" uid="uid://bj5rh6knp25oi" path="res://common/ui/vision_overlay/vision_overlay.tscn" id="5_pyc81"]
+[ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="4_xivbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pyc81"]
 texture = ExtResource("4_xivbc")
@@ -547,8 +546,3 @@ tile_set = SubResource("TileSet_jri26")
 [node name="Platform2" type="TileMapLayer" parent="Group1"]
 tile_map_data = PackedByteArray("AAAuAAwAAAAKABAAAAAvAAwAAAALABAAAAAwAAwAAAALABAAAAAxAAwAAAALABAAAAAuAAsAAAAEAAAAAAAuAAoAAAAEAAAAAAAuAAkAAAAEAAAAAAAzAAkAAAAEAAAAAAAzAAoAAAAEAAAAAAAzAAsAAAAEAAAAAAAzAAwAAAAMABAAAAAyAAwAAAALABAAAAAwAAsAAAAOAAMAAAAxAAsAAAAOAAMAAAAyAAoAAAANAAMAAAAvAAoAAAAMAAMAAABDABgAAAAOAAMAAAA=")
 tile_set = SubResource("TileSet_jri26")
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
-
-[node name="VisionOverlay" parent="." instance=ExtResource("5_pyc81")]
-layer = 0

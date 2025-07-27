@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bsb67eiwncorj" path="res://entities/duke/duke.gd" id="1_oq3sr"]
 [ext_resource type="Script" uid="uid://cnd85gxwduuyr" path="res://entities/duke/popup_panel.gd" id="2_eqntd"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_nou4n"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_nou4n"]
+
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_oq3sr"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAAA2AQAAUklGRi4BAABXRUJQVlA4TCEBAAAvf8APEBcw//M///MfgAe4tbW3bagATiDJNqdR7J0+nEPUTsA0Top1xDcmww/99nHlJqL/jNy2jcTZ56RM5xXZf8l2C3RUxktypLuSDKo5vivsaOaIDYo5xmxIz6ER036/wx5ojcoucqfrdJGuk+z40deBDgdVByMAXYdFVHdYq+pwdhnLoSjZEUpYW7Z/GjNmo0Ny9AB8y94tXhodF7s9OB/kDuAAQPqSt9En5iCPkfWWt0oevU2c2lvRntNGiyXEdW6u443QAeLQkQXEzm0hdYC4wHsud3AoI9i57cgdy2CSUp1hWciWSUtOvGyVtGLnSXIkZX7plkE8PX9w6TJp8++j7zCWSgbvYVyIMM5v3XgohYyLsRENxqbuEJnsj24ZAA==")

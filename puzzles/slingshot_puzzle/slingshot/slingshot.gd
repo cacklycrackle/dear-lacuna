@@ -23,7 +23,7 @@ func _ready() -> void:
 	hand_cursor.speed = 200.0
 	hand_cursor.global_position = center
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match _state:
 		SlingState.IDLE:
 			pass
@@ -65,7 +65,7 @@ func _spawn_new_rock() -> void:
 	add_child(rock)
 	rock.global_position = center
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if _state == SlingState.IDLE and not rock.is_thrown and Input.is_action_pressed("interact"):
 		_state = SlingState.PULLING
 		hand_cursor.moveable = true

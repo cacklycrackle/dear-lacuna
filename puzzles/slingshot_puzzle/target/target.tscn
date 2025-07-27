@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lajnvi4qp8e3"]
 
 [ext_resource type="Script" uid="uid://bnrr6prsv864b" path="res://puzzles/slingshot_puzzle/target/target.gd" id="1_ba8uo"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_7b5f8"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_7b5f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl0r4"]
 

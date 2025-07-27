@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://cgkqug7h0cxnj"]
 
 [ext_resource type="Script" uid="uid://dtbeqk1cfw14k" path="res://common/ui/load_menu/load_menu.gd" id="1_dxods"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="2_614ur"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_614ur"]
 [ext_resource type="StyleBox" uid="uid://voq2gm207n4n" path="res://common/ui/start_menu/Transparent.tres" id="3_susa0"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_dxods"]
@@ -124,7 +124,7 @@ offset_bottom = -109.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="MenuNameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.89059, 0.89059, 0.89059, 1)
@@ -144,7 +144,7 @@ theme_override_constants/separation = 250
 [node name="Save1" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -175,7 +175,7 @@ text = "Save 1"
 [node name="Save2" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -207,7 +207,7 @@ text = "Save 2
 [node name="Save3" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -235,37 +235,23 @@ theme_override_styles/normal_mirrored = ExtResource("3_susa0")
 theme_override_styles/normal = ExtResource("3_susa0")
 text = "Save 3"
 
-[node name="Save22" type="Button" parent="."]
-offset_left = 518.0
-offset_top = 281.0
-offset_right = 633.0
-offset_bottom = 314.0
-mouse_filter = 2
-theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+[node name="ErrorPanelContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ErrorPanelContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ErrorLabel" type="Label" parent="VBoxContainer/ErrorPanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("2_614ur")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = ExtResource("3_susa0")
-theme_override_styles/disabled_mirrored = ExtResource("3_susa0")
-theme_override_styles/disabled = ExtResource("3_susa0")
-theme_override_styles/hover_pressed_mirrored = ExtResource("3_susa0")
-theme_override_styles/hover_pressed = ExtResource("3_susa0")
-theme_override_styles/hover_mirrored = ExtResource("3_susa0")
-theme_override_styles/hover = ExtResource("3_susa0")
-theme_override_styles/pressed_mirrored = ExtResource("3_susa0")
-theme_override_styles/pressed = ExtResource("3_susa0")
-theme_override_styles/normal_mirrored = ExtResource("3_susa0")
-theme_override_styles/normal = ExtResource("3_susa0")
-text = "Save 2
-"
+theme_override_font_sizes/font_size = 24
+text = "help"

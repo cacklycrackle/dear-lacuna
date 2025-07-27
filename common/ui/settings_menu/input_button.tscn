@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bd5m2x5jwjbk6"]
 
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/ui/fonts/yoster.ttf" id="1_tkbe4"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="1_tkbe4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fopxo"]
 

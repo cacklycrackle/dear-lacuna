@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://4jqjadkmkcyr"
-path="res://.godot/imported/yoster.ttf-af1952882de2791a81af3b33156b5fc6.fontdata"
+path="res://.godot/imported/yoster.ttf-fc03d2e35085133305dfdcdd80e7b13f.fontdata"
 
 [deps]
 
-source_file="res://common/ui/fonts/yoster.ttf"
-dest_files=["res://.godot/imported/yoster.ttf-af1952882de2791a81af3b33156b5fc6.fontdata"]
+source_file="res://common/assets/fonts/yoster.ttf"
+dest_files=["res://.godot/imported/yoster.ttf-fc03d2e35085133305dfdcdd80e7b13f.fontdata"]
 
 [params]
 
