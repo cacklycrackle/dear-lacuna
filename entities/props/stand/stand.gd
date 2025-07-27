@@ -3,7 +3,7 @@ extends Sprite2D
 
 signal started
 signal solved
-
+const BG_GROUP_NAME: String = "fade_on_vision"
 var interactable: bool = false
 var puzzle_base: Resource = null
 var puzzle: Node = null
