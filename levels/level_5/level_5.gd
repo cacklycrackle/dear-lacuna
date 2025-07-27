@@ -1,6 +1,9 @@
 extends BaseLevel
 
-
+@onready var stands = [
+	$Stand1,
+	$Stand2
+]
 func _init() -> void:
 	level_id = 5
 
@@ -28,6 +31,7 @@ func _on_puzzle_started(stand: int) -> void:
 		stand_node.puzzle.offset = stand_node.global_position
 
 func _on_puzzle_solved(stand: int) -> void:
+	stands[stand - 1]._complete_state()
 	if stands_solved[stand - 1]: return
 	var wall := get_node("Stand%d/LockedLayer" % stand)
 	wall.collision_enabled = false

@@ -41,10 +41,12 @@ func _on_puzzle_solved(stand: int) -> void:
 	if stands_solved[stand - 1]: return
 	if not stands_solved[stand - 1]:
 		if stand == 1:
+			$Stand1._complete_state()
 			$Group1/Platform1.global_position.y += 16 * 9
 			$Group1/Platform2.global_position.y += 16 * 7
 			$Group1/Chains.visible = true
 		elif stand == 2:
+			$Stand2._complete_state()
 			for node in get_tree().get_nodes_in_group("left_rising"):
 				node.global_position.y -= 16 * 14
 			#$Group2.global_position.y -= 16 * 14

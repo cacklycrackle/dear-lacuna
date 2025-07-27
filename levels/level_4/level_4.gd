@@ -15,6 +15,7 @@ func _ready() -> void:
 			_on_puzzle_solved(i)
 
 func _on_puzzle_solved(stand: int) -> void:
+	$Stand1._complete_state()
 	if stands_solved[stand - 1]: return
 	var wall := get_node("Stand%d/LockedLayer" % stand)
 	wall.collision_enabled = false
