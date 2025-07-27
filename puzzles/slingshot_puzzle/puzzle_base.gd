@@ -5,7 +5,7 @@ signal solved
 signal exited
 
 const _descr = """[b][color=BLACK]Objective[/color][/b]: Unleash the rock unto the numbered targets [u]in ascending order[/u]
-[ul] While engaging thine [color=#065084]interact key[/color]([i]default[/i]: Z), employ [/ul]
+[ul] While engaging thine [color=#065084]interact key[/color] ([i]default[/i]: Z), employ [/ul]
 [indent]   thy [color=#065084]movement keys[/color] to guide the hand cursor around[/indent]
 [ul] Release thine [color=#065084]interact key[/color] to launch the rock upon its fateful path[/ul]
 [ul] Bide thy time until the rock doth rematerialise on the slingshot[/ul]
@@ -24,9 +24,9 @@ var _targets: Array[Node]
 
 func _ready() -> void:
 	# Scale puzzle down to 3/4 of screen size
-	#var orig_size = get_viewport().get_visible_rect().size
-	#scale = Vector2(0.75, 0.75)
-	#offset = (Vector2(1.0, 1.0) - scale) * orig_size / 2
+	var orig_size = get_viewport().get_visible_rect().size
+	scale = Vector2(0.9, 0.9)
+	offset = (Vector2(1.0, 1.0) - scale) * orig_size / 2
 	
 	_targets = get_tree().get_nodes_in_group("target_to_hit")
 	var numbers = range(1, _targets.size() + 1)

@@ -12,7 +12,4 @@ func _input(event: InputEvent) -> void:
 func _start_game() -> void:
 	$AnimationPlayer.pause()
 	$DialogueUI.hide()
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 1.0)
-	await tween.finished
-	get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+	GameManager.load_start_from(self)

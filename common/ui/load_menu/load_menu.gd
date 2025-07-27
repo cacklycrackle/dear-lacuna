@@ -82,10 +82,10 @@ func _load_data(data: Dictionary) -> void:
 	GameManager.save_data["level"] = level
 	GameManager.curr_level_no = level
 	
-	set_process_input(false)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
+	#set_process_input(false)
+	#var tween = create_tween()
+	#tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	#await tween.finished
 	#print(self.get_parent())
 	if self.get_parent() is CanvasLayer:
 		self.get_parent().queue_free()

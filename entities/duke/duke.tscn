@@ -98,6 +98,7 @@ autowrap_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_eqntd")
 }
+autoplay = "Idle"
 
 [node name="Timer" type="Timer" parent="."]
 

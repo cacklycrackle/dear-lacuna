@@ -3,27 +3,24 @@ extends Sprite2D
 
 ## Dialogue for NPC to display
 @export_multiline var dialogue: String
-const CHAR_LIMIT = 100
-var chunks = [""]
-var chunk_ind = 0
-@onready var char_timer = $Timer
-var char_speed = 40
-var char_ind = 0
-var talking = false
-## Max duration that dialogue will be visible for if player remains on NPC
-@export var duration := 10.0
 
 @onready var popup_panel = $Control/PopupPanel
 @onready var popup_label = $Control/PopupPanel/DialogueLabel
-@onready var popup_timer := Timer.new()
+@onready var char_timer := Timer.new()
 
+const CHAR_LIMIT = 100
 var interactable := false
+var chunks = [""]
+var chunk_ind = 0
+var char_speed = 40
+var char_ind = 0
+var talking = false
 
 
 func _ready() -> void:
+	char_timer.timeout.connect(_on_char_timer_timeout)
 	char_timer.wait_time = 1.0 / char_speed
-	$AnimationPlayer.play("Idle")
-	add_child(popup_timer)
+	add_child(char_timer)
 	popup_panel.position = global_position + Vector2(30, -20)
 	var sentences = dialogue.split(".").slice(0, -1)
 	for i in sentences:
@@ -32,17 +29,13 @@ func _ready() -> void:
 		if i.length() + j.length() >= CHAR_LIMIT:
 			chunks.append(i)
 		else:
-			chunks[-1] += i	
+			chunks[-1] += i
 	popup_label.text = ""
 
 func _input(event: InputEvent) -> void:
 	if interactable and event.is_action_pressed("interact"):
 		popup_panel.show()
 		speech()
-
-func _hide_popup() -> void:
-	popup_panel.hide()
-
 
 func _on_interactable_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group(GameManager.PLAYER_GROUP)  and body.collision_layer == 1:
@@ -61,15 +54,14 @@ func _on_interactable_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group(GameManager.PLAYER_GROUP) and body.collision_layer == 1:
 		char_timer.stop()
 		interactable = false
-		_hide_popup()
+		popup_panel.hide()
 		GameManager.vision_bool = true
 		char_ind = 0
 		chunk_ind = 0
 		talking = false
 		#print("Player left interactable area")
 
-
-func _on_timer_timeout() -> void:
+func _on_char_timer_timeout() -> void:
 	if char_ind >= chunks[chunk_ind].length():
 		char_timer.stop()
 		chunk_ind += 1
@@ -97,6 +89,3 @@ func speech():
 		else:
 			talking = true
 			char_timer.start()
-			
-	
-	

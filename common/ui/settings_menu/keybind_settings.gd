@@ -21,13 +21,12 @@ var last_created_btn: Button = null
 
 
 func _ready() -> void:
-	#_load_keybinds_from_settings()
 	_create_action_list()
 	
 	if %ActionList.get_child_count() > 0:
 		var first_btn: Button = %ActionList.get_child(0)
 		if first_btn:
-			first_btn.grab_focus()
+			first_btn.call_deferred("grab_focus")
 
 # Create default list of actions
 func _create_action_list() -> void:
@@ -78,7 +77,7 @@ func _on_input_button_pressed(btn: Button, actn: String) -> void:
 func _input(event: InputEvent) -> void:
 	if not is_remapping:
 		if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
-			_on_back_button_pressed()
+			GameManager.load_start_from(self)
 		return
 	
 	# Allow rebinding to only keypresses and mouse clicks
@@ -120,14 +119,4 @@ func _on_reset_button_pressed() -> void:
 	if %ActionList.get_child_count() > 0:
 		var first_btn: Button = %ActionList.get_child(0)
 		if first_btn:
-			first_btn.grab_focus()
-
-func _on_back_button_pressed() -> void:
-	#set_process_input(false)
-	#
-	#var tween = create_tween()
-	#tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	#await tween.finished
-	#
-	#get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
-	GameManager.load_start(self)
+			first_btn.call_deferred("grab_focus")

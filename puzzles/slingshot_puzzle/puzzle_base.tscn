@@ -477,7 +477,7 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_oi70x")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6t75"]
-bg_color = Color(0.352941, 0.45098, 0.360784, 1)
+bg_color = Color(0.109804, 0.439216, 0.345098, 1)
 
 [node name="PuzzleBase" type="CanvasLayer"]
 layer = 2

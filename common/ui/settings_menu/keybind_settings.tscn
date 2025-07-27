@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://duh04ysxtik4"]
+[gd_scene load_steps=7 format=3 uid="uid://duh04ysxtik4"]
 
-[ext_resource type="Script" uid="uid://byen7fyaw6is4" path="res://common/ui/settings_menu/input_settings.gd" id="1_dfg1g"]
-[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_tun2b"]
+[ext_resource type="Script" uid="uid://byen7fyaw6is4" path="res://common/ui/settings_menu/keybind_settings.gd" id="1_its60"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="2_51mnx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xn3ta"]
 bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
@@ -11,14 +11,17 @@ bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5dqa"]
 
-[node name="InputSettings" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_its60"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="KeybindSettings" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dfg1g")
+script = ExtResource("1_its60")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -50,6 +53,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+follow_focus = true
 
 [node name="ActionList" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
@@ -59,11 +63,35 @@ size_flags_horizontal = 3
 [node name="ResetButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tun2b")
+theme_override_fonts/font = ExtResource("2_51mnx")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxFlat_xn3ta")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mb4aw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o5dqa")
 text = "reset all to default"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_51mnx")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_its60")
+text = "Navigate using arrow keys / mouse. Select action with ‘Enter’ / mouse click. Press ‘Esc’ to return to main menu."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

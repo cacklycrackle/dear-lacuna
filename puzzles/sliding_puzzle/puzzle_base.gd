@@ -6,12 +6,12 @@ signal exited
 
 @onready var help_label = $HelpLabel
 
-const _descr = """[b][color=BLACK]Objective[/color][/b]: Transport the [i]principal ocular tile[/i] 
-unto the designated square upon the rightward side
-[ul] Employ thy [color=#065084]movement keys[/color] ([i]default[/i]: arrow keys) to[/ul]
-[indent]   guide the hand cursor o'er tile to shift henceforth[/indent]
-[ul] With thy cursor in position, hold the [color=#065084]interact key[/color] ([i]default[/i]: Z)[/ul]
-[indent]   and [color=#065084]movement keys[/color] in unison to nudge a tile most moveable[/indent]
+const _descr = """[b][color=BLACK]Objective[/color][/b]: Transport the [i]principal ocular tile[/i] unto the designated square 
+upon the rightward side
+[ul] Employ thy [color=#065084]movement keys[/color] ([i]default[/i]: arrow keys) to guide the hand[/ul]
+[indent]   cursor o'er tile to shift henceforth[/indent]
+[ul] With thy cursor in position, hold the [color=#065084]interact key[/color] ([i]default[/i]: Z) and[/ul]
+[indent]   [color=#065084]movement keys[/color] in unison to nudge a tile most moveable[/indent]
 """
 var _puzzle_board = preload("res://puzzles/sliding_puzzle/puzzle_board.tscn")
 var _tile_dict = {

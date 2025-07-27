@@ -159,7 +159,7 @@ theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
 text = "Load"
 
-[node name="MainMenu" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
+[node name="Start" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
@@ -189,7 +189,7 @@ theme_override_styles/pressed_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/pressed = ExtResource("3_8rwjq")
 theme_override_styles/normal_mirrored = ExtResource("3_8rwjq")
 theme_override_styles/normal = ExtResource("3_8rwjq")
-text = "Exit to main menu"
+text = "Exit to start menu"
 
 [node name="Exit" type="Button" parent="MenuBoxContainer/MenuButtonContainer"]
 layout_mode = 2
@@ -304,5 +304,5 @@ autoplay = "Default"
 
 [connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuBoxContainer/MenuButtonContainer/Exit" to="." method="_on_exit_pressed"]

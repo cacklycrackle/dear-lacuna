@@ -67,14 +67,9 @@ func _on_load_pressed() -> void:
 	self.get_parent().queue_free()
 	top_layer.add_child(load_menu_inst)
 
-func _on_main_menu_pressed() -> void:
-	set_process_input(false)
-	
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
+func _on_start_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+	GameManager.load_start_from(level)
 	self.get_parent().queue_free()
 
 func _on_exit_pressed() -> void:

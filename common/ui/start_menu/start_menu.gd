@@ -60,7 +60,7 @@ func press(index):
 	if not menu_buttons[index].disabled:
 		menu_buttons[index].pressed.emit()
 
-func _on_start_pressed() -> void:
+func _on_new_pressed() -> void:
 	GameManager.reset_levels()
 	GameManager.load_level()
 
@@ -68,11 +68,7 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_keybinds_pressed() -> void:
-	set_process_input(false)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
-	get_tree().change_scene_to_file("res://common/ui/settings_menu/input_settings.tscn")
+	GameManager.load_keybinds_from(self)
 
 func _on_load_pressed() -> void:
 	set_process_input(false)
