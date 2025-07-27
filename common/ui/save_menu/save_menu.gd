@@ -35,9 +35,9 @@ func _input(event):
 		_index = (_index + 1) % save_buttons.size()
 	elif event.is_action_pressed("left"):
 		_index = (_index - 1) % save_buttons.size()
-	elif event.is_action_pressed("ui_accept"): # Enter key
+	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("interact"): # Enter key
 		press()
-		GameManager.is_paused = false
+		
 	elif event.is_action_pressed("pause"):
 		var pause_menu_inst = pause_menu.instantiate()
 		get_tree().paused = true
@@ -61,6 +61,7 @@ func press():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_string(json)
 	file.close()
-	
+	await get_tree().create_timer(0).timeout
+	GameManager.is_paused = false 
 	get_tree().paused = false
 	self.get_parent().queue_free()

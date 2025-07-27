@@ -25,7 +25,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	
 func _input(event: InputEvent) -> void:
 	if interactable and event.is_action_pressed("interact"):
-		var tween = create_tween()
-		tween.tween_property(self, "modulate:a", 0.0, 0.5)
-		await tween.finished
+		#var tween = create_tween()
+		#tween.tween_property(self, "modulate:a", 0.0, 0.5)
+		#await tween.finished
 		GameManager.move_level(go_to_next_level)

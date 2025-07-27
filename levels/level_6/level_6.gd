@@ -39,15 +39,14 @@ func _on_puzzle_started(stand: int) -> void:
 
 func _on_puzzle_solved(stand: int) -> void:
 	if stands_solved[stand - 1]: return
-	if not stands_solved[stand - 1]:
-		if stand == 1:
-			$Group1/Platform1.global_position.y += 16 * 9
-			$Group1/Platform2.global_position.y += 16 * 7
-			$Group1/Chains.visible = true
-		elif stand == 2:
-			for node in get_tree().get_nodes_in_group("left_rising"):
-				node.global_position.y -= 16 * 14
-			#$Group2.global_position.y -= 16 * 14
-			#$Portals/Prev.global_position.y -= 16 * 14
-		stands_solved[stand - 1] = true
-		GameManager.save_data[save_name]["stand_%d" % stand] = true
+	if stand == 1:
+		$Group1/Platform1.global_position.y += 16 * 9
+		$Group1/Platform2.global_position.y += 16 * 7
+		$Group1/Chains.visible = true
+	elif stand == 2:
+		for node in get_tree().get_nodes_in_group("left_rising"):
+			node.global_position.y -= 16 * 14
+		#$Group2.global_position.y -= 16 * 14
+		#$Portals/Prev.global_position.y -= 16 * 14
+	stands_solved[stand - 1] = true
+	GameManager.save_data[save_name]["stand_%d" % stand] = true

@@ -2,7 +2,6 @@ extends Control
 
 
 @onready var input_button_scene = preload("res://common/ui/settings_menu/input_button.tscn")
-@onready var action_list = $VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList
 
 # Remapping vars
 var is_remapping = false
@@ -18,41 +17,55 @@ var input_actions: Dictionary[String, String] = {
 	"interact" : "interact",
 	"pause"    : "pause",
 }
+var last_created_btn: Button = null
 
 
 func _ready() -> void:
-	_load_keybinds_from_settings()
+	#_load_keybinds_from_settings()
 	_create_action_list()
-
-func _load_keybinds_from_settings() -> void:
-	var keybinds = ConfigFileHandler.load_keybinds()
 	
-	for action in keybinds:
-		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, keybinds[action])
+	if %ActionList.get_child_count() > 0:
+		var first_btn: Button = %ActionList.get_child(0)
+		if first_btn:
+			first_btn.grab_focus()
 
 # Create default list of actions
 func _create_action_list() -> void:
-	for item in action_list.get_children():
-		item.queue_free()
+	for item in %ActionList.get_children():
+		item.free()
+	last_created_btn = %ResetButton
 	
 	for action in input_actions:
 		var button: Button = input_button_scene.instantiate()
 		
 		# Set action label
 		var action_label: Label = button.find_child("LabelAction")
-		action_label.text = input_actions[action].to_upper()
+		if action_label:
+			action_label.text = input_actions[action].to_upper()
 		
 		# Set input label
 		var input_label: Label = button.find_child("LabelInput")
-		var events: Array[InputEvent] = InputMap.action_get_events(action)
-		if events.size() > 0:
-			input_label.text = events[0].as_text().trim_suffix(" (Physical)")
-		else:
-			input_label.text = ""
+		if input_label:
+			var events: Array[InputEvent] = InputMap.action_get_events(action)
+			if events.size() > 0:
+				input_label.text = events[0].as_text().trim_suffix(" (Physical)")
+			else:
+				input_label.text = ""
 		
-		action_list.add_child(button)
+		%ActionList.add_child(button)
 		button.pressed.connect(_on_input_button_pressed.bind(button, action))
+		
+		# Configure up and down focus for button
+		button.focus_mode = Control.FOCUS_ALL
+		if last_created_btn and is_instance_valid(last_created_btn):
+			button.focus_neighbor_top = last_created_btn.get_path()
+			last_created_btn.focus_neighbor_bottom = button.get_path()
+		last_created_btn = button
+	
+	# Link last action button to reset button
+	if last_created_btn and is_instance_valid(last_created_btn):
+		last_created_btn.focus_neighbor_bottom = %ResetButton.get_path()
+		%ResetButton.focus_neighbor_top = last_created_btn.get_path()
 
 # Toggle rebinding for pressed button
 func _on_input_button_pressed(btn: Button, actn: String) -> void:
@@ -63,7 +76,10 @@ func _on_input_button_pressed(btn: Button, actn: String) -> void:
 	btn.find_child("LabelInput").text = "Press key to bind ..."
 
 func _input(event: InputEvent) -> void:
-	if not is_remapping: return
+	if not is_remapping:
+		if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
+			_on_back_button_pressed()
+		return
 	
 	# Allow rebinding to only keypresses and mouse clicks
 	if event is InputEventKey or \
@@ -99,14 +115,19 @@ func _on_reset_button_pressed() -> void:
 		if events.size() > 0:
 			ConfigFileHandler.save_keybinds(action, events[0])
 	
-	# Refresh display to default keybinds
+	# Refresh display to default keybinds and reset focus
 	_create_action_list()
+	if %ActionList.get_child_count() > 0:
+		var first_btn: Button = %ActionList.get_child(0)
+		if first_btn:
+			first_btn.grab_focus()
 
 func _on_back_button_pressed() -> void:
-	set_process_input(false)
-	
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
-	
-	get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+	#set_process_input(false)
+	#
+	#var tween = create_tween()
+	#tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	#await tween.finished
+	#
+	#get_tree().change_scene_to_file("res://common/ui/start_menu/start_menu.tscn")
+	GameManager.load_start(self)

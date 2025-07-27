@@ -1,20 +1,24 @@
 extends Node
 
 
+signal config_prepared
+
 const _SETTINGS_FILE_PATH = "user://settings.cfg"
 var _config: ConfigFile = ConfigFile.new()
 
 
 func _ready() -> void:
+	var err: Error
 	if not FileAccess.file_exists(_SETTINGS_FILE_PATH):
 		_set_default_keybind_settings()
-		var err = _config.save(_SETTINGS_FILE_PATH)
+		err = _config.save(_SETTINGS_FILE_PATH)
 		if err != OK:
 			printerr(error_string(err))
 	else:
-		var err = _config.load(_SETTINGS_FILE_PATH)
+		err = _config.load(_SETTINGS_FILE_PATH)
 		if err != OK:
 			printerr(error_string(err))
+	config_prepared.emit()
 
 func _set_default_keybind_settings() -> void:
 	for action_name in InputMap.get_actions():
@@ -33,7 +37,7 @@ func save_keybinds(action: StringName, event: InputEvent) -> void:
 
 func load_keybinds() -> Dictionary[String, InputEvent]:
 	var keybinds: Dictionary[String, InputEvent] = {}
-	for key in  _config.get_section_keys("keybinds"):
+	for key in _config.get_section_keys("keybinds"):
 		var input_event = _config.get_value("keybinds", key)
 		if input_event is InputEvent:
 			keybinds[key] = input_event

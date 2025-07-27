@@ -26,9 +26,10 @@ func _on_puzzle_started(stand: int) -> void:
 		stand_node.puzzle.offset = stand_node.global_position
 
 func _on_puzzle_solved(stand: int) -> void:
-	if not stands_solved[stand - 1]:
-		var wall := get_node("Stand%d/LockedLayer" % stand)
-		wall.collision_enabled = false
-		wall.visible = false
-		stands_solved[stand - 1] = true
-		GameManager.save_data[save_name]["stand_%d" % stand] = true
+	if stands_solved[stand - 1]: return
+	
+	var wall = get_node("Stand%d/LockedLayer" % stand)
+	wall.collision_enabled = false
+	wall.visible = false
+	stands_solved[stand - 1] = true
+	GameManager.save_data[save_name]["stand_%d" % stand] = true

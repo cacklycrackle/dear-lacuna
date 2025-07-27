@@ -511,9 +511,7 @@ position = Vector2(33, 384)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
-"pending_changes": {
-"source": "res://common/assets/stand.aseprite"
-},
+"pending_changes": {},
 "slice_section": true
 }
 
@@ -526,9 +524,7 @@ position = Vector2(1103, 360)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
-"pending_changes": {
-"source": "res://common/assets/stand.aseprite"
-},
+"pending_changes": {},
 "slice_section": true
 }
 

@@ -1,8 +1,6 @@
 extends Sprite2D
 
 
-const BG_GROUP_NAME: String = "fade_on_vision"
-
 ## Dialogue for NPC to display
 @export_multiline var dialogue: String
 const CHAR_LIMIT = 100
@@ -47,18 +45,20 @@ func _hide_popup() -> void:
 
 
 func _on_interactable_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player"  and body.collision_layer == 1:
+	if body.is_in_group(GameManager.PLAYER_GROUP)  and body.collision_layer == 1:
 		GameManager.vision_bool = false
-		var bg_nodes = get_tree().get_nodes_in_group(BG_GROUP_NAME)
-		if bg_nodes:
-			var vision = bg_nodes[0].material
-			vision.set_shader_parameter("radius", 100)
-			vision.set_shader_parameter("player_pos", self.global_position)
+		var bg_nodes = get_tree().get_nodes_in_group(VisionManager.BG_GROUP_NAME)
+		for node in bg_nodes:
+			if node is CanvasItem:
+				var vision = node.material
+				if vision is ShaderMaterial:
+					if vision.get_shader_parameter("radius") < 100:
+						vision.set_shader_parameter("radius", 100)
+						vision.set_shader_parameter("player_pos", self.global_position)
 		interactable = true
-		#print("Player enter interactable area")
 
 func _on_interactable_area_body_exited(body: Node2D) -> void:
-	if body.name == "Player" and body.collision_layer == 1:
+	if body.is_in_group(GameManager.PLAYER_GROUP) and body.collision_layer == 1:
 		char_timer.stop()
 		interactable = false
 		_hide_popup()

@@ -1,7 +1,7 @@
 extends Node
 
 
-const PLAYER_GROUP = "main_player"
+const PLAYER_GROUP = "main_player_lacuna"
 const NO_OF_LEVELS = 7 # Change as needed
 
 var player = preload("res://entities/player/player.tscn")
@@ -14,6 +14,8 @@ var save_data # Note: standardise keys to snake_case
 var vision_bool = true
 
 func _ready() -> void:
+	await ConfigFileHandler.config_prepared
+	_load_keybinds_from_settings()
 	reset_levels()
 
 func reset_levels() -> void:
@@ -60,4 +62,25 @@ func load_level() -> void:
 		target_scene = "res://common/ui/start_menu/start_menu.tscn"
 	else:
 		target_scene = "res://levels/level_{0}/level_{0}.tscn".format([curr_level_no])
-	get_tree().change_scene_to_file(target_scene)
+	#get_tree().change_scene_to_file(target_scene)
+	var src = get_tree().current_scene
+	_change_scene_with_fade(target_scene, src)
+
+func load_start(curr: Node = null) -> void:
+	if curr:
+		_change_scene_with_fade("res://common/ui/start_menu/start_menu.tscn", curr)
+
+func _change_scene_with_fade(target_path: String, src: Node = null) -> void:
+	if src and is_instance_valid(src) and src is CanvasItem:
+		src.set_process_input(false)
+		var tween = src.create_tween()
+		tween.tween_property(src, "modulate:a", 0.0, 0.5)
+		await tween.finished
+	
+	get_tree().change_scene_to_file(target_path)
+
+func _load_keybinds_from_settings() -> void:
+	var keybinds = ConfigFileHandler.load_keybinds()
+	for action in keybinds:
+		InputMap.action_erase_events(action)
+		InputMap.action_add_event(action, keybinds[action])

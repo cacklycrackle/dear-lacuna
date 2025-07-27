@@ -29,7 +29,8 @@ func _on_puzzle_started(stand: int) -> void:
 
 func _on_puzzle_solved(stand: int) -> void:
 	if stands_solved[stand - 1]: return
-	var wall := get_node("Stand%d/LockedLayer" % stand)
+	
+	var wall = get_node("Stand%d/LockedLayer" % stand)
 	wall.collision_enabled = false
 	wall.visible = false
 	stands_solved[stand - 1] = true

@@ -61,11 +61,6 @@ func press(index):
 		menu_buttons[index].pressed.emit()
 
 func _on_start_pressed() -> void:
-	set_process_input(false)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	await tween.finished
-	#get_tree().change_scene_to_file("res://levels/level_1/level_1.tscn")
 	GameManager.reset_levels()
 	GameManager.load_level()
 

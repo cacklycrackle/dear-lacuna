@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd5m2x5jwjbk6"]
+[gd_scene load_steps=6 format=3 uid="uid://bd5m2x5jwjbk6"]
 
 [ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="1_tkbe4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fopxo"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fopxo"]
+bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik6a4"]
+bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pqhb"]
-bg_color = Color(0.529412, 0.807843, 0.980392, 0.392157)
+bg_color = Color(0.143024, 0.559952, 0.771638, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wot5c"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -15,9 +19,8 @@ custom_minimum_size = Vector2(0, 50)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fopxo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2pqhb")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fopxo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ik6a4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2pqhb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wot5c")
 
