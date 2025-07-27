@@ -11,6 +11,9 @@ var in_puzzle = false
 var load_from_save = false
 var is_paused = false
 # Note: standardise keys to snake_case
+
+var aboolean = true
+
 var save_data = {
 	"level": null,
 	"position": null,
