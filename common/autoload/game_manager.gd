@@ -11,7 +11,7 @@ var curr_level_no: int = 1
 var spawn_at_portal = "PortalPrev"
 var in_puzzle = false
 var save_data # Note: standardise keys to snake_case
-
+var vision_bool = true
 
 func _ready() -> void:
 	reset_levels()

@@ -48,7 +48,7 @@ func _hide_popup() -> void:
 
 func _on_interactable_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player"  and body.collision_layer == 1:
-		GameManager.aboolean = false
+		GameManager.vision_bool = false
 		var bg_nodes = get_tree().get_nodes_in_group(BG_GROUP_NAME)
 		if bg_nodes:
 			var vision = bg_nodes[0].material
@@ -62,11 +62,10 @@ func _on_interactable_area_body_exited(body: Node2D) -> void:
 		char_timer.stop()
 		interactable = false
 		_hide_popup()
-		GameManager.aboolean = true
+		GameManager.vision_bool = true
 		char_ind = 0
 		chunk_ind = 0
 		talking = false
-		print(chunk_ind, char_ind)
 		#print("Player left interactable area")
 
 

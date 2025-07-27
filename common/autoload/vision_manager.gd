@@ -20,7 +20,7 @@ func init_vision(level: BaseLevel) -> void:
 		set_process(false)
 
 func _process(_delta: float) -> void:
-	if GameManager.aboolean:
+	if GameManager.vision_bool:
 		if not player: return
 		if not is_instance_valid(player):
 			player = null
@@ -32,6 +32,6 @@ func _process(_delta: float) -> void:
 			if node is CanvasItem:
 				var material = node.material
 				if material is ShaderMaterial:
-					var radius = BASE_RADIUS + 8.5 * GameManager.curr_level
+					var radius = BASE_RADIUS + 8.5 * GameManager.curr_level_no
 					material.set_shader_parameter("radius", radius)
 					material.set_shader_parameter("player_pos", pos)

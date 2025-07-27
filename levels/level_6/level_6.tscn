@@ -503,7 +503,7 @@ go_to_next_level = true
 
 [node name="Duke" parent="." instance=ExtResource("4_jri26")]
 position = Vector2(160, 549)
-dialogue = "This day doth present a splendid occasion for double leaps 👀"
+dialogue = "This day doth present a splendid occasion for double leaps 👀."
 duration = 5.0
 
 [node name="Stand1" parent="." groups=["left_rising"] instance=ExtResource("2_lrxy4")]
