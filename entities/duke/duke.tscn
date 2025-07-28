@@ -100,8 +100,5 @@ libraries = {
 }
 autoplay = "Idle"
 
-[node name="Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
 [connection signal="body_exited" from="InteractableArea" to="." method="_on_interactable_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
