@@ -82,14 +82,14 @@ func _load_data(data: Dictionary) -> void:
 	GameManager.save_data["level"] = level
 	GameManager.curr_level_no = level
 	
-	#set_process_input(false)
-	#var tween = create_tween()
-	#tween.tween_property(self, "modulate:a", 0.0, 0.5)
-	#await tween.finished
+	set_process_input(false)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tween.finished
 	#print(self.get_parent())
 	if self.get_parent() is CanvasLayer:
 		self.get_parent().queue_free()
-	GameManager.load_level()
+	get_tree().change_scene_to_file("res://levels/level_{0}/level_{0}.tscn".format([level]))
 
 func _show_help() -> void:
 	%ErrorLabel.text = "Tried to load invalid save. Resave to load game."

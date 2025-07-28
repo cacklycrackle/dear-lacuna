@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cor22x52a3jas"]
+[gd_scene load_steps=10 format=4 uid="uid://cor22x52a3jas"]
 
 [ext_resource type="Script" uid="uid://cyxbwivokf3nu" path="res://levels/level_1/level_1.gd" id="1_vnunq"]
 [ext_resource type="Texture2D" uid="uid://dum3ktldxrmbe" path="res://common/assets/tilesets/kenney_1-bit-platformer_tilemap.png" id="2_5b03i"]
 [ext_resource type="PackedScene" uid="uid://cqeee1hty6sxe" path="res://entities/props/portal/portal.tscn" id="2_i63mn"]
 [ext_resource type="PackedScene" uid="uid://c3wl3p1a5c1tm" path="res://entities/duke/duke.tscn" id="5_5b03i"]
+[ext_resource type="FontFile" uid="uid://4jqjadkmkcyr" path="res://common/assets/fonts/yoster.ttf" id="5_e6u7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6u7d"]
 texture = ExtResource("2_5b03i")
@@ -424,6 +425,10 @@ texture = ExtResource("2_5b03i")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_e6u7d")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b03i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6u7d"]
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_vnunq")
 
@@ -442,3 +447,64 @@ go_to_next_level = true
 [node name="Duke" parent="." instance=ExtResource("5_5b03i")]
 position = Vector2(355, 482)
 dialogue = "Seek the portal that shall transport thee to the next realm. Employ the arrow signs to direct thy path. Pray, do employ double leaps if so required."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 19
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HelpLabel" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_e6u7d")
+theme_override_font_sizes/font_size = 18
+text = "Prance hither and yon by means of thy movement keys
+Ascend thyself with a double leap by striking thy up key twice
+Interact with characters and objects by striking thine interact key
+Reforge thy keybinds from the start menu"
+vertical_alignment = 1
+
+[node name="HelpGridContainer" type="GridContainer" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 5
+columns = 2
+
+[node name="ColumnLabel1" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HelpGridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e6u7d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_5b03i")
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColumnLabel2" type="Label" parent="CanvasLayer/Control/MarginContainer/VBoxContainer/HelpGridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_e6u7d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_e6u7d")
+text = "Key"
+horizontal_alignment = 1
+vertical_alignment = 1
