@@ -919,7 +919,6 @@ go_to_next_level = true
 [node name="Duke" parent="." instance=ExtResource("4_e2rvl")]
 position = Vector2(245, 440)
 dialogue = "Thou shalt verily encounter puzzling conundrums to unravel in thy quest henceforth . . ."
-duration = 5.0
 
 [node name="Stand1" parent="." instance=ExtResource("4_0c4fo")]
 position = Vector2(595, 128)

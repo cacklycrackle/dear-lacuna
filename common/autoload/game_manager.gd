@@ -60,7 +60,7 @@ func load_level() -> void:
 	var target_scene := ""
 	if curr_level_no <= 0 or curr_level_no > NO_OF_LEVELS:
 		reset_levels()
-		load_start_from(src)
+		load_outro_from(src)
 	else:
 		target_scene = "res://levels/level_{0}/level_{0}.tscn".format([curr_level_no])
 		_change_scene_with_fade(target_scene, src)
@@ -68,6 +68,10 @@ func load_level() -> void:
 func load_start_from(curr: Node = null) -> void:
 	if curr:
 		_change_scene_with_fade("res://common/ui/start_menu/start_menu.tscn", curr)
+
+func load_outro_from(curr: Node = null) -> void:
+	if curr:
+		_change_scene_with_fade("res://cutscenes/outro_scene.tscn", curr)
 
 func load_keybinds_from(curr: Node = null) -> void:
 	if curr:
