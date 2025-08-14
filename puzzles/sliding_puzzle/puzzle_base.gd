@@ -74,7 +74,6 @@ func _inst_tile(x, y, tile):
 		BaseTile.AxisType.Y2:
 			#child.global_position = _screen_center + Vector2(x * 60, -y * 60 + 30)
 			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 30 - 60 * (2 - y))
-	print(child)
 	add_child(child)
 
 func _input(event: InputEvent) -> void:

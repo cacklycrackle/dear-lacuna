@@ -17,6 +17,7 @@ func _ready() -> void:
 	await ConfigFileHandler.config_prepared
 	_load_keybinds_from_settings()
 	reset_levels()
+	curr_level_no = 7
 
 func reset_levels() -> void:
 	curr_level_no = 1
