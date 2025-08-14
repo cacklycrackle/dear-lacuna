@@ -920,7 +920,7 @@ go_to_next_level = true
 
 [node name="Duke" parent="." instance=ExtResource("4_bdopk")]
 position = Vector2(456, 384)
-dialogue = "A tranquil voyage hath thus far been traversed; yet foes are not hindered from emerging. To the arc of slings thou shalt venture forth to hone thy attacking . . ."
+dialogue = "A tranquil voyage hath thus far been traversed; yet foes are not hindered from emerging. To hone thy attacking, thou shalt venture forth . . . to the arc of slings, akin to that which one might hath accomplished in their former existence."
 
 [node name="Stand1" parent="." instance=ExtResource("4_cqh5r")]
 position = Vector2(379, 142)
