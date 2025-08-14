@@ -21,10 +21,13 @@ func _on_puzzle_started(stand: int) -> void:
 	if stand == 2:
 		var stand_node = get_node("Stand%d" % stand)
 		stand_node.puzzle.tile_location = {
-			"m" : [[0, 0]]
-		}
-		stand_node.puzzle.offset = stand_node.global_position
-
+			"m2" : [[1, 2]],
+			"b" : [[3, 0]],
+			"v2" : [[0, 0], [0, 2], [3, 1], [2, 3]],
+			"h2" : [[1, 0], [5, 1], [3, 3], [0, 4], [0, 5]],
+			"v3" : [[5, 3]],
+			"h3" : [[3, 5]]
+			}
 func _on_puzzle_solved(stand: int) -> void:
 	if stands_solved[stand - 1]: return
 	

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://p4m6buw16st5"
+path="res://.godot/imported/sliding_main_tile3.aseprite-1949b60df28458cb89235fe21296ed27.res"
+
+[deps]
+
+source_file="res://common/assets/sliding_main_tile3.aseprite"
+dest_files=["res://.godot/imported/sliding_main_tile3.aseprite-1949b60df28458cb89235fe21296ed27.res"]
+
+[params]
+

@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=4 uid="uid://dwnqeph4dr0v6"]
+
+[ext_resource type="Script" uid="uid://yvo2axmrttsf" path="res://puzzles/sliding_puzzle/main_tile_2.gd" id="1_us3km"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_xt2wx"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAEAAAAB+AgAAUklGRnYCAABXRUJQVlA4TGoCAAAvf8APAA9wjsNzHJ7jcP4DD7Tl/09cN+vZ5CisMCfKHTMU3dWrnAco97I7lsvMjO6D0GaYk8uy1QlfrVxaeayj74XWgTeI6D8Dt40UeeH4Bp6R3fewL9EMfwKYm9QcE075O1FeelPVw0EynjR5VAHx+7BOmsmjFh1QV6Yt9gn9aR1a5KW259w98aDPvJeMVgVQHswVHcGExXFK/n3aHqsSB7L/RvJBJz1zkGc2EVkF8hpmdsbW0IjZmcj2a6iyqJK8LPy048IenyZ18d1vTf3b/DI4tl/gtCZf79X6inCVwxe4qpEBtCOc5vDbOIX0rQ54ycGv8YPUjfRorHj4a+PfQ/0L+z0jFR/ebMLpur01V3V86O66mpunTZZlWbx6k9A9oHEvmPdhYXxBEpY8vtn4ylgQMVfxoQc2f62C5S94DaH9ww+Vn+fGchs+Q8RqQxGySjt1BlZ5GfJMh+WtANG0oizQ/Y8QvWpDNJ/nPcvZzp6XWuG8asU8dqScR656D/3/1Oaer9hWhCX03zPdS89146jDAR2WcPWmKbvdIt48naxP/esF3Uv9XK/Do61+jwfGv4f6/V4c9owHU1fqgg7C4d9LRgppdTCOcJp/LnNVI6P2VISrXD3NaU2O8oiydNy8iSwKi1pgRVn4RJWFFcvtZTk7ExMzO+P+EXcXhiqroG4gz/xEBz3MHLw3AplNgg7m9+MRBmMwxx+NOvC1nOYeRge6ZWjTRTcJ1pICIIRuudwHE6Hzz70abPIA6udx20/P20T8OafR3oRBIyIYW491VM7wUy09KNfMEaU17qea43CcZk5Gkd3vyAA=")
+size_override = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dev7c"]
+size = Vector2(60, 60)
+
+[node name="main_tile_2" type="Node2D"]
+z_index = 1
+script = ExtResource("1_us3km")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_xt2wx")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/sliding_main_tile2.aseprite",
+"source_uid": 615176851568095120
+}
+metadata/_aseprite_wizard_source_file_hash_ = "264a553491e7f67e6c145909003175cd"
+
+[node name="MainArea" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+collision_layer = 20
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainArea"]
+z_index = -1
+scale = Vector2(2.5, 1)
+shape = SubResource("RectangleShape2D_dev7c")

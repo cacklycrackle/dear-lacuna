@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=4 uid="uid://o5cf10kwxp1"]
+
+[ext_resource type="Script" uid="uid://b6lfluldad1xd" path="res://puzzles/sliding_puzzle/block.gd" id="1_dnca7"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_ihu0m"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACOAQAAUklGRoYBAABXRUJQVlA4THkBAAAvP8APAB9AEECa46gHmGSCANIcRz3AJBMEkOY46gEmef6j7f8A20COa+2N3fwTlNgob2IqqR+AD1KXbBbD/SjW2gLlbK5iBOe8lf+ZLYGv4P/TcQER/Z8A+vOTL2+jOBC5hmpaWjRsyfnLGFu6MKF1KwA6uo/E2LyIxr0DAEuUAYRiM0O/Lh4Ta3fFZu5yYVn6kcHCG+lNhqwwK53wwG+UXWGZNpXjvBmN42SVx2xfGZdZs0sE48YMjfHUuBGVQhZ+FOlPvCne1KQCuDaO6+6MWwJgJEvKA4AZyUJZAbCZa/YBgNNmRQbwJs3CtXG+2KQsPFXwBgo5LpJ20daFNsSfVUS/4lYUFuykydYX6b/T/dKuZsdfOigOem3zsBj7rDwuhnFmZXE4rYTBIkndtJxWgqlwvvis2UnahNiRl6D4X7ELv89V2CSyfiUYDUAxZHREucLM1nlPwqZfCScr5L1vZhBx51Yujnx5b+hVbMNRQ06KoiGa6gb68wA=")
+size_override = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnca7"]
+
+[node name="Block" type="Node2D"]
+script = ExtResource("1_dnca7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_ihu0m")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/block.aseprite",
+"source_uid": 2485737748029570619
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d25e502f0af1056e45bb538625d7738b"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.6, 2.6)
+shape = SubResource("RectangleShape2D_dnca7")

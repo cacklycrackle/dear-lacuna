@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=4 uid="uid://d2tpp4fmr4kbo"]
+
+[ext_resource type="Script" uid="uid://c5da0rbregpr2" path="res://puzzles/sliding_puzzle/tiles/vertical_tile/vertical_3.gd" id="1_6w081"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_hak4s"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAMAAAABUAQAAUklGRkwBAABXRUJQVlA4TEABAAAvP8AvAA9wjsNzHJ7jcP4DD3Bba2/dZL+SI3ARA/8IXsgAJcdSI2gR51hqhSfElu5o4Ae/gt8HxQEi+j8BR2v3oF1mobDozHbij6U3hlMRBsxEa15EFjPxKKIwgcMw2dineGcps9PCjiv7A/sX2MpMvItbEQqLPbM3hpmge/Mqoghi1LyKCAzFQLyJ0gQkcovk5khvzHpYEwusNtiVIEZrPYo3IMI89cArzJEBNPQwRREy63p2NWDoKguZ2RvDcWWdm0cA0c1DBVDNO7Tmn2IlcEBmogfG5ogZCOY4dWBkjiGAiXnKLBTWVYZWjdYai7iWrRXNEZQD4yZPCY56dlpYu0uxslMxALku7NJFFWBPwjfkoogspmImfteabAyHYLbWo+iENStzqyw1U/NUGJp/c7SqsFSsNOYxkxp6gu5obQ==")
+size_override = Vector2(64, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at3ki"]
+size = Vector2(64, 128)
+
+[node name="Vertical_3" type="Node2D"]
+z_index = 1
+script = ExtResource("1_6w081")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_hak4s")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://common/assets/sliding_main_tile3.aseprite",
+"source_uid": 1113483657417471044
+}
+metadata/_aseprite_wizard_source_file_hash_ = "3a8951d21d14ff7a5c91ef37c6d273f1"
+
+[node name="VerticalArea" type="Area2D" parent="."]
+scale = Vector2(0.75, 1.4)
+collision_layer = 4
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalArea"]
+z_index = -1
+shape = SubResource("RectangleShape2D_at3ki")

@@ -15,9 +15,14 @@ upon the rightward side
 """
 var _puzzle_board = preload("res://puzzles/sliding_puzzle/puzzle_board.tscn")
 var _tile_dict = {
+	
 	"v2": preload("res://puzzles/sliding_puzzle/tiles/vertical_tile/vertical_tile.tscn"),
 	"h2": preload("res://puzzles/sliding_puzzle/tiles/horizontal_tile/horizontal_tile.tscn"),
 	"m": preload("res://puzzles/sliding_puzzle/tiles/main_tile/main_tile.tscn"),
+	"b": preload("res://puzzles/sliding_puzzle/block.tscn"),
+	"m2": preload("res://puzzles/sliding_puzzle/main_tile_2.tscn"),
+	"v3": preload("res://puzzles/sliding_puzzle/tiles/vertical_tile/vertical_3.tscn"),
+	"h3": preload("res://puzzles/sliding_puzzle/tiles/horizontal_tile/horizontal_3.tscn")
 }
 var _cursor_scene = preload("res://entities/props/hand_cursor/hand_cursor.tscn")
 
@@ -40,7 +45,7 @@ func _ready() -> void:
 	_inst_all_tiles()
 
 func _on_puzzle_end_entered(area: Area2D):
-	if area.get_parent() is MainTile:
+	if area.get_parent() is MainTile or area.get_parent() is main_tile_2:
 		solved.emit()
 
 func _inst_at_middle(scene):
@@ -59,11 +64,17 @@ func _inst_tile(x, y, tile):
 		BaseTile.AxisType.X:
 			#child.global_position = _screen_center + Vector2(x * 60 - 30, -y * 60)
 			child.global_position = _screen_center + Vector2(60 * (x - 2), 30 - 60 * (3 - y))
+		BaseTile.AxisType.X2:
+			child.global_position = _screen_center + Vector2(30 + 60 * (x - 2), 30 - 60 * (3 - y))
 		BaseTile.AxisType.Y:
 			#child.global_position = _screen_center + Vector2(x * 60, -y * 60 + 30)
 			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 60 - 60 * (3 - y))
 		BaseTile.AxisType.M:
 			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 30 - 60 * (3 - y))
+		BaseTile.AxisType.Y2:
+			#child.global_position = _screen_center + Vector2(x * 60, -y * 60 + 30)
+			child.global_position = _screen_center + Vector2(60 * (x - 2) - 30, 30 - 60 * (2 - y))
+	print(child)
 	add_child(child)
 
 func _input(event: InputEvent) -> void:
